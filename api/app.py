@@ -1,10 +1,29 @@
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+from werkzeug.utils import secure_filename
+from authlib.integrations.flask_client import OAuth
+
+
 
 app = Flask(__name__)
+app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
+oauth = OAuth(app)
+
+oauth.register(
+    name='google',
+    client_id='352148568912-aqc8n7jb36af5ca1m0pi77p9f1vdca21.apps.googleusercontent.com',
+    client_secret='3ylG_r5BdCaiZHmBiuz0wSbD',
+    access_token_url='https://accounts.google.com/o/oauth2/token',
+    access_token_params=None,
+    authorize_url='https://accounts.google.com/o/oauth2/auth',
+    authorize_params=None,
+    api_base_url='https://www.googleapis.com/oauth2/v1/',
+    client_kwargs={'scope': 'openid profile email'}
+
+)
 
 products = db.Table('products',
                     db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')),
@@ -22,8 +41,11 @@ class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_name = db.Column(db.String(20))
     product_description = db.Column(db.String(45))
-    product_image = db.Column(db.String(100))
+    product_long_description = db.Column(db.String(45))
+    image_connection = db.relationship('Img', backref='order_image', lazy=True)
+    product_price = db.Column(db.Integer)
     order_connections = db.relationship('Order', secondary=products, backref='product_order', lazy=True)
+
 
 
 class Order(db.Model):
@@ -33,32 +55,72 @@ class Order(db.Model):
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
 
-
+class Img(db.Model):
+    img_id = db.Column(db.Integer, primary_key=True)
+    img = db.Column(db.Text, unique=True, nullable=False)
+    main_image = db.Column(db.Boolean, unique=False, default=True)
+    product_connection = db.Column(db.Integer, db.ForeignKey('product.product_id'))
 
 @app.route('/')
 def home_page():
 
-    return render_template("index.html")
+    email = dict(session).get('email', None)
+    return render_template('index.html', content=email)
 
+#Google oAuth2 login
+@app.route('/login')
+def login():
+    google = oauth.create_client('google')
+    redirect_uri = url_for('authorize', _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+@app.route('/authorize')
+def authorize():
+    google = oauth.create_client('google')
+    token = google.authorize_access_token()
+    resp = google.get('userinfo')
+    user_info = resp.json()
+    # do something with the token and profile
+    session['email'] = user_info['email']
+    return redirect('/')
+
+@app.route('/logout')
+def logout():
+    for key in list(session.keys()):
+        session.pop(key)
+    return redirect('/')
 @app.route('/products')
 def products_page():
-    print("yes")
     return render_template("products.html")
 
+@app.route('/img')
+def img_page():
+    img = Img.query.first()
+    route = f"/static/{img.img}"
+    return render_template("index.html", content=route)
 
-@app.route('/login')
-def login_page():
-    print("yes")
-    return render_template("login.html")
+db.create_all()
+user = User(first_name='Adrian', last_name='Nilsen', user_type=True)
+user2 = User(first_name='Andre', last_name='Knutsen', user_type=True)
+db.session.add(user)
+db.session.add(user2)
+product = Product(product_name='Ball', product_description='Bra ball', product_long_description='Denne ballen er sykt bra', product_price=100)
+product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
+db.session.add(product)
+db.session.add(product2)
+order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
+db.session.add(order)
+db.session.commit()
 
-if __name__ == "__main__":
-    db.create_all()
-    user = User(first_name='Adrian', last_name='Nilsen', user_type=True)
-    user2 = User(first_name='Andre', last_name='Knutsen', user_type=True)
-    db.session.add(user)
-    db.session.add(user2)
-    order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
-    db.session.add(order)
-    user.order_connection.append(order)
-    db.session.commit()
-    app.run(debug=True, host='0.0.0.0')
+filename = secure_filename("ball1.png")
+img = Img(img=filename, main_image=True)
+db.session.add(img)
+db.session.commit()
+product.image_connection.append(img)
+product.order_connections.append(order)
+product2.order_connections.append(order)
+user.order_connection.append(order)
+db.session.commit()
+print("ja")
+
+app.run(host='0.0.0.0')
