@@ -22,9 +22,9 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E3F2FD ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #E3F2FD ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="http://127.0.0.1:5000/">Navbar</a>
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">ShopMe</a>
         <div class="d-flex">
             <div style="padding-top: 8px">
                 <button
@@ -39,11 +39,6 @@
                   <i class="fas fa-bars"></i>
                 </button>
             </div>
-            <div class="">
-                <a class="navbar-brand text-primary" href="http://127.0.0.1:5000/login">Log In</a>
-            </div>
-
-
         </div>
 
         <div class="collapse navbar-collapse" id="navbarToggler">
@@ -51,17 +46,20 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/products">Products</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:5000/user">User</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                >Disabled</a
-              >
-            </li>
           </ul>
           <form class="d-flex input-group w-auto">
-            <a class="navbar-brand text-primary" href="#" aria-expanded="false">Log In</a>
+              {% if session['logged_in'] == True %}
+              <div class="navbar-nav me-auto">
+
+                  <a class="nav-link" href="/profile">
+                      <img src={{session['picture']}} height="22">
+                      {{session['first_name']}}
+                  </a>
+              </div>
+              <a class="nav-link" href="http://127.0.0.1:5000/logout" aria-expanded="false">Log Out</a>
+              {% else %}
+                    <a class="nav-link" href="http://127.0.0.1:5000/login" aria-expanded="false">Log In</a>
+              {% endif %}
           </form>
         </div>
       </div>

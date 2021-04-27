@@ -3,8 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
-
-
+import os
 
 app = Flask(__name__)
 app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
@@ -51,7 +50,7 @@ class Product(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    user_connection = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
     order_price = db.Column(db.Integer)
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
@@ -82,14 +81,27 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get('userinfo')
     user_info = resp.json()
-    print(user_info)
+
+    #Control that the user is not already registered!
+    registered = False
+    for user in User.query.all():
+        if user.user_email == user_info['email']:
+            registered = True
+            break
+    if not registered:
+        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'])
+        db.session.add(user_input)
+        db.session.commit()
     # do something with the token and profile
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
-    user_input = User(first_name=session.get('first_name'), last_name=session.get('last_name'), user_type=False, user_email=session.get('email'))
-    db.session.add(user_input)
-    db.session.commit()
+    session['picture'] = user_info['picture']
+    session['logged_in'] = True
+
+    user_email = user_info['email']
+    get_user = User.query.filter_by(user_email=user_email).first()
+    session['user_id'] = get_user.user_id
     return redirect('/')
 
 @app.route('/logout')
@@ -115,20 +127,56 @@ def products_page():
     route = f"/static/{img.img}"
     return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
+@app.route('/profile')
+def myprofile():
+    if 'email' in session:
+        email = session['email']
+        orders = Order.query.filter_by(user_connection=email).all()
+        return render_template("myprofile.html", orders=orders)
+    else:
+        return redirect('/login')
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_product():
+    if request.method == "POST":
+        name = request.form["product_name"]
+        short = request.form["short_description"]
+        long = request.form["long_description"]
+        price = request.form["price"]
+        new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+        db.session.add(new_product)
+        db.session.commit()
+        if request.files:
+            image = request.files["image"]
+            image_name = image.filename
+            image.save(os.path.join('static', 'images', image_name))
+            new_image = Img(img=image_name, main_image=True)
+            db.session.add(new_image)
+            db.session.commit()
+            new_product.image_connection.append(new_image)
+            db.session.commit()
+        return redirect(request.url)
+    else:
+        return render_template("newproduct.html")
+
 
 #Create db with content
 db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
 db.session.add(user)
 db.session.add(user2)
+db.session.add(user3)
 product = Product(product_name='Ball', product_description='Bra ball', product_long_description='Denne ballen er sykt bra', product_price=100)
 product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
 db.session.add(product)
 db.session.add(product2)
 order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
+order2 = Order(order_price=300, order_status=True, order_date=datetime.datetime.now().date(), user_connection="martin_kvam@hotmail.com")
 db.session.add(order)
+db.session.add(order2)
 db.session.commit()
 
 filename = secure_filename("ball1.png")
@@ -140,6 +188,5 @@ product.order_connections.append(order)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
-print("ja")
 
 app.run(host='0.0.0.0', debug=True)

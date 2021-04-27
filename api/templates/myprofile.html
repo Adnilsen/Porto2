@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}My profile{% endblock %}
+{% block content %}
+    <h1>My profile</h1>
+    <p>First name: {{first}}</p>
+    <p>Last name: {{last}}</p>
+    <p>Email: {{email}}</p>
+    <h2>Previous orders</h2>
+    <table style="width:80%">
+        <tr>
+            <th>Date: </th>
+            <th>Order ID: </th>
+            <th>Status: </th>
+            <th>Sum: </th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{order.order_date}}</td>
+            <td>{{order.order_id}}</td>
+            <td>{{order.order_status}}</td>
+            <td>{{order.order_price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
