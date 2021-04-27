@@ -4,8 +4,6 @@ import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
 
-
-
 app = Flask(__name__)
 app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -90,6 +88,8 @@ def authorize():
     user_input = User(first_name=session.get('first_name'), last_name=session.get('last_name'), user_type=False, user_email=session.get('email'))
     db.session.add(user_input)
     db.session.commit()
+    # Get user id print(str(user_input.user_id) + "jada")
+    session['user_id'] = user_input.user_id
     return redirect('/')
 
 @app.route('/logout')
@@ -139,6 +139,5 @@ product.order_connections.append(order)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
-print("ja")
 
-app.run(host='0.0.0.0')
+app.run(host='0.0.0.0', debug=True)
