@@ -115,7 +115,7 @@ def products_page():
     return render_template("products.html", content=route)
 
 
-
+#Create db with content
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
