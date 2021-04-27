@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<h2>Registered users</h2>
+    <table style="width:80%">
+        <tr>
+            <th>First name: </th>
+            <th>Last name: </th>
+            <th>Email:  </th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.user_email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+<form action="/upload">
+    <input type="submit" value="Add new product">
+</form>
+
+{% endblock %}

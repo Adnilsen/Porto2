@@ -102,6 +102,7 @@ def authorize():
     user_email = user_info['email']
     get_user = User.query.filter_by(user_email=user_email).first()
     session['user_id'] = get_user.user_id
+    session['user_type'] = get_user.user_type
     return redirect('/')
 
 @app.route('/logout')
@@ -130,19 +131,29 @@ def products_page():
 @app.route('/profile')
 def myprofile():
     if 'email' in session:
-        email = session['email']
-        orders = Order.query.filter_by(user_connection=email).all()
-        return render_template("myprofile.html", orders=orders)
+        if 'user_type' in session and session['user_type'] is True:
+            return redirect(url_for('admin'))
+        else:
+            email = session['email']
+            orders = Order.query.filter_by(user_connection=email).all()
+            return render_template("myprofile.html", orders=orders)
     else:
         return redirect('/login')
+
 
 @app.route('/shoppingcart')
 def shoppingcart():
 
     return render_template('shoppingcart.html')
 
+
+@app.route('/admin')
+def admin():
+    users = User.query.all()
+    return render_template('admin.html', users=users)
+
 @app.route('/upload', methods=['GET', 'POST'])
-def upload_product():
+def upload():
     if request.method == "POST":
         name = request.form["product_name"]
         short = request.form["short_description"]
