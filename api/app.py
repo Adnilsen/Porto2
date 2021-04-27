@@ -121,6 +121,7 @@ def myprofile():
 
 
 #Create db with content
+db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
