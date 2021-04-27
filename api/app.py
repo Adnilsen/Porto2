@@ -36,6 +36,7 @@ class User(db.Model):
     last_name = db.Column(db.String(20))
     order_connection = db.relationship('Order', backref='user_order', lazy=True)
     user_type = db.Column(db.Boolean, unique=False, default=True)
+    user_email = db.Column(db.String(100))
 
 class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
@@ -50,7 +51,7 @@ class Product(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    user_connection = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
     order_price = db.Column(db.Integer)
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
@@ -65,6 +66,7 @@ class Img(db.Model):
 def home_page():
 
     email = dict(session).get('email', None)
+    print(email)
     return render_template('index.html', content=email)
 
 #Google oAuth2 login
@@ -80,8 +82,14 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get('userinfo')
     user_info = resp.json()
+    print(user_info)
     # do something with the token and profile
     session['email'] = user_info['email']
+    session['first_name'] = user_info['given_name']
+    session['last_name'] = user_info['family_name']
+    user_input = User(first_name=session.get('first_name'), last_name=session.get('last_name'), user_type=False, user_email=session.get('email'))
+    db.session.add(user_input)
+    db.session.commit()
     return redirect('/')
 
 @app.route('/logout')
@@ -89,19 +97,29 @@ def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
+
+
+@app.route('/user')
+def user_page():
+    user1 = session.get('first_name')
+    print(user1)
+    return render_template("index.html", content=user1)
+
+
 @app.route('/products')
 def products_page():
-    return render_template("products.html")
+    user = session.get('user')
 
-@app.route('/img')
-def img_page():
     img = Img.query.first()
     route = f"/static/{img.img}"
-    return render_template("index.html", content=route)
+    return render_template("products.html", content=route)
 
+
+#Create db with content
+db.drop_all()
 db.create_all()
-user = User(first_name='Adrian', last_name='Nilsen', user_type=True)
-user2 = User(first_name='Andre', last_name='Knutsen', user_type=True)
+user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
+user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 db.session.add(user)
 db.session.add(user2)
 product = Product(product_name='Ball', product_description='Bra ball', product_long_description='Denne ballen er sykt bra', product_price=100)
