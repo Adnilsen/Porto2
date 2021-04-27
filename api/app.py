@@ -51,7 +51,7 @@ class Product(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    user_connection = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
     order_price = db.Column(db.Integer)
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
