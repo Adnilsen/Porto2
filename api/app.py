@@ -121,10 +121,11 @@ def user_page():
 @app.route('/products')
 def products_page():
     user = session.get('user')
-
     img = Img.query.first()
+    productlist = Product.query.all()
+    imagelist = Img.query.all()
     route = f"/static/{img.img}"
-    return render_template("products.html", content=route)
+    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 @app.route('/profile')
 def myprofile():
