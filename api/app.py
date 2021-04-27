@@ -51,7 +51,7 @@ class Product(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    user_connection = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
     order_price = db.Column(db.Integer)
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
@@ -116,6 +116,7 @@ def products_page():
 
 
 #Create db with content
+db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
