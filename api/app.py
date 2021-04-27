@@ -5,15 +5,11 @@ from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
 import os
 
-
-
 app = Flask(__name__)
 app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
-
-
 
 oauth.register(
     name='google',
@@ -85,14 +81,27 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get('userinfo')
     user_info = resp.json()
-    print(user_info)
+
+    #Control that the user is not already registered!
+    registered = False
+    for user in User.query.all():
+        if user.user_email == user_info['email']:
+            registered = True
+            break
+    if not registered:
+        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'])
+        db.session.add(user_input)
+        db.session.commit()
     # do something with the token and profile
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
-    user_input = User(first_name=session.get('first_name'), last_name=session.get('last_name'), user_type=False, user_email=session.get('email'))
-    db.session.add(user_input)
-    db.session.commit()
+    session['picture'] = user_info['picture']
+    session['logged_in'] = True
+
+    user_email = user_info['email']
+    get_user = User.query.filter_by(user_email=user_email).first()
+    session['user_id'] = get_user.user_id
     return redirect('/')
 
 @app.route('/logout')
@@ -178,7 +187,5 @@ product.order_connections.append(order)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
-print("ja")
-
 
 app.run(host='0.0.0.0', debug=True)
