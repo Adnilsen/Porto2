@@ -136,6 +136,11 @@ def myprofile():
     else:
         return redirect('/login')
 
+@app.route('/shoppingcart')
+def shoppingcart():
+
+    return render_template('shoppingcart.html')
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_product():
     if request.method == "POST":
