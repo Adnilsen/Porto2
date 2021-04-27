@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
+import os
 
 
 
@@ -11,6 +12,8 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
+
+
 
 oauth.register(
     name='google',
@@ -116,8 +119,35 @@ def products_page():
 
 @app.route('/profile')
 def myprofile():
-    orders = Order.query.all()
-    return render_template("myprofile.html", orders=orders)
+    if 'email' in session:
+        email = session['email']
+        orders = Order.query.filter_by(user_connection=email).all()
+        return render_template("myprofile.html", orders=orders)
+    else:
+        return redirect('/login')
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_product():
+    if request.method == "POST":
+        name = request.form["product_name"]
+        short = request.form["short_description"]
+        long = request.form["long_description"]
+        price = request.form["price"]
+        new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+        db.session.add(new_product)
+        db.session.commit()
+        if request.files:
+            image = request.files["image"]
+            image_name = image.filename
+            image.save(os.path.join('static', 'images', image_name))
+            new_image = Img(img=image_name, main_image=True)
+            db.session.add(new_image)
+            db.session.commit()
+            new_product.image_connection.append(new_image)
+            db.session.commit()
+        return redirect(request.url)
+    else:
+        return render_template("newproduct.html")
 
 
 #Create db with content
@@ -125,14 +155,18 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
 db.session.add(user)
 db.session.add(user2)
+db.session.add(user3)
 product = Product(product_name='Ball', product_description='Bra ball', product_long_description='Denne ballen er sykt bra', product_price=100)
 product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
 db.session.add(product)
 db.session.add(product2)
 order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
+order2 = Order(order_price=300, order_status=True, order_date=datetime.datetime.now().date(), user_connection="martin_kvam@hotmail.com")
 db.session.add(order)
+db.session.add(order2)
 db.session.commit()
 
 filename = secure_filename("ball1.png")
@@ -147,5 +181,4 @@ db.session.commit()
 print("ja")
 
 
-
-app.run(host='0.0.0.0')
+app.run(host='0.0.0.0', debug=True)

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}New product{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="upload">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="text" name="product_name" placeholder="Product name"/>
+            <input type="text" name="short_description" placeholder="Short description" />
+            <input type="text" name="long_description" placeholder="Long description" />
+            <input type="text" name="price" placeholder="Price" />
+            <label class="label" for="image" >Upload picture</label>
+            <input type="file" class="file_input" name="image" id="image"/>
+            <button type="submit" class="btn btn-primary">Upload product</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}
