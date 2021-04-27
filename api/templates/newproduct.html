@@ -2,7 +2,7 @@
 {% block title %}New product{% endblock %}
 {% block content %}
 
-<div class="upload_form">
+<div class="upload_form" style="width:50%; margin-left:25%; margin-top:30px">
     <form action="/upload" method="post" enctype="multipart/form-data">
       <!-- Name input -->
       <div class="form-outline mb-4">
@@ -28,9 +28,9 @@
         <label class="form-label" for="short">Price</label>
       </div>
 
-        <div class="choose_file">
-            <label class="file_label" for="image">Last opp bilde:</label>
-            <input type="file" class="file_input" name="image" id="image"/>
+        <div class="choose_file" style="margin-bottom:1.5em">
+            <label class="file_label" for="image">Upload picture(s):</label>
+            <input type="file" class="file_input" name="image" id="image" multiple/>
         </div>
 
       <!-- Submit button -->
