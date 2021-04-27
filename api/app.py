@@ -80,16 +80,27 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get('userinfo')
     user_info = resp.json()
-    print(user_info)
+
+    #Control that the user is not already registered!
+    registered = False
+    for user in User.query.all():
+        if user.user_email == user_info['email']:
+            registered = True
+            break
+    if not registered:
+        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'])
+        db.session.add(user_input)
+        db.session.commit()
     # do something with the token and profile
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
-    user_input = User(first_name=session.get('first_name'), last_name=session.get('last_name'), user_type=False, user_email=session.get('email'))
-    db.session.add(user_input)
-    db.session.commit()
-    # Get user id print(str(user_input.user_id) + "jada")
-    session['user_id'] = user_input.user_id
+    session['picture'] = user_info['picture']
+    session['logged_in'] = True
+
+    user_email = user_info['email']
+    get_user = User.query.filter_by(user_email=user_email).first()
+    session['user_id'] = get_user.user_id
     return redirect('/')
 
 @app.route('/logout')
