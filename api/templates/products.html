@@ -6,8 +6,10 @@
 {% if content %}
     {% for product in productlist%}
         <div class="product_container">
-            <h1>{{product.product_name}}</h1>
-            <p>Price: {{product.product_price}} kr,-</p>
+            <div class="product_header">
+                <p class="product_name">{{product.product_name}}</p>
+                <p class="product_price">Price: {{product.product_price}} kr,-</p>
+            </div>
             {% for image in imagelist%}
                 {% if image.product_connection == product.product_id %}
                     {% if image.main_image == True %}
