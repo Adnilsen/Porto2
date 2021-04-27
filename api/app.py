@@ -109,13 +109,15 @@ def user_page():
 @app.route('/products')
 def products_page():
     user = session.get('user')
-
     img = Img.query.first()
+    productlist = Product.query.all()
+    imagelist = Img.query.all()
     route = f"/static/{img.img}"
-    return render_template("products.html", content=route)
+    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 
 #Create db with content
+db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
@@ -140,4 +142,4 @@ user.order_connection.append(order)
 db.session.commit()
 print("ja")
 
-app.run(host='0.0.0.0')
+app.run(host='0.0.0.0', debug=True)

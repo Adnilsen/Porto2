@@ -2,7 +2,23 @@
 {% block title %}Product page{% endblock %}
 {% block content %}
 <h1>PRODUCTS</h1>
+<br><br>
 {% if content %}
-    <image src="{{ url_for('static', filename='images/ball1.png')}}"></image>
+    {% for product in productlist%}
+        <div width="30%" float="left">
+            <h1>{{product.product_name}}</h1>
+            <p>Price: {{product.product_price}} kr,-</p>
+            {% for image in imagelist%}
+                {% if image.product_connection == product.product_id %}
+                    {% if image.main_image == True %}
+                        <image src="{{ url_for('static', filename='images/')}}{{image.img}}" height="100px"></image>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <p>{{product.product_description}}</p>
+            <br><br>
+        </div>
+    {% endfor %}
+
 {% endif %}
 {% endblock %}-->
