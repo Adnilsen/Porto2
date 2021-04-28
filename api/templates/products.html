@@ -13,11 +13,15 @@
             {% for image in imagelist%}
                 {% if image.product_connection == product.product_id %}
                     {% if image.main_image == True %}
-                        <image src="{{ url_for('static', filename='images/')}}{{image.img}}" class="product_image"></image>
+                        <div class="product_image">
+                            <image src="{{ url_for('static', filename='images/')}}{{image.img}}"></image>
+                        </div>
                     {% endif %}
                 {% endif %}
             {% endfor %}
-            <p>{{product.product_description}}</p>
+            <div class="product_description">
+                <p>{{product.product_description}}</p>
+            </div>
             <br><br>
         </div>
     {% endfor %}
