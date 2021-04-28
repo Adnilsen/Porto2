@@ -102,6 +102,7 @@ def authorize():
     user_email = user_info['email']
     get_user = User.query.filter_by(user_email=user_email).first()
     session['user_id'] = get_user.user_id
+    session['user_type'] = get_user.user_type
     return redirect('/')
 
 @app.route('/logout')
@@ -130,11 +131,15 @@ def products_page():
 @app.route('/profile')
 def myprofile():
     if 'email' in session:
-        email = session['email']
-        orders = Order.query.filter_by(user_connection=email).all()
-        return render_template("myprofile.html", orders=orders)
+        if 'user_type' in session and session['user_type'] is True:
+            return redirect(url_for('admin'))
+        else:
+            email = session['email']
+            orders = Order.query.filter_by(user_connection=email).all()
+            return render_template("myprofile.html", orders=orders)
     else:
         return redirect('/login')
+
 
 @app.route('/shoppingcart')
 def shoppingcart():
@@ -148,29 +153,46 @@ def shoppingcart():
         print(f'{p.product_id}' + order1.user_connection)
     return render_template('shoppingcart.html')
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_product():
-    if request.method == "POST":
-        name = request.form["product_name"]
-        short = request.form["short_description"]
-        long = request.form["long_description"]
-        price = request.form["price"]
-        new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
-        db.session.add(new_product)
-        db.session.commit()
-        if request.files:
-            image = request.files["image"]
-            image_name = image.filename
-            image.save(os.path.join('static', 'images', image_name))
-            new_image = Img(img=image_name, main_image=True)
-            db.session.add(new_image)
-            db.session.commit()
-            new_product.image_connection.append(new_image)
-            db.session.commit()
-        return redirect(request.url)
-    else:
-        return render_template("newproduct.html")
 
+@app.route('/admin')
+def admin():
+    users = User.query.all()
+    return render_template('admin.html', users=users)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if session['user_type'] is True:
+        if request.method == "POST":
+            name = request.form["product_name"]
+            short = request.form["short_description"]
+            long = request.form["long_description"]
+            price = request.form["price"]
+            new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+            db.session.add(new_product)
+            db.session.commit()
+            if request.files: # If there is one or more images attached
+                images = request.files.getlist('image') # Gets the list of images
+                main_image = images[0] # The first image in the list is set as main image
+                main_image_name = secure_filename(main_image.filename)
+                main_image.save(os.path.join('static', 'images', main_image_name))
+                new_image = Img(img=main_image_name, main_image=True)
+                db.session.add(new_image)
+                db.session.commit()
+                new_product.image_connection.append(new_image)
+                db.session.commit()
+                for image in images[1:]: # All other images are added to the database, but not as main image
+                    image_name = secure_filename(image.filename)
+                    image.save(os.path.join('static', 'images', image_name))
+                    new_image = Img(img=image_name, main_image=False)
+                    db.session.add(new_image)
+                    db.session.commit()
+                    new_product.image_connection.append(new_image)
+                    db.session.commit()
+            return redirect(request.url)
+        else:
+            return render_template("newproduct.html")
+    else:
+        return redirect(url_for('home_page'))
 
 #Create db with content
 db.drop_all()

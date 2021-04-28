@@ -2,20 +2,41 @@
 {% block title %}New product{% endblock %}
 {% block content %}
 
-<div class="container">
-    <div class="upload">
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="text" name="product_name" placeholder="Product name"/>
-            <input type="text" name="short_description" placeholder="Short description" />
-            <input type="text" name="long_description" placeholder="Long description" />
-            <input type="text" name="price" placeholder="Price" />
-            <label class="label" for="image" >Upload picture</label>
-            <input type="file" class="file_input" name="image" id="image"/>
-            <button type="submit" class="btn btn-primary">Upload product</button>
-        </form>
-    </div>
-</div>
+<div class="upload_form" style="width:50%; margin-left:25%; margin-top:30px">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <!-- Name input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="productname" name="product_name" class="form-control" />
+        <label class="form-label" for="productname">Product name</label>
+      </div>
 
+      <!-- Short description-->
+      <div class="form-outline mb-4">
+        <input type="text" id="short" name="short_description" class="form-control" />
+        <label class="form-label" for="short">Short description</label>
+      </div>
+
+      <!-- Long description -->
+      <div class="form-outline mb-4">
+        <textarea class="form-control" id="long" name="long_description" rows="4"></textarea>
+        <label class="form-label" for="long">Long description</label>
+      </div>
+
+          <!-- Price -->
+      <div class="form-outline mb-4">
+        <input type="text" id="price" name="price" class="form-control" />
+        <label class="form-label" for="short">Price</label>
+      </div>
+
+        <div class="choose_file" style="margin-bottom:1.5em">
+            <label class="file_label" for="image">Upload picture(s):</label>
+            <input type="file" class="file_input" name="image" id="image" multiple/>
+        </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Add product</button>
+    </form>
+</div>
 
 
 {% endblock %}
