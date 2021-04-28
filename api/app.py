@@ -138,7 +138,14 @@ def myprofile():
 
 @app.route('/shoppingcart')
 def shoppingcart():
-
+    order1 = Order(order_price=500, order_status=False, order_date=datetime.datetime.now().date(), user_connection=session['email'])
+    db.session.add(order1)
+    db.session.commit()
+    product_ = Product.query.first()
+    product_.order_connections.append(order1)
+    db.session.commit()
+    for p in order1.product_order:
+        print(f'{p.product_id}' + order1.user_connection)
     return render_template('shoppingcart.html')
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -190,6 +197,7 @@ db.session.add(img)
 db.session.commit()
 product.image_connection.append(img)
 product.order_connections.append(order)
+product.order_connections.append(order2)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
