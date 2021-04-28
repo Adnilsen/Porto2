@@ -12,6 +12,7 @@
             </div>
             {% for image in imagelist%}
                 {% if image.product_connection == product.product_id %}
+
                     {% if image.main_image == True %}
                         <image src="{{ url_for('static', filename='images/')}}{{image.img}}" class="product_image"></image>
                     {% endif %}
