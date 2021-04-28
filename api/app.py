@@ -163,12 +163,12 @@ def upload():
             new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
             db.session.add(new_product)
             db.session.commit()
-            if request.files: # If there is one or more images attached
-                images = request.files.getlist('image') # Gets the list of images
-                main_image = images[0] # The first image in the list is set as main image
-                main_image_name = secure_filename(main_image.filename)
-                main_image.save(os.path.join('static', 'images', main_image_name))
-                new_image = Img(img=main_image_name, main_image=True)
+            images = request.files.getlist('image')
+            first = images[0]
+            if first.filename != '':  # If there is one or more images attached
+                main_image = secure_filename(first.filename)
+                first.save(os.path.join('static', 'images', main_image))
+                new_image = Img(img=main_image, main_image=True)
                 db.session.add(new_image)
                 db.session.commit()
                 new_product.image_connection.append(new_image)
