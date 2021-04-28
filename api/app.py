@@ -143,7 +143,14 @@ def myprofile():
 
 @app.route('/shoppingcart')
 def shoppingcart():
-
+    order1 = Order(order_price=500, order_status=False, order_date=datetime.datetime.now().date(), user_connection=session['email'])
+    db.session.add(order1)
+    db.session.commit()
+    product_ = Product.query.first()
+    product_.order_connections.append(order1)
+    db.session.commit()
+    for p in order1.product_order:
+        print(f'{p.product_id}' + order1.user_connection)
     return render_template('shoppingcart.html')
 
 
@@ -154,7 +161,7 @@ def admin():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if session['user_type'] is True:
+    if 'user_type' in session and session['user_type'] is True :
         if request.method == "POST":
             name = request.form["product_name"]
             short = request.form["short_description"]
@@ -193,9 +200,11 @@ db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)
+db.session.add(user4)
 product = Product(product_name='Ball', product_description='Bra ball', product_long_description='Denne ballen er sykt bra', product_price=100)
 product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
 db.session.add(product)
@@ -212,6 +221,7 @@ db.session.add(img)
 db.session.commit()
 product.image_connection.append(img)
 product.order_connections.append(order)
+product.order_connections.append(order2)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
