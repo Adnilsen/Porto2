@@ -1,0 +1,35 @@
+
+
+.product_container{
+    border: 3px outset black;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 25%;
+    float: left;
+}
+
+.product_header{
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px outset black;
+}
+
+.product_header p{
+    display: inline-block;
+}
+
+.product_name{
+    float: left;
+    font-weight: bold;
+}
+
+.product_price{
+    float: right;
+}
+
+.product_image{
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
