@@ -13,7 +13,7 @@
     />
     <!-- MDB -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
       rel="stylesheet"
     />
     <!-- Costum stylesheet -->
@@ -21,67 +21,78 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <!-- Navbar -->
-<!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="{{ url_for('static', filename='images/logo.png')}}" height="45" alt="mdb logo">
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <div class="d-flex nav-item">
+      <!-- Brand -->
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="/">
+        <img
+          src="{{ url_for('static', filename='images/logo.png')}}"
+          height="45"
+          alt=""
+          loading="lazy"
+          style="margin-top: 2px;"
+        />
+      </a>
+      <a class="nav-link" aria-current="page" href="/products">Products</a>
+    </div>
+    <!-- Left elements -->
+
+    <!-- Right elements -->
+      {% if session['logged_in'] == True %}
+    <ul class="navbar-nav flex-row">
+        <li class="nav-item dropdown me-3 me-lg-1">
+        <a
+          class="nav-link dropdown-toggle d-sm-flex align-items-sm-center"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="{{session['picture']}}"
+            class="rounded-circle"
+            height="22"
+            alt=""
+            loading="lazy"
+          />
+          <strong class="d-none d-sm-block ms-1">{{session['first_name']}}</strong>
         </a>
-        <div class="d-flex">
-            <div style="padding-top: 8px">
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#navbarToggler"
-                  aria-controls="navbarToggler"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li><a class="dropdown-item" href="/profile">My profile</a></li>
+          <li><a class="dropdown-item" href="/profile">Orders</a></li>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+      </li>
 
-        <div class="collapse navbar-collapse" id="navbarToggler">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/products">Products</a>
-            </li>
-          </ul>
-          <form class="d-flex input-group w-auto">
-              {% if session['logged_in'] == True %}
-
-              <div class="navbar-nav me-auto">
-
-                  <a class="nav-link" href="/profile">
-                      <img src={{session['picture']}} height="22">
-                      {{session['first_name']}}
-                  </a>
-                  <a href="/shoppingcart" class="nav-link">
-                       <i class="fas fa-shopping-cart fa-lg"></i>
-                       <span class="badge rounded-pill badge-notification bg-danger">2</span>
-                   </a>
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item pl-2 mb-2 mb-md-0">
-                          <a href="/logout" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Log out</a>
-                      </li>
-                  </ul>
-              </div>
-              {% else %}
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item pl-2 mb-2 mb-md-0">
-                          <a href="/login" type="button" class="btn btn-outline-primary btn-md btn-rounded btn-navbar waves-effect waves-light">Log in</a>
-                    </li>
-                </ul>
-              {% endif %}
-          </form>
-        </div>
-      </div>
-    </nav>
-
+      <li class="nav-item me-3 me-lg-1">
+        <a
+          class="nav-link"
+          href="/shoppingcart"
+        >
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">12</span>
+        </a>
+      </li>
+    </ul>
+      {% else %}
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item pl-2 mb-2 mb-md-0">
+              <a href="/login" type="button" class="btn btn-outline-primary btn-md btn-rounded btn-navbar waves-effect waves-light">Log in</a>
+        </li>
+      </ul>
+      {% endif %}
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->
 
 <!-- Navbar -->
     {% block content %}
@@ -90,8 +101,10 @@
 
 <script
   type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
-></script>
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+>
+</script>
+
 </body>
 </html>
 
