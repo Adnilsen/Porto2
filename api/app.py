@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for, render_template, session
+from flask import Flask, request, jsonify, redirect, url_for, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
@@ -10,6 +10,7 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
+
 
 oauth.register(
     name='google',
@@ -167,32 +168,56 @@ def upload():
             short = request.form["short_description"]
             long = request.form["long_description"]
             price = request.form["price"]
-            new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
-            db.session.add(new_product)
-            db.session.commit()
-            images = request.files.getlist('image')
-            first = images[0]
-            if first.filename != '':  # If there is one or more images attached
-                main_image = secure_filename(first.filename)
-                first.save(os.path.join('static', 'images', main_image))
-                new_image = Img(img=main_image, main_image=True)
-                db.session.add(new_image)
+            if name != '' and short != '' and long != '' and price != '':
+                new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+                db.session.add(new_product)
                 db.session.commit()
-                new_product.image_connection.append(new_image)
-                db.session.commit()
-                for image in images[1:]: # All other images are added to the database, but not as main image
-                    image_name = secure_filename(image.filename)
-                    image.save(os.path.join('static', 'images', image_name))
-                    new_image = Img(img=image_name, main_image=False)
-                    db.session.add(new_image)
-                    db.session.commit()
-                    new_product.image_connection.append(new_image)
-                    db.session.commit()
-            return redirect(request.url)
+                files = request.files.getlist('image')
+                images = []
+                for file in files:
+                    if filecheck(file.filename):
+                        images.append(file)
+                    else:
+                        flash("Accepted file types are: jpg, jpeg and png. One or more of your files were rejected")
+                if len(images) == 0:
+                    return render_template("newproduct.html")
+                first = images[0]
+                if first.filename != '':  # If there is one or more images attached
+                    if filecheck(first.filename):
+                        main_image = secure_filename(first.filename)
+                        first.save(os.path.join('static', 'images', main_image))
+                        new_image = Img(img=main_image, main_image=True)
+                        db.session.add(new_image)
+                        db.session.commit()
+                        new_product.image_connection.append(new_image)
+                        db.session.commit()
+                    for image in images[1:]: # All other images are added to the database, but not as main image
+                        if filecheck(image.filename):
+                            image_name = secure_filename(image.filename)
+                            image.save(os.path.join('static', 'images', image_name))
+                            new_image = Img(img=image_name, main_image=False)
+                            db.session.add(new_image)
+                            db.session.commit()
+                            new_product.image_connection.append(new_image)
+                            db.session.commit()
+                return redirect(request.url)
+            else:
+                flash("All fields must be filled")
+                return render_template("newproduct.html")
         else:
             return render_template("newproduct.html")
     else:
         return redirect(url_for('home_page'))
+
+
+def filecheck(file):
+    allowed_types = {'jpg', 'jpeg', 'png'}
+    type = file.split('.')[-1].lower()
+    if type in allowed_types:
+        return True
+    else:
+        return False
+
 
 #Create db with content
 db.drop_all()
@@ -222,6 +247,7 @@ db.session.commit()
 product.image_connection.append(img)
 product.order_connections.append(order)
 product.order_connections.append(order2)
+product2.image_connection.append(img)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
