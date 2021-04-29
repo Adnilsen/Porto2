@@ -24,6 +24,7 @@ oauth.register(
 
 )
 
+#Sqlalchemy database
 products = db.Table('products',
                     db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')),
                     db.Column('order_id', db.Integer, db.ForeignKey('order.order_id'))
@@ -60,11 +61,11 @@ class Img(db.Model):
     main_image = db.Column(db.Boolean, unique=False, default=True)
     product_connection = db.Column(db.Integer, db.ForeignKey('product.product_id'))
 
+#API
 @app.route('/')
 def home_page():
 
     email = dict(session).get('email', None)
-    print(email)
     return render_template('index.html', content=email)
 
 #Google oAuth2 login
@@ -111,11 +112,31 @@ def logout():
     return redirect('/')
 
 
-@app.route('/user')
+@app.route('/users')
 def user_page():
-    user1 = session.get('first_name')
-    print(user1)
-    return render_template("index.html", content=user1)
+    users = User.query.all()
+    output = []
+
+    for user in users:
+        user_data = {'user_id': user.user_id, 'first_name': user.first_name}
+        output.append(user_data)
+
+    return {"users": output}
+
+
+@app.route('/orders/<user_id>/pending')
+def get_orders(user_id):
+
+    orders = Order.query.filter_by(order_status=True).all()
+    output = []
+
+    for order in orders:
+        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
+                      'order_status':order.order_status, 'order_date':order.order_date}
+        output.append(order_data)
+
+    return {"orders": output}
+
 
 
 @app.route('/products')
