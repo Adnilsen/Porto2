@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}My profile{% endblock %}
 {% block content %}
+
     <h1>My profile</h1>
-    <p>First name: {{first}}</p>
-    <p>Last name: {{last}}</p>
-    <p>Email: {{email}}</p>
+    <p>First name: {{session['first_name']}}</p>
+    <p>Last name: {{session['last_name']}}</p>
+    <p>Email: {{session['email']}}</p>
     <h2>Previous orders</h2>
     <table style="width:80%">
         <tr>
