@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rhY3mVw3ywgDxlUe7AyazUNisX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Porto2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="" />
+      <created>1619429595016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619429595016</updated>
+      <workItem from="1619429606808" duration="697000" />
+      <workItem from="1619430567551" duration="4049000" />
+      <workItem from="1619507420187" duration="19253000" />
+      <workItem from="1619539975999" duration="2065000" />
+      <workItem from="1619700095551" duration="539000" />
+    </task>
+    <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
+      <created>1619516454753</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619516454753</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fikset filepath til stylesheet">
+      <created>1619518891083</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619518891083</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Styling av shop">
+      <created>1619523251379</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619523251379</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Lagt til nye bilder i databasen">
+      <created>1619525638017</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619525638017</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fikset styling og lagt til js fil">
+      <created>1619621289213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619621289214</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Lagt til flere bilder">
+      <created>1619621415590</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619621415590</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fikk problemer med å hente siste">
+      <created>1619700370430</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619700370430</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Lagt til display av produkter på produktside og css fil for styling" />
+    <MESSAGE value="fikset filepath til stylesheet" />
+    <MESSAGE value="Styling av shop" />
+    <MESSAGE value="Lagt til nye bilder i databasen" />
+    <MESSAGE value="Fikset styling og lagt til js fil" />
+    <MESSAGE value="Lagt til flere bilder" />
+    <MESSAGE value="Fikk problemer med å hente siste" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikk problemer med å hente siste" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1850" y="-158" key="CommitChangelistDialog2" timestamp="1619700369092">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700369092" />
+    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525637249" />
+    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518889262" />
+    <state x="1713" y="-67" key="FileChooserDialogImpl" timestamp="1619431196676">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431196676" />
+    <state width="1769" height="225" key="GridCell.Tab.0.bottom" timestamp="1619622339860">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state width="1769" height="225" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339860" />
+    <state width="1238" height="174" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
+    <state width="1880" height="225" key="GridCell.Tab.0.bottom/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812986" />
+    <state width="1880" height="421" key="GridCell.Tab.0.bottom/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220654" />
+    <state width="1769" height="225" key="GridCell.Tab.0.center" timestamp="1619622339854">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state width="1769" height="225" key="GridCell.Tab.0.center/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339854" />
+    <state width="1238" height="174" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1619465196715" />
+    <state width="1880" height="225" key="GridCell.Tab.0.center/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
+    <state width="1880" height="421" key="GridCell.Tab.0.center/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220650" />
+    <state width="1769" height="225" key="GridCell.Tab.0.left" timestamp="1619622339853">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state width="1769" height="225" key="GridCell.Tab.0.left/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339853" />
+    <state width="1238" height="174" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1619465196714" />
+    <state width="1880" height="225" key="GridCell.Tab.0.left/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812984" />
+    <state width="1880" height="421" key="GridCell.Tab.0.left/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220646" />
+    <state width="1769" height="225" key="GridCell.Tab.0.right" timestamp="1619622339856">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state width="1769" height="225" key="GridCell.Tab.0.right/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339856" />
+    <state width="1238" height="174" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
+    <state width="1880" height="225" key="GridCell.Tab.0.right/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
+    <state width="1880" height="421" key="GridCell.Tab.0.right/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220653" />
+    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog" timestamp="1619700390967">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700390967" />
+    <state x="351" y="99" key="MultipleFileMergeDialog/0.23.1280.707@0.23.1280.707" timestamp="1619465060955" />
+    <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524236466" />
+    <state x="2066" y="-43" key="RollbackChangesDialog" timestamp="1619700180683">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700180683" />
+    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524302298" />
+    <state x="1361" y="-149" key="SettingsEditor" timestamp="1619524103973">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431572082" />
+    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431368557" />
+    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524103973" />
+    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2" timestamp="1619700411306">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700411306" />
+    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525641045" />
+    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518894563" />
+    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619700374595">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700374595" />
+    <state x="423" y="300" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.707@0.23.1280.707" timestamp="1619465018070" />
+    <state x="1915" y="157" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.709/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619509231154" />
+    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524279306" />
+    <state x="1915" y="129" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619507532154" />
+    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog" timestamp="1619621244580">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619621244580" />
+    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1619621464460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+  </component>
+</project>
