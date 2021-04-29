@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="" />
+    <list default="true" id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Porto2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Porto2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,11 +49,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -100,6 +115,7 @@
       <workItem from="1619507420187" duration="19253000" />
       <workItem from="1619539975999" duration="2065000" />
       <workItem from="1619700095551" duration="539000" />
+      <workItem from="1619700684015" duration="7205000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -150,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619700370430</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fikk problemer med å hente siste">
+      <created>1619700723551</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619700723551</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,48 +190,61 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fikk problemer med å hente siste" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1850" y="-158" key="CommitChangelistDialog2" timestamp="1619700369092">
+    <state x="2068" y="-117" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1619701236252">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700369092" />
+    <state x="2068" y="-117" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701236252" />
+    <state x="1850" y="-158" key="CommitChangelistDialog2" timestamp="1619700723104">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700723104" />
     <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525637249" />
     <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518889262" />
-    <state x="1713" y="-67" key="FileChooserDialogImpl" timestamp="1619431196676">
+    <state x="1713" y="-67" key="FileChooserDialogImpl" timestamp="1619701269976">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
+    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701269976" />
     <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431196676" />
-    <state width="1769" height="225" key="GridCell.Tab.0.bottom" timestamp="1619622339860">
+    <state width="1837" height="139" key="GridCell.Tab.0.bottom" timestamp="1619708094478">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339860" />
+    <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708094478" />
     <state width="1238" height="174" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
     <state width="1880" height="225" key="GridCell.Tab.0.bottom/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812986" />
     <state width="1880" height="421" key="GridCell.Tab.0.bottom/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220654" />
-    <state width="1769" height="225" key="GridCell.Tab.0.center" timestamp="1619622339854">
+    <state width="1837" height="139" key="GridCell.Tab.0.center" timestamp="1619708094460">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.center/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339854" />
+    <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708094460" />
     <state width="1238" height="174" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1619465196715" />
     <state width="1880" height="225" key="GridCell.Tab.0.center/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
     <state width="1880" height="421" key="GridCell.Tab.0.center/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220650" />
-    <state width="1769" height="225" key="GridCell.Tab.0.left" timestamp="1619622339853">
+    <state width="1837" height="139" key="GridCell.Tab.0.left" timestamp="1619708094458">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.left/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339853" />
+    <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708094458" />
     <state width="1238" height="174" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1619465196714" />
     <state width="1880" height="225" key="GridCell.Tab.0.left/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812984" />
     <state width="1880" height="421" key="GridCell.Tab.0.left/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220646" />
-    <state width="1769" height="225" key="GridCell.Tab.0.right" timestamp="1619622339856">
+    <state width="1837" height="139" key="GridCell.Tab.0.right" timestamp="1619708094477">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.right/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339856" />
+    <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708094477" />
     <state width="1238" height="174" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
     <state width="1880" height="225" key="GridCell.Tab.0.right/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
     <state width="1880" height="421" key="GridCell.Tab.0.right/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220653" />
-    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog" timestamp="1619700390967">
+    <state x="1415" y="-211" width="1743" height="586" key="MergeDialog" timestamp="1619700888889">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
-    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700390967" />
+    <state x="1415" y="-211" width="1743" height="586" key="MergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700888889" />
+    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog" timestamp="1619700896501">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700896501" />
     <state x="351" y="99" key="MultipleFileMergeDialog/0.23.1280.707@0.23.1280.707" timestamp="1619465060955" />
     <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524236466" />
     <state x="2066" y="-43" key="RollbackChangesDialog" timestamp="1619700180683">
@@ -216,10 +252,10 @@
     </state>
     <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700180683" />
     <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524302298" />
-    <state x="1361" y="-149" key="SettingsEditor" timestamp="1619524103973">
+    <state x="1361" y="-149" key="SettingsEditor" timestamp="1619701369313">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431572082" />
+    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701369313" />
     <state x="1361" y="-149" key="SettingsEditor/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431368557" />
     <state x="1361" y="-149" key="SettingsEditor/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524103973" />
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2" timestamp="1619700411306">
@@ -228,10 +264,14 @@
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700411306" />
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525641045" />
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518894563" />
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619700374595">
+    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1619701233395">
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700374595" />
+    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701233395" />
+    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619700728929">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700728929" />
     <state x="423" y="300" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.707@0.23.1280.707" timestamp="1619465018070" />
     <state x="1915" y="157" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.709/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619509231154" />
     <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524279306" />
@@ -243,6 +283,6 @@
     <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1619621464460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1619708094057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>

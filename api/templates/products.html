@@ -1,31 +1,49 @@
 {% extends "base.html" %}
 {% block title %}Product page{% endblock %}
 {% block content %}
-<h1>PRODUCTS</h1>
-<br><br>
-{% if content %}
-    {% for product in productlist%}
-        <div class="product_container">
-            <div class="product_header">
-                <p class="product_name">{{product.product_name}}</p>
-                <p class="product_price">Price: {{product.product_price}} kr,-</p>
-            </div>
-            {% for image in imagelist%}
-                {% if image.product_connection == product.product_id %}
-
-                    {% if image.main_image == True %}
-                        <div class="product_image">
-                            <image src="{{ url_for('static', filename='images/')}}{{image.img}}"></image>
+    <h1>PRODUCTS</h1>
+    <br><br>
+    {% if content %}
+        <!---------------------------------------------------------------------------------------------->
+        <main class="my-5">
+        <div class="container">
+        <!--Section: Content-->
+        <section class="text-center">
+            <h4 class="mb-5"><strong>Latest posts</strong></h4>
+            {% for product in productlist %}
+                <div class="col-lg-4 col-md-6 mb-4 boxwidth">
+                    <div class="card">
+                        {% for image in imagelist %}
+                            {% if image.product_connection == product.product_id %}
+                                {% if image.main_image == True %}
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img src="{{ url_for('static', filename='images/') }}{{ image.img }}"
+                                             class="img-fluid"/>
+                                        <a href="#!">
+                                            <div class="mask"
+                                                 style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.product_name }}</h5>
+                            <p class="card-text">
+                                {{ product.product_description }}
+                            </p>
+                            <a href="#longdescription" class="btn btn-primary" role="button" aria-expanded="false" aria-controls="collapseExample">Read more</a>
+                            <div class="collapse" id="longdescription">
+                                <div class="card card-body">
+                                    {{ product.product_long_description }}
+                                </div>
+                            </div>
                         </div>
-                    {% endif %}
-                {% endif %}
+                    </div>
+                </div>
             {% endfor %}
-            <div class="product_description">
-                <p>{{product.product_description}}</p>
-            </div>
-            <br><br>
-        </div>
-    {% endfor %}
+        </section>
 
-{% endif %}
+        <!---------------------------------------------------------------------------------------------->
+    {% endif %}
 {% endblock %}-->

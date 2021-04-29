@@ -45,3 +45,24 @@
     width: 100%;
     border-top: 1px outset black;
 }
+
+.card img{
+    height: 80px;
+}
+
+.boxwidth{
+    width: 25%!important;
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+
+/*
+.card{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 25px;
+    width: 25%;
+    float: left;
+}*/
