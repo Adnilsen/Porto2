@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for, render_template, session
+from flask import Flask, request, jsonify, redirect, url_for, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
@@ -10,6 +10,7 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
+
 
 oauth.register(
     name='google',
@@ -24,6 +25,7 @@ oauth.register(
 
 )
 
+#Sqlalchemy database
 products = db.Table('products',
                     db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')),
                     db.Column('order_id', db.Integer, db.ForeignKey('order.order_id'))
@@ -60,11 +62,11 @@ class Img(db.Model):
     main_image = db.Column(db.Boolean, unique=False, default=True)
     product_connection = db.Column(db.Integer, db.ForeignKey('product.product_id'))
 
+#API
 @app.route('/')
 def home_page():
 
     email = dict(session).get('email', None)
-    print(email)
     return render_template('index.html', content=email)
 
 #Google oAuth2 login
@@ -111,11 +113,31 @@ def logout():
     return redirect('/')
 
 
-@app.route('/user')
+@app.route('/users')
 def user_page():
-    user1 = session.get('first_name')
-    print(user1)
-    return render_template("index.html", content=user1)
+    users = User.query.all()
+    output = []
+
+    for user in users:
+        user_data = {'user_id': user.user_id, 'first_name': user.first_name}
+        output.append(user_data)
+
+    return {"users": output}
+
+
+@app.route('/orders/<user_id>/pending')
+def get_orders(user_id):
+
+    orders = Order.query.filter_by(order_status=True).all()
+    output = []
+
+    for order in orders:
+        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
+                      'order_status':order.order_status, 'order_date':order.order_date}
+        output.append(order_data)
+
+    return {"orders": output}
+
 
 
 @app.route('/products')
@@ -166,32 +188,56 @@ def upload():
             short = request.form["short_description"]
             long = request.form["long_description"]
             price = request.form["price"]
-            new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
-            db.session.add(new_product)
-            db.session.commit()
-            if request.files: # If there is one or more images attached
-                images = request.files.getlist('image') # Gets the list of images
-                main_image = images[0] # The first image in the list is set as main image
-                main_image_name = secure_filename(main_image.filename)
-                main_image.save(os.path.join('static', 'images', main_image_name))
-                new_image = Img(img=main_image_name, main_image=True)
-                db.session.add(new_image)
+            if name != '' and short != '' and long != '' and price != '':
+                new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+                db.session.add(new_product)
                 db.session.commit()
-                new_product.image_connection.append(new_image)
-                db.session.commit()
-                for image in images[1:]: # All other images are added to the database, but not as main image
-                    image_name = secure_filename(image.filename)
-                    image.save(os.path.join('static', 'images', image_name))
-                    new_image = Img(img=image_name, main_image=False)
-                    db.session.add(new_image)
-                    db.session.commit()
-                    new_product.image_connection.append(new_image)
-                    db.session.commit()
-            return redirect(request.url)
+                files = request.files.getlist('image')
+                images = []
+                for file in files:
+                    if filecheck(file.filename):
+                        images.append(file)
+                    else:
+                        flash("Accepted file types are: jpg, jpeg and png. One or more of your files were rejected")
+                if len(images) == 0:
+                    return render_template("newproduct.html")
+                first = images[0]
+                if first.filename != '':  # If there is one or more images attached
+                    if filecheck(first.filename):
+                        main_image = secure_filename(first.filename)
+                        first.save(os.path.join('static', 'images', main_image))
+                        new_image = Img(img=main_image, main_image=True)
+                        db.session.add(new_image)
+                        db.session.commit()
+                        new_product.image_connection.append(new_image)
+                        db.session.commit()
+                    for image in images[1:]: # All other images are added to the database, but not as main image
+                        if filecheck(image.filename):
+                            image_name = secure_filename(image.filename)
+                            image.save(os.path.join('static', 'images', image_name))
+                            new_image = Img(img=image_name, main_image=False)
+                            db.session.add(new_image)
+                            db.session.commit()
+                            new_product.image_connection.append(new_image)
+                            db.session.commit()
+                return redirect(request.url)
+            else:
+                flash("All fields must be filled")
+                return render_template("newproduct.html")
         else:
             return render_template("newproduct.html")
     else:
         return redirect(url_for('home_page'))
+
+
+def filecheck(file):
+    allowed_types = {'jpg', 'jpeg', 'png'}
+    type = file.split('.')[-1].lower()
+    if type in allowed_types:
+        return True
+    else:
+        return False
+
 
 #Create db with content
 db.drop_all()
@@ -225,6 +271,7 @@ product.image_connection.append(img2)
 product2.image_connection.append(img2)
 product.order_connections.append(order)
 product.order_connections.append(order2)
+product2.image_connection.append(img)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
