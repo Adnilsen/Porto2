@@ -1,69 +1,88 @@
-var user = []
+var products = []
+var cartPrice = 0
 
-function render_users(data){
-    console.log("Her ja2")
-    console.log(data)
+function render_orders(data){ //renders all orders
     var order_table = document.getElementById("order_table")
-    console.log(data['users'])
-    for (i in data['users']){
-        user[i] = data[i]
-        console.log(data['users'][i]['name'])
+    for (i in data['products']){
+        var row_amount = 0
+        products[i] = data[i]
+        console.log(data['products'][i]['product_name']) //Hent brukere
         var row = `<tr class="order_row">
                     <th scope="row">${parseInt(i)+1}</th>
-                    <td>${data['users'][i]['first_name']}</td>
-                    <td>Amet</td>
+                    <td class="w-25 product-image"></td>
+                    <td><p class="fs-5">${data['products'][i]['product_name']}</p></td>
+                    <td><p class="fs-5">${data['products'][i]['product_color']}</p></td>
+                    <td><p class="fs-5 price-element">$${data['products'][i]['product_price']}</p></td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-sm px-3">
-                        <i class="fas fa-times"></i>
-                        </button>
-                    </td>
-                    <td>
-                        <div class="container">
-                            <div class="row">
-                                <div class="d-flex">
-                                    <div class="border align-items-center justify-content-center" style="height: 25px; margin-top: 15px;">
-                                        <p>1</p>
-                                    </div>
-                                    <div>
-                                        <button type="button" class="btn btn-floating btn-sm">
-                                            <i class="fas fa-angle-up"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-floating">
-                                            <i class="fas fa-angle-down"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="d-flex mx-auto">
+                            <div class="form-outline" style="width:40%">
+                                <input type="number" id="typeNumber" class="form-control form-control-lg" value="1"/>
+                                <label class="form-label" for="typeNumber">Number input</label>
                             </div>
+                            <button type="button" class="btn btn-danger btn-sm">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                     </td>
                     </tr>`
         order_table.innerHTML += row
     }
 
-}
-function render_order(data){
-    console.log("Her ja2")
-    console.log(data)
-    var order_table = document.getElementById("order_table")
-    console.log(data['users'])
-    for (i in data['users']){
-        user[i] = data[i]
-        console.log(data['users'][i]['name'])
-        var row = `<tr class="order_row">
-                    <th scope="row">${parseInt(i)+1}</th>
-                    <td>${data['users'][i]['first_name']}</td>
-                    <td>Amet</td>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-sm px-3">
-                        <i class="fas fa-times"></i>
-                        </button>
-                    </td>
-                    </tr>`
-        order_table.innerHTML += row
+    var inputOutline = document.querySelectorAll('.form-outline')
+    inputOutline.forEach((formOutline) => { //init all input number fields (mdbootstrap)
+        new mdb.Input(formOutline).init();
+    });
+    var numberInputs = document.getElementsByClassName("form-control")
+    var removeCartItemButtons = document.getElementsByClassName("btn-danger")
+    var imageContainers = document.getElementsByClassName('product-image')
+    for(var i = 0; i < numberInputs.length; i++){
+        var input = numberInputs[i]
+        input.addEventListener('change', quantityChange)
+
+        var button = removeCartItemButtons[i];
+        button.addEventListener('click', function(event){
+            removeProduct(event)
+        })
+
+        var imageContainer = imageContainers[i]
+        imageContainer.innerHTML = '<img src="static/images/ball1.png" class="img-thumbnail img-fluid"></img>'
     }
 
+    updateCartPrice()
+
 }
 
-fetch("/users")
+function removeProduct(){
+    console.log("clicked")
+    var buttonClick = event.target
+    buttonClick.parentElement.parentElement.parentElement.remove()
+    updateCartPrice()
+}
+function quantityChange(event){
+    var input = event.target
+    if(isNaN(input.value) || input.value <= 0){
+        input.value = 1
+    }
+    updateCartPrice()
+}
+
+function updateCartPrice(){
+    cartPrice = 0
+    var priceColumns = document.getElementsByClassName("price-element")
+    var numberInputs = document.getElementsByClassName("form-control")
+    for(var i = 0; i < numberInputs.length; i++){
+        var amount = numberInputs[i]
+        var price = parseInt(priceColumns[i].innerText.replace('$', ''))
+        cartPrice += amount.value * price
+    }
+
+    var cartPriceItem = document.getElementById("cartPrice").innerText = '$' + cartPrice
+}
+
+
+fetch("/order/1/products")
     .then(response => response.json())
-    .then(data => render_users(data))
+    .then(data => render_orders(data))
+
+
+
