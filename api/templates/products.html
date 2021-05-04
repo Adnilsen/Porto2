@@ -9,7 +9,7 @@
             <div class="container">
                 <!--Section: Content-->
                 <section class="text-center">
-                    <h4 class="mb-5"><strong>Latest posts</strong></h4>
+                    <h4 class="mb-5"><strong>Our products</strong></h4>
                     {% for product in productlist %}
                         <div class="col-lg-4 col-md-6 mb-4 boxwidth" id="product{{ product.product_id }}">
                             <div class="card">
@@ -19,7 +19,12 @@
                                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                                 <img src="{{ url_for('static', filename='images/') }}{{ image.img }}"
                                                      class="img-fluid" alt="{{ product.product_description }}"/>
-                                                <a href="#!">
+                                                <a data-mdb-toggle="collapse"
+                                                   href="#multiCollapseExample{{ product.product_id }}"
+                                                   role="button"
+                                                   aria-expanded="false"
+                                                   aria-controls="multiCollapseExample{{ product.product_id }}"
+                                                   >
                                                     <div class="mask"
                                                          style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                                 </a>
@@ -32,7 +37,7 @@
                                     <p class="card-text">
                                         {{ product.product_description }}
                                     </p>
-
+                                    <p>{{product.product_price}},- kr</p>
                                     <!-- Buttons trigger collapse -->
                                     <a
                                             class="btn btn-primary"
@@ -44,7 +49,7 @@
                                     >
                                         More info
                                     </a>
-
+                                    <a class="btn btn-success">Add to cart</a>
                                     <!-- Collapsed content -->
                                     <div class="row">
                                             <div class="collapse multi-collapse mt-3" id="multiCollapseExample{{ product.product_id }}">
