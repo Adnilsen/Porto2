@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Home page{% endblock %}
 {% block content %}
-<div class="container">
+
   <p class="fs-1 fw-bold">Welcome to your shopping cart</p>
   <div class="row">
     <div class="col-md-8">
-      <table class="table align-middle">
+      <table class="table align-middle table-hover table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">Dolor</th>
-            <th scope="col">Dolor</th>
+            <th scope="col">Picture</th>
+            <th scope="col">Item</th>
+            <th scope="col">Color</th>
+            <th scope="col">Price</th>
+            <th scope="col">Amount</th>
           </tr>
         </thead>
         <tbody id="order_table"></tbody>
       </table>
-  </div>
+    </div>
   <div class="col-md-4">
     <div class="card text-center">
       <div class="card-header"><h5 class="card-title">{{session['first_name']}}, view your order</h5></div>
@@ -27,7 +28,7 @@
             <p class="fs-5 fw-bold">Cart amount:</p>
           </div>
           <div class="col-md-4">
-             <p class="fs-5">$100</p>
+             <p class="fs-5" id="cartPrice"></p>
           </div>
         </div>
         <div class="row border-bottom">
@@ -43,7 +44,7 @@
             <p class="fs-5 fw-bold">Total amount</p>
           </div>
           <div class="col-md-4">
-             <p class="fs-5">$100</p>
+             <p class="fs-5" >$100</p>
           </div>
         </div>
         <a href="#" class="btn btn-primary">Go to checkout</a>
@@ -53,7 +54,7 @@
   </div>
 
 
-</div>
+
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/shoppingcart.js') }}">
 
