@@ -20,16 +20,15 @@ function render_users(data){
                     <td>
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-3 d-flex">
+                                <div class="d-flex">
                                     <div class="border align-items-center justify-content-center" style="height: 25px; margin-top: 15px;">
-                                        <p>01</p>
+                                        <p>1</p>
                                     </div>
-
                                     <div>
-                                        <button type="button" class="btn btn-primary btn-floating btn-sm">
+                                        <button type="button" class="btn btn-floating btn-sm">
                                             <i class="fas fa-angle-up"></i>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-floating btn-sm">
+                                        <button type="button" class="btn btn-primary btn-floating">
                                             <i class="fas fa-angle-down"></i>
                                         </button>
                                     </div>
