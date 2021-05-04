@@ -64,10 +64,13 @@ class Img(db.Model):
 
 #API
 @app.route('/')
-def home_page():
-
-    email = dict(session).get('email', None)
-    return render_template('index.html', content=email)
+def products_page():
+    user = session.get('user')
+    img = Img.query.first()
+    productlist = Product.query.all()
+    imagelist = Img.query.all()
+    route = f"/static/{img.img}"
+    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 #Google oAuth2 login
 @app.route('/login')
@@ -140,14 +143,7 @@ def get_orders(user_id):
 
 
 
-@app.route('/products')
-def products_page():
-    user = session.get('user')
-    img = Img.query.first()
-    productlist = Product.query.all()
-    imagelist = Img.query.all()
-    route = f"/static/{img.img}"
-    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
+
 
 @app.route('/profile')
 def myprofile():
