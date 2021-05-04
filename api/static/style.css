@@ -4,13 +4,15 @@
     border: 3px outset black;
     margin-left: 4%;
     margin-right: 4%;
+    margin-bottom: 25px;
     width: 25%;
+    height: 200px;
     float: left;
 }
 
 .product_header{
     width: 100%;
-    height: 25px;
+    height: 25px!important;
     border-bottom: 1px outset black;
 }
 
@@ -21,15 +23,46 @@
 .product_name{
     float: left;
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .product_price{
     float: right;
+    margin-right: 5px;
 }
 
 .product_image{
-    height: 100px;
     display: block;
+}
+
+.product_image img{
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
 }
+
+.product_description{
+    width: 100%;
+    border-top: 1px outset black;
+}
+
+.card img{
+    height: 80px;
+}
+
+.boxwidth{
+    width: 25%!important;
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+
+/*
+.card{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 25px;
+    width: 25%;
+    float: left;
+}*/

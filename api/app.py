@@ -65,10 +65,13 @@ class Img(db.Model):
 
 #API
 @app.route('/')
-def home_page():
-
-    email = dict(session).get('email', None)
-    return render_template('index.html', content=email)
+def products_page():
+    user = session.get('user')
+    img = Img.query.first()
+    productlist = Product.query.all()
+    imagelist = Img.query.all()
+    route = f"/static/{img.img}"
+    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 #Google oAuth2 login
 @app.route('/login')
@@ -141,14 +144,7 @@ def get_orders(user_id):
 
 
 
-@app.route('/products')
-def products_page():
-    user = session.get('user')
-    img = Img.query.first()
-    productlist = Product.query.all()
-    imagelist = Img.query.all()
-    route = f"/static/{img.img}"
-    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
+
 
 @app.route('/profile')
 def myprofile():
@@ -261,8 +257,12 @@ db.session.add(user3)
 #db.session.add(user4)
 product = Product(product_name='Ball', product_description='Bra ball', product_color = 'Black/white', product_long_description='Denne ballen er sykt bra', product_price=100)
 product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
+product3 = Product(product_name='Sko', product_description='Løpesko', product_long_description='God allround løpesko til hardt underlag', product_price=700)
+product4 = Product(product_name='Jakke', product_description='Allværsjakke vanntett', product_long_description='Vanntett skalljakke. Perfekt til turer i skog og mark. Vantett med vannsøyle på 15.000 med god pusteevne', product_price=1200)
 db.session.add(product)
 db.session.add(product2)
+db.session.add(product3)
+db.session.add(product3)
 order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
 order2 = Order(order_price=300, order_status=True, order_date=datetime.datetime.now().date(), user_connection="martin_kvam@hotmail.com")
 db.session.add(order)
@@ -271,16 +271,23 @@ db.session.commit()
 
 filename = secure_filename("ball1.png")
 img = Img(img=filename, main_image=True)
-filename = secure_filename("sko.jpg")
-img2 = Img(img=filename, main_image=False)
 db.session.add(img)
+filename2 = secure_filename("strikk.jpg")
+img2 = Img(img=filename2, main_image=True)
+db.session.add(img2)
+filename3 = secure_filename("sko.jpg")
+img3 = Img(img=filename3, main_image=True)
+db.session.add(img3)
+filename4 = secure_filename("jakke.jpg")
+img4 = Img(img=filename4, main_image=True)
+db.session.add(img4)
 db.session.commit()
 product.image_connection.append(img)
-product.image_connection.append(img2)
 product2.image_connection.append(img2)
+product3.image_connection.append(img3)
+product4.image_connection.append(img4)
 product.order_connections.append(order)
 product.order_connections.append(order2)
-product2.image_connection.append(img)
 product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
