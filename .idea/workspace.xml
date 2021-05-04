@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="">
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Fikset så knapp for å få opp beskrivelse på et produkt funker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +179,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Lagt til display av produkter på produktside og css fil for styling" />
     <MESSAGE value="fikset filepath til stylesheet" />
@@ -201,11 +210,11 @@
       <screen x="1280" y="-257" width="1920" height="1057" />
     </state>
     <state x="2068" y="-117" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701236252" />
-    <state x="380" y="23" key="CommitChangelistDialog2" timestamp="1620122412719">
+    <state x="380" y="23" key="CommitChangelistDialog2" timestamp="1620123662527">
       <screen x="0" y="23" width="1280" height="706" />
     </state>
     <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700723104" />
-    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.706@0.23.1280.706" timestamp="1620122412719" />
+    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.706@0.23.1280.706" timestamp="1620123662527" />
     <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525637249" />
     <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518889262" />
     <state x="1713" y="-67" key="FileChooserDialogImpl" timestamp="1619701269976">
@@ -300,8 +309,5 @@
     </state>
     <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619621244580" />
     <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620122653374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
