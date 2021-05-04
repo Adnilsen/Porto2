@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Fikset så knapp for å få opp beskrivelse på et produkt funker">
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/static/images/ball2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +190,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -222,43 +230,43 @@
     </state>
     <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701269976" />
     <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431196676" />
-    <state width="1238" height="139" key="GridCell.Tab.0.bottom" timestamp="1620122653389">
-      <screen x="0" y="23" width="1280" height="706" />
+    <state width="619" height="79" key="GridCell.Tab.0.bottom" timestamp="1620130478751">
+      <screen x="0" y="23" width="1280" height="707" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339860" />
-    <state width="1238" height="139" key="GridCell.Tab.0.bottom/0.23.1280.706@0.23.1280.706" timestamp="1620122653389" />
+    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
     <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="1238" height="174" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
+    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1620130478751" />
     <state width="1880" height="225" key="GridCell.Tab.0.bottom/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812986" />
     <state width="1880" height="421" key="GridCell.Tab.0.bottom/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220654" />
     <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
-    <state width="1238" height="139" key="GridCell.Tab.0.center" timestamp="1620122653388">
-      <screen x="0" y="23" width="1280" height="706" />
+    <state width="619" height="79" key="GridCell.Tab.0.center" timestamp="1620130478750">
+      <screen x="0" y="23" width="1280" height="707" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.center/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339854" />
-    <state width="1238" height="139" key="GridCell.Tab.0.center/0.23.1280.706@0.23.1280.706" timestamp="1620122653388" />
+    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
     <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="1238" height="174" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1619465196715" />
+    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1620130478750" />
     <state width="1880" height="225" key="GridCell.Tab.0.center/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
     <state width="1880" height="421" key="GridCell.Tab.0.center/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220650" />
     <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776737" />
-    <state width="1238" height="139" key="GridCell.Tab.0.left" timestamp="1620122653388">
-      <screen x="0" y="23" width="1280" height="706" />
+    <state width="619" height="79" key="GridCell.Tab.0.left" timestamp="1620130478750">
+      <screen x="0" y="23" width="1280" height="707" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.left/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339853" />
-    <state width="1238" height="139" key="GridCell.Tab.0.left/0.23.1280.706@0.23.1280.706" timestamp="1620122653388" />
+    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
     <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="1238" height="174" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1619465196714" />
+    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1620130478750" />
     <state width="1880" height="225" key="GridCell.Tab.0.left/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812984" />
     <state width="1880" height="421" key="GridCell.Tab.0.left/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220646" />
     <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776736" />
-    <state width="1238" height="139" key="GridCell.Tab.0.right" timestamp="1620122653389">
-      <screen x="0" y="23" width="1280" height="706" />
+    <state width="619" height="79" key="GridCell.Tab.0.right" timestamp="1620130478751">
+      <screen x="0" y="23" width="1280" height="707" />
     </state>
     <state width="1769" height="225" key="GridCell.Tab.0.right/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339856" />
-    <state width="1238" height="139" key="GridCell.Tab.0.right/0.23.1280.706@0.23.1280.706" timestamp="1620122653389" />
+    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
     <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="1238" height="174" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1619465196716" />
+    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1620130478751" />
     <state width="1880" height="225" key="GridCell.Tab.0.right/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
     <state width="1880" height="421" key="GridCell.Tab.0.right/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220653" />
     <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
@@ -285,11 +293,11 @@
     <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701369313" />
     <state x="1361" y="-149" key="SettingsEditor/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431368557" />
     <state x="1361" y="-149" key="SettingsEditor/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524103973" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2" timestamp="1620122414863">
+    <state x="373" y="173" key="Vcs.Push.Dialog.v2" timestamp="1620123757322">
       <screen x="0" y="23" width="1280" height="706" />
     </state>
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700411306" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.706@0.23.1280.706" timestamp="1620122414863" />
+    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.706@0.23.1280.706" timestamp="1620123757322" />
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525641045" />
     <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518894563" />
     <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1619701233395">
@@ -309,5 +317,8 @@
     </state>
     <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619621244580" />
     <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620130478734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
