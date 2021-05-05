@@ -67,7 +67,7 @@
         >
           <li><a class="dropdown-item" href="/profile">My profile</a></li>
           <li><a class="dropdown-item" href="/profile">Orders</a></li>
-          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
         </ul>
       </li>
 
@@ -92,8 +92,13 @@
   </div>
 </nav>
 <!-- Navbar -->
-
-<!-- Navbar -->
+<button onclick="showAlert()"></button>
+<div class="alert alert-warning alert-dismissible fade show d-none content" role="alert" id = "alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
     {% block content %}
     {% endblock %}
 

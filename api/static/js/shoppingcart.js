@@ -45,7 +45,7 @@ function render_orders(data){ //renders all orders
         })
 
         var imageContainer = imageContainers[i]
-        imageContainer.innerHTML = '<img src="static/images/ball1.png" class="img-thumbnail img-fluid"></img>'
+        imageContainer.innerHTML = '<img src="static/images/ball1.png" class="img-fluid"></img>'
     }
 
     updateCartPrice()
