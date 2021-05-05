@@ -137,7 +137,6 @@ def get_orders(user_id):
     return render_template('orders.html', orders=orders, user=user)
 
 
-
 @app.route('/profile')
 def myprofile():
     if 'email' in session:
@@ -236,19 +235,17 @@ def filecheck(file):  # Method that checks if files are of correct types
         return False
 
 
-
-
 #Create db with content
 db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
-#user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)
-#db.session.add(user4)
+db.session.add(user4)
 product = Product(product_name='Ball', product_description='Bra ball', product_color = 'Black/white', product_long_description='Denne ballen er sykt bra', product_price=100)
 product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
 product3 = Product(product_name='Sko', product_description='Løpesko', product_long_description='God allround løpesko til hardt underlag', product_price=700)
