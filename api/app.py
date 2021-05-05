@@ -162,7 +162,7 @@ def getOrder(order_id):
 
 @app.route('/order/<order_id>/products') #Get the products in the order
 def getOrderProducts(order_id):
-    order1 = Order.query.first()
+    order1 = Order.query.filter_by(order_id=order_id).first()
     orderID = order1.order_id
     output = []
 
@@ -170,7 +170,7 @@ def getOrderProducts(order_id):
         product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price}
         output.append(product_data)
 
-    return {"products": output}
+    return render_template("vieworder.html", products=output, order=order_id)
 
 @app.route('/admin')
 def admin():
@@ -243,7 +243,7 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
 #user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
 db.session.add(user)
 db.session.add(user2)
