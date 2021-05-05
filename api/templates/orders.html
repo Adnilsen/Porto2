@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% for user in user %}
+    <h2>Orders made by {{ user.first_name }} {{ user.last_name }}</h2>
+    {% endfor %}
  <table class="table align-middle">
   <thead>
     <tr>
@@ -26,5 +29,7 @@
   {% endfor %}
   </tbody>
 </table>
-
+<form action="/admin">
+    <input type="submit" value="Back">
+</form>
 {% endblock %}

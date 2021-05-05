@@ -19,8 +19,7 @@
       <td>{{ user.last_name }}</td>
       <td>{{ user.user_email }}</td>
       <td>
-        <button type="button" class="btn btn-danger btn-sm px-3">See orders
-          <!--<i class="fas fa-times"></i>-->
+        <button onclick="location.href = '/orders/{{ user.user_id }}'" type="button" class="btn btn-danger btn-sm px-3">See orders
         </button>
       </td>
     </tr>
