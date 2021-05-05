@@ -1,13 +1,6 @@
-{% extends "base.html" %}
-{% block title %}My profile{% endblock %}
+{% extends 'base.html' %}
 {% block content %}
-
-    <h1>My profile</h1>
-    <p>First name: {{session['first_name']}}</p>
-    <p>Last name: {{session['last_name']}}</p>
-    <p>Email: {{session['email']}}</p>
-    <h2>Previous orders</h2>
-    <table class="table align-middle">
+ <table class="table align-middle">
   <thead>
     <tr>
       <th scope="col">Date</th>
@@ -33,4 +26,5 @@
   {% endfor %}
   </tbody>
 </table>
+
 {% endblock %}

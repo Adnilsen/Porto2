@@ -129,20 +129,13 @@ def user_page():
     return {"users": output}
 
 
-@app.route('/orders/<user_id>/pending')
+@app.route('/orders/<user_id>/')
 def get_orders(user_id):
+    user = User.query.filter_by(user_id=user_id)
+    email = user.user_email
+    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
 
-    orders = Order.query.filter_by(order_status=True).all()
-    output = []
-
-    for order in orders:
-        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
-                      'order_status':order.order_status, 'order_date':order.order_date}
-        output.append(order_data)
-
-    return {"orders": output}
-
-
+    return render_template('orders.html', orders=orders)
 
 
 
@@ -182,7 +175,7 @@ def getOrderProducts(order_id):
 
 @app.route('/admin')
 def admin():
-    users = User.query.all()
+    users = User.query.order_by(User.last_name)
     return render_template('admin.html', users=users)
 
 @app.route('/upload', methods=['GET', 'POST'])
