@@ -291,4 +291,4 @@ product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
+app.run(host='0.0.0.0', debug=True)

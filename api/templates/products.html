@@ -15,7 +15,7 @@
                             <div class="card">
                                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <div id="carouselExampleControls{{ product.product_id }}" class="carousel carousel-dark slide"
-                                         data-bs-ride="carousel">
+                                         data-bs-ride="carousel" data-bs-interval="false">
                                         <div class="carousel-inner">
                                             {% for image in imagelist %}
                                                 {% if image.product_connection == product.product_id %}
@@ -26,20 +26,6 @@
                                                                  class="d-block"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
-                                                        <!--
-                                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                                <img src="{{ url_for('static', filename='images/') }}{{ image.img }}"
-                                                     class="img-fluid" alt="{{ product.product_description }}"/>
-                                                <a data-mdb-toggle="collapse"
-                                                   href="#multiCollapseExample{{ product.product_id }}"
-                                                   role="button"
-                                                   aria-expanded="false"
-                                                   aria-controls="multiCollapseExample{{ product.product_id }}"
-                                               >
-                                                    <div class="mask"
-                                                         style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                                </a>
-                                            </div>-->
                                                     {% else %}
                                                         <div class="carousel-item">
                                                             <img src="
@@ -54,13 +40,15 @@
 
                                         <button class="carousel-control-prev" type="button"
                                                 data-bs-target="#carouselExampleControls{{ product.product_id }}"
-                                                data-bs-slide="prev">
+                                                data-bs-slide="prev"
+                                                id="prev-btn">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="visually-hidden">Previous</span>
                                         </button>
                                         <button class="carousel-control-next" type="button"
                                                 data-bs-target="#carouselExampleControls{{ product.product_id }}"
-                                                data-bs-slide="next">
+                                                data-bs-slide="next"
+                                        id="next-btn">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="visually-hidden">Next</span>
                                         </button>
@@ -83,7 +71,7 @@
                                     >
                                         More info
                                     </a>
-                                    <a class="btn btn-success">Add to cart</a>
+                                    <a class="btn btn-success" onclick="myFunction()">Add to cart</a>
                                     <!-- Collapsed content -->
                                     <div class="row">
                                         <div class="collapse multi-collapse mt-3"
