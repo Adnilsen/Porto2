@@ -37,6 +37,7 @@ services:
         - 3000:3000
       volumes:
         - ./monitoring/datasource.yml:/etc/grafana/provisioning/datasource.yml
+        - ./grafana-storage:/var/lib/grafana
       env_file:
         - ./config.monitoring
       networks:
