@@ -47,7 +47,7 @@
 }
 
 .card img{
-    height: 120px;
+    /*height: 120px;*/
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -63,6 +63,14 @@
 [id^="next-btn"], [id^="prev-btn"]{
     visibility: hidden;
 }
+
+[id^="image"]{
+    height: 120px;
+}
+
+/*img[class^='image'], img[class*=' image']{
+    height: 120px;
+}*/
 
 
 

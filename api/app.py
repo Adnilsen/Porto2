@@ -65,18 +65,17 @@ class Img(db.Model):
 #API
 @app.before_request
 def before_request():
-    # If the request is sicure it should already be https, so no need to redirect
+    # If the request is secure it should already be https, so no need to redirect
     if not request.is_secure:
         currentUrl = request.url
         if currentUrl.startswith('http://'):
-            # http://example.com -> https://example.com
-            # http://www.example.com -> https://www.example.com
             redirectUrl = currentUrl.replace('http://', 'https://', 1)
         elif currentUrl.startswith('localhost'):
-            # Here we redirect the case in which the user access the site without typing any http or https
-            # www.example.com -> https://www.example.com
             redirectUrl = currentUrl.replace('localhost', 'https://localhost', 1)
-
+        elif currentUrl.startswith('0.0.0.0'):
+            redirectUrl = currentUrl.replace('0.0.0.0', 'https://0.0.0.0', 1)
+        elif currentUrl.startswith('127.0.0.1'):
+            redirectUrl = currentUrl.replace('127.0.0.1', 'https://127.0.0.1', 1)
         else:
             # I do not now when this may happen, just for safety
             redirectUrl = 'https://localhost:5000'
@@ -306,4 +305,4 @@ product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True, ssl_context='adhoc')
+app.run(host='0.0.0.0', debug=True)

@@ -22,6 +22,7 @@
                                                             <img src="
                                                                     {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
+                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% else %}
@@ -29,6 +30,7 @@
                                                             <img src="
                                                             {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
+                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% endif %}
