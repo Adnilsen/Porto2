@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
+from prometheus_flask_exporter import PrometheusMetrics
 import os
 
 app = Flask(__name__)
@@ -10,7 +11,9 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
+metrics = PrometheusMetrics(app, path='/metrics')
 
+metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
@@ -283,4 +286,4 @@ product2.order_connections.append(order)
 user.order_connection.append(order)
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', debug=False)
