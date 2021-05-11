@@ -1,6 +1,6 @@
-function myFunction() {
-    var x = document.getElementById("prev-btn");
-    var y = document.getElementById("next-btn")
+function myFunction(productID) {
+    var x = document.getElementById(`prev-btn${productID}`);
+    var y = document.getElementById(`next-btn${productID}`)
     if(x.style.visibility==="visible"){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";

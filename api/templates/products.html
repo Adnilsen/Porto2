@@ -39,14 +39,14 @@
                                         <button class="carousel-control-prev" type="button"
                                                 data-bs-target="#carouselExampleControls{{ product.product_id }}"
                                                 data-bs-slide="prev"
-                                                id="prev-btn">
+                                                id="prev-btn{{ product.product_id }}">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="visually-hidden">Previous</span>
                                         </button>
                                         <button class="carousel-control-next" type="button"
                                                 data-bs-target="#carouselExampleControls{{ product.product_id }}"
                                                 data-bs-slide="next"
-                                        id="next-btn">
+                                                id="next-btn{{ product.product_id }}">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="visually-hidden">Next</span>
                                         </button>
@@ -66,10 +66,11 @@
                                             role="button"
                                             aria-expanded="false"
                                             aria-controls="multiCollapseExample{{ product.product_id }}"
+                                            onclick="myFunction({{ product.product_id }})"
                                     >
                                         More info
                                     </a>
-                                    <a class="btn btn-success" onclick="myFunction()">Add to cart</a>
+                                    <a class="btn btn-success">Add to cart</a>
                                     <!-- Collapsed content -->
                                     <div class="row">
                                         <div class="collapse multi-collapse mt-3"
