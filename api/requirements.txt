@@ -6,7 +6,6 @@ click==7.1.2
 cryptography==3.4.7
 Flask==1.1.2
 Flask-SQLAlchemy==2.5.1
-Flask-SSLify==0.1.5
 greenlet==1.0.0
 idna==2.10
 importlib-metadata==4.0.1
