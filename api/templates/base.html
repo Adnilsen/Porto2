@@ -65,9 +65,14 @@
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
-          <li><a class="dropdown-item" href="/profile">My profile</a></li>
-          <li><a class="dropdown-item" href="/profile">Orders</a></li>
+            {% if session['user_type'] == true %}
+          <li><a class="dropdown-item" href="/admin">View customers</a></li>
+          <li><a class="dropdown-item" href="/upload">Upload product</a></li>
           <li><a class="dropdown-item" href="/logout">Log out</a></li>
+             {% else %}
+                <li><a class="dropdown-item" href="/profile">My profile</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                {% endif %}
         </ul>
       </li>
 
