@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Lagt til prometheus og grafana">
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Tror grafana info lagres nå">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config.monitoring" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.monitoring" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/grafana-storage/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/grafana-storage/grafana.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +194,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1620726870418</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Tror grafana info lagres nå">
+      <created>1620731026418</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1620731026418</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +229,8 @@
     <MESSAGE value="Fikset så knapp for å få opp beskrivelse på et produkt funker" />
     <MESSAGE value="Fikset admin og profilside" />
     <MESSAGE value="Lagt til prometheus og grafana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lagt til prometheus og grafana" />
+    <MESSAGE value="Tror grafana info lagres nå" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tror grafana info lagres nå" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1970" y="-436" key="VCS.ChangeListViewerDialog" timestamp="1620727627869">
