@@ -60,8 +60,9 @@
     margin-left: 25px;
 }
 
-.carousel-control-next .carousel-control-prev{
-    visibility: visible;
+[id^="next-btn"], [id^="prev-btn"]{
+    visibility: hidden;
 }
+
 
 

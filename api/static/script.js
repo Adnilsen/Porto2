@@ -1,12 +1,15 @@
 function myFunction(productID) {
     var x = document.getElementById(`prev-btn${productID}`);
-    var y = document.getElementById(`next-btn${productID}`)
+    var y = document.getElementById(`next-btn${productID}`);
+    var cardImage = document.getElementById(`product${productID}`).getElementsByTagName('img');
     if(x.style.visibility==="visible"){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";
+        cardImage.style.height = "120px";
     }else{
         x.style.visibility = "visible";
         y.style.visibility = "visible";
+        cardImage.style.height = "150px";
     }
 }
 function showAlert(){
