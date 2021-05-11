@@ -30,6 +30,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -220,6 +221,20 @@
     <MESSAGE value="Fikset så knapp for å få opp beskrivelse på et produkt funker" />
     <MESSAGE value="Fikset admin og profilside" />
     <option name="LAST_COMMIT_MESSAGE" value="Fikset admin og profilside" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1970" y="-436" key="VCS.ChangeListViewerDialog" timestamp="1620727627869">
+      <screen x="1280" y="-601" width="1920" height="986" />
+    </state>
+    <state x="1970" y="-436" key="VCS.ChangeListViewerDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727627869" />
+    <state x="2044" y="-236" key="VCS.ChangelistChooser" timestamp="1620727626513">
+      <screen x="1280" y="-601" width="1920" height="986" />
+    </state>
+    <state x="2044" y="-236" key="VCS.ChangelistChooser/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727626513" />
+    <state x="1995" y="-235" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620727631754">
+      <screen x="1280" y="-601" width="1920" height="986" />
+    </state>
+    <state x="1995" y="-235" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727631754" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620213671633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
