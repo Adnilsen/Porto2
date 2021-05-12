@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
+from prometheus_flask_exporter import PrometheusMetrics
 import os
 from datetime import timedelta
 
@@ -11,11 +12,16 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
+metrics = PrometheusMetrics(app, path='/metrics')
+
+
+metrics.info("app_info", "Info about the app")
+
 
 oauth.register(
     name='google',
-    client_id='960764726109-46bc02q0si7vjl6u40lhd1n37je8danv.apps.googleusercontent.com',
-    client_secret='NphejlgN9nWm_1stjTYNqGMd',
+    client_id='352148568912-aqc8n7jb36af5ca1m0pi77p9f1vdca21.apps.googleusercontent.com',
+    client_secret='3ylG_r5BdCaiZHmBiuz0wSbD',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -150,18 +156,12 @@ def user_page():
     return {"users": output}
 
 
-@app.route('/orders/<user_id>/pending')
+@app.route('/orders/<user_id>/')
 def get_orders(user_id):
-
-    orders = Order.query.filter_by(order_status=True).all()
-    output = []
-
-    for order in orders:
-        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
-                      'order_status':order.order_status, 'order_date':order.order_date}
-        output.append(order_data)
-
-    return {"orders": output}
+    user = User.query.filter_by(user_id=user_id)
+    email = db.session.query(User.user_email).filter_by(user_id=user_id)
+    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
+    return render_template('orders.html', orders=orders, user=user)
 
 @app.route('/order')
 def create_order():
@@ -239,7 +239,7 @@ def getOrder(order_id):
     return order1
 
 @app.route('/order/products') #Get the products in the order
-def getOrderProducts():
+def getOrderProduct():
     output = []
     for order in OrderProduct.query.filter_by(order_id=session['current_order']).all():
         product = Product.query.filter_by(product_id=order.product_id).first()
@@ -250,44 +250,58 @@ def getOrderProducts():
 
     return {"products": output}
 
+
+@app.route('/order/<order_id>/products') #Get the products in the order
+def getOrderProducts(order_id):
+    order1 = Order.query.filter_by(order_id=order_id).first()
+    orderID = order1.order_id
+    output = []
+
+    for product in order1.product_order:
+        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price}
+        output.append(product_data)
+
+    return render_template("vieworder.html", products=output, order=order_id)
+
+
 @app.route('/admin')
 def admin():
-    users = User.query.all()
+    users = User.query.order_by(User.last_name)
     return render_template('admin.html', users=users)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if 'user_type' in session and session['user_type'] is True :
+    if 'user_type' in session and session['user_type'] is True :  # Only admins that are logged in will reach this page
         if request.method == "POST":
-            name = request.form["product_name"]
+            name = request.form["product_name"]  # Get the info from the form
             short = request.form["short_description"]
             long = request.form["long_description"]
             price = request.form["price"]
-            if name != '' and short != '' and long != '' and price != '':
+            if name != '' and short != '' and long != '' and price != '':  # If all required fields are filled a new product is added to database
                 new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
                 db.session.add(new_product)
                 db.session.commit()
-                files = request.files.getlist('image')
-                images = []
-                for file in files:
-                    if filecheck(file.filename):
-                        images.append(file)
-                    else:
-                        flash("Accepted file types are: jpg, jpeg and png. One or more of your files were rejected")
-                if len(images) == 0:
+                files = request.files.getlist('image')  # Gets all files uploaded in the form
+                if files[0].filename == '':  # No file attached
+                    flash("The product was uploaded without a picture")
                     return render_template("newproduct.html")
-                first = images[0]
-                if first.filename != '':  # If there is one or more images attached
-                    if filecheck(first.filename):
-                        main_image = secure_filename(first.filename)
-                        first.save(os.path.join('static', 'images', main_image))
-                        new_image = Img(img=main_image, main_image=True)
+                else:  # If there where files uploaded
+                    images = []  # List of images that will be added to product
+                    for file in files:  # Loops through all files to see if they are correct format
+                        if filecheck(file.filename):
+                            images.append(file)
+                        else:  # If a file is incorrect, a message is displayed
+                            flash("Accepted file types are: jpg, jpeg and png. One or more of your pictures were rejected")
+                    if len(images) > 0: # One or more pictures of correct types are added
+                        first = images[0]
+                        main_image = secure_filename(first.filename) # The first image is set as main image
+                        first.save(os.path.join('static', 'images', main_image))  # First image saved to filesystem
+                        new_image = Img(img=main_image, main_image=True)  # Reference to the image is saved in database
                         db.session.add(new_image)
                         db.session.commit()
                         new_product.image_connection.append(new_image)
                         db.session.commit()
-                    for image in images[1:]: # All other images are added to the database, but not as main image
-                        if filecheck(image.filename):
+                        for image in images[1:]: # All other images are added to the database, but not as main image
                             image_name = secure_filename(image.filename)
                             image.save(os.path.join('static', 'images', image_name))
                             new_image = Img(img=image_name, main_image=False)
@@ -295,19 +309,19 @@ def upload():
                             db.session.commit()
                             new_product.image_connection.append(new_image)
                             db.session.commit()
-                return redirect(request.url)
-            else:
+                    return redirect(request.url)
+            else:  # If some of the fields are not filled
                 flash("All fields must be filled")
                 return render_template("newproduct.html")
-        else:
+        else:  # If the request is a get request
             return render_template("newproduct.html")
-    else:
+    else:  # If the user is not logged in, or does not have admin rights they are redirected to homepage
         return redirect(url_for('home_page'))
 
 
-def filecheck(file):
+def filecheck(file):  # Method that checks if files are of correct types
     allowed_types = {'jpg', 'jpeg', 'png'}
-    type = file.split('.')[-1].lower()
+    type = file.split('.')[-1].lower()  # This splits the filename on . to find the extension
     if type in allowed_types:
         return True
     else:
@@ -366,5 +380,5 @@ product2.order_connections.append(order_product2)
 order.product_connections.append(order_product2)
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', debug=False)
 
