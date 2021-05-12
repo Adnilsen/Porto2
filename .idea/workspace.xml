@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Tror grafana info lagres nå">
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/queries.active" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000000" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/datasource.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/datasource.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/docker-compose.yml" afterDir="false" />
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Nå skal prometheus data lagres selv om man avslutter server og sletter container">
       <change beforePath="$PROJECT_DIR$/api/grafana-storage/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/grafana-storage/grafana.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +222,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1620735874668</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="Nå skal prometheus data lagres selv om man avslutter server og sletter container">
+      <created>1620817749264</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1620817749265</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +258,8 @@
     <MESSAGE value="Fikset admin og profilside" />
     <MESSAGE value="Lagt til prometheus og grafana" />
     <MESSAGE value="Tror grafana info lagres nå" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tror grafana info lagres nå" />
+    <MESSAGE value="Nå skal prometheus data lagres selv om man avslutter server og sletter container" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nå skal prometheus data lagres selv om man avslutter server og sletter container" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620726454878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
