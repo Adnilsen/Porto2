@@ -47,7 +47,10 @@
 }
 
 .card img{
-    height: 80px;
+    height: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boxwidth{
@@ -57,12 +60,9 @@
     margin-left: 25px;
 }
 
+[id^="next-btn"], [id^="prev-btn"]{
+    visibility: hidden;
+}
 
-/*
-.card{
-    margin-left: 4%;
-    margin-right: 4%;
-    margin-bottom: 25px;
-    width: 25%;
-    float: left;
-}*/
+
+
