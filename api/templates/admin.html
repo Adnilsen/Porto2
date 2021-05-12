@@ -3,32 +3,23 @@
 {% block content %}
 <div class="users" style="margin: 1.5em">
     <h2>Registered customers</h2>
-    <table class="table align-middle">
-  <thead>
-    <tr>
-      <th scope="col">First name</th>
-      <th scope="col">Last name: </th>
-      <th scope="col">Email: </th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for user in users %}
-    <tr>
-      <td>{{ user.first_name }}</td>
-      <td>{{ user.last_name }}</td>
-      <td>{{ user.user_email }}</td>
-      <td>
-        <button onclick="location.href = '/orders/{{ user.user_id }}'" type="button" class="btn btn-danger btn-sm px-3">See orders
-        </button>
-      </td>
-    </tr>
-   {% endfor %}
-  </tbody>
-</table>
+    <table style="width:80%">
+        <tr>
+            <th>First name: </th>
+            <th>Last name: </th>
+            <th>Email:  </th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.user_email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
-
-<a class="btn btn-success" href="http://localhost:3000/d/_eX4mpl3/portofolio2?orgId=1&refresh=5s" target="_blank">See app info in Grafana</a>
-
+<form action="/upload">
+    <input type="submit" value="Add new product">
+</form>
 
 {% endblock %}
