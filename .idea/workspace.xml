@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Fikset så knapp for å få opp beskrivelse på et produkt funker">
       <change afterPath="$PROJECT_DIR$/api/static/js/products.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -11,46 +10,17 @@
       <change beforePath="$PROJECT_DIR$/api/static/images/logo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/images/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/static/js/shoppingcart.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/js/shoppingcart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
-=======
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/templates/vieworder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/myprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/orders.html" afterDir="false" />
->>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -61,6 +31,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -70,45 +41,32 @@
     </option>
   </component>
   <component name="ProjectId" id="1rhY3mVw3ywgDxlUe7AyazUNisX" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.3448276" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.pyOptions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
-    <configuration name="admin.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Porto2/api/templates/admin.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Porto2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,7 +92,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
-        <item itemvalue="JavaScript Debug.admin.html" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
@@ -147,11 +105,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
       <changelist id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Fikset så knapp for å få opp beskrivelse på et produkt funker" />
-=======
-      <changelist id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="" />
->>>>>>> main
       <created>1619429595016</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -164,7 +118,6 @@
       <workItem from="1619700684015" duration="7205000" />
       <workItem from="1619708371526" duration="5375000" />
       <workItem from="1620121550571" duration="1250000" />
-      <workItem from="1620291457717" duration="1896000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -229,28 +182,7 @@
       <option name="project" value="LOCAL" />
       <updated>1620122413061</updated>
     </task>
-    <task id="LOCAL−00010" summary="Fikset admin og profilside">
-      <created>1620204681123</created>
-      <option name="number" value="LOCAL−00010" />
-      <option name="presentableId" value="LOCAL−00010" />
-      <updated>1620204681123</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
-    <task id="LOCAL-00010" summary="Lagt til slideshow på produktbilder">
-      <created>1620130538694</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1620130538694</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Lagt til SSL nøkkel">
-      <created>1620207219936</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1620207219936</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,9 +193,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -279,164 +209,6 @@
     <MESSAGE value="Lagt til flere bilder" />
     <MESSAGE value="Fikk problemer med å hente siste" />
     <MESSAGE value="Fikset så knapp for å få opp beskrivelse på et produkt funker" />
-    <MESSAGE value="Lagt til slideshow på produktbilder" />
-    <MESSAGE value="Lagt til SSL nøkkel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lagt til SSL nøkkel" />
-    <MESSAGE value="Fikset admin og profilside" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fikset admin og profilside" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset så knapp for å få opp beskrivelse på et produkt funker" />
   </component>
-<<<<<<< HEAD
-=======
-  <component name="WindowStateProjectService">
-    <state x="2159" y="-475" key="#Template_Data_Languages" timestamp="1620213705779">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2159" y="-122" key="#Template_Data_Languages/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619710723055" />
-    <state x="2159" y="-475" key="#Template_Data_Languages/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620213705779" />
-    <state x="1719" y="-447" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620212739704">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1719" y="-447" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620212739704" />
-    <state x="2168" y="-542" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1620211590717">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2168" y="-542" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211590717" />
-    <state x="2068" y="-470" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1620211599303">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2068" y="-117" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701236252" />
-    <state x="2068" y="-470" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211599303" />
-    <state x="1850" y="-601" key="CommitChangelistDialog2" timestamp="1620207219573">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700723104" />
-    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.706@0.23.1280.706" timestamp="1620123662527" />
-    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.707@0.23.1280.707" timestamp="1620130538360" />
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525637249" />
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518889262" />
-    <state x="1850" y="-601" key="CommitChangelistDialog2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620207219573" />
-    <state x="1713" y="-424" key="FileChooserDialogImpl" timestamp="1620211933021">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701269976" />
-    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431196676" />
-    <state x="1713" y="-424" key="FileChooserDialogImpl/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211933021" />
-    <state width="1849" height="215" key="GridCell.Tab.0.bottom" timestamp="1620291605657">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339860" />
-    <state width="1688" height="79" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048078" />
-    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
-    <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="844" height="79" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177093" />
-    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.bottom/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812986" />
-    <state width="1880" height="421" key="GridCell.Tab.0.bottom/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220654" />
-    <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
-    <state width="1849" height="215" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605657" />
-    <state width="1849" height="215" key="GridCell.Tab.0.center" timestamp="1620291605656">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.center/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339854" />
-    <state width="1688" height="79" key="GridCell.Tab.0.center/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048077" />
-    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
-    <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="844" height="79" key="GridCell.Tab.0.center/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177091" />
-    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.center/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
-    <state width="1880" height="421" key="GridCell.Tab.0.center/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220650" />
-    <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776737" />
-    <state width="1849" height="215" key="GridCell.Tab.0.center/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605656" />
-    <state width="1849" height="215" key="GridCell.Tab.0.left" timestamp="1620291605655">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.left/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339853" />
-    <state width="1688" height="79" key="GridCell.Tab.0.left/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048077" />
-    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
-    <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="844" height="79" key="GridCell.Tab.0.left/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177090" />
-    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1620130820323" />
-    <state width="1880" height="225" key="GridCell.Tab.0.left/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812984" />
-    <state width="1880" height="421" key="GridCell.Tab.0.left/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220646" />
-    <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776736" />
-    <state width="1849" height="215" key="GridCell.Tab.0.left/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605655" />
-    <state width="1849" height="215" key="GridCell.Tab.0.right" timestamp="1620291605656">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.right/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339856" />
-    <state width="1688" height="79" key="GridCell.Tab.0.right/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048078" />
-    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
-    <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="844" height="79" key="GridCell.Tab.0.right/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177092" />
-    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.right/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
-    <state width="1880" height="421" key="GridCell.Tab.0.right/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220653" />
-    <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
-    <state width="1849" height="215" key="GridCell.Tab.0.right/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605656" />
-    <state width="219" height="457" key="HiddenNamespacesPopup" timestamp="1620136462535">
-      <screen x="1280" y="-601" width="1920" height="1057" />
-    </state>
-    <state width="219" height="457" key="HiddenNamespacesPopup/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620136462535" />
-    <state x="1329" y="-601" width="1743" height="586" key="MergeDialog" timestamp="1620291739011">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1415" y="-211" width="1743" height="586" key="MergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700888889" />
-    <state x="1329" y="-257" key="MergeDialog/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708512869" />
-    <state x="1329" y="-601" key="MergeDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291739011" />
-    <state x="1807" y="-495" width="921" height="554" key="MultipleFileMergeDialog" timestamp="1620291739111">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700896501" />
-    <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708515676" />
-    <state x="351" y="99" key="MultipleFileMergeDialog/0.23.1280.707@0.23.1280.707" timestamp="1619465060955" />
-    <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524236466" />
-    <state x="1807" y="-495" key="MultipleFileMergeDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291739111" />
-    <state x="2066" y="-401" key="RollbackChangesDialog" timestamp="1620291716209">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700180683" />
-    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524302298" />
-    <state x="2066" y="-401" key="RollbackChangesDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291716209" />
-    <state x="1361" y="-500" width="1346" height="837" key="SettingsEditor" timestamp="1620212037667">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701369313" />
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431368557" />
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524103973" />
-    <state x="1361" y="-500" width="1346" height="837" key="SettingsEditor/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620212037667" />
-    <state x="1840" y="-392" key="Vcs.Push.Dialog.v2" timestamp="1620207222288">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700411306" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.706@0.23.1280.706" timestamp="1620123757322" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.707@0.23.1280.707" timestamp="1620130540617" />
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525641045" />
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518894563" />
-    <state x="1840" y="-392" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620207222288" />
-    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1619701233395">
-      <screen x="1280" y="-257" width="1920" height="1057" />
-    </state>
-    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701233395" />
-    <state x="2507" y="-345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620716769294">
-      <screen x="1280" y="-601" width="1920" height="1057" />
-    </state>
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700728929" />
-    <state x="2507" y="-345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620716769294" />
-    <state x="423" y="300" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.707@0.23.1280.707" timestamp="1619465018070" />
-    <state x="1915" y="157" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.709/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619509231154" />
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524279306" />
-    <state x="1915" y="129" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619507532154" />
-    <state x="2013" y="-400" key="git4idea.branch.GitSmartOperationDialog" timestamp="1620291719329">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619621244580" />
-    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
-    <state x="2013" y="-400" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291719329" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620291514668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620213671633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-  </component>
->>>>>>> main
 </project>

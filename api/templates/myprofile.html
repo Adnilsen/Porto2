@@ -7,30 +7,20 @@
     <p>Last name: {{session['last_name']}}</p>
     <p>Email: {{session['email']}}</p>
     <h2>Previous orders</h2>
-    <table class="table align-middle">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Order ID: </th>
-      <th scope="col">Status: </th>
-      <th scope="col">Sum</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for order in orders %}
-    <tr>
-      <td>{{ order.order_date }}</td>
-      <td>{{ order.order_id }}</td>
-      <td>{{ order.order_status }}</td>
-      <td>{{ order.order_price }}</td>
-      <td>
-        <button type="button" class="btn btn-danger btn-sm px-3" onclick="location = '/order/{{ order.order_id }}/products'" >
-            View order
-        </button>
-      </td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+    <table style="width:80%">
+        <tr>
+            <th>Date: </th>
+            <th>Order ID: </th>
+            <th>Status: </th>
+            <th>Sum: </th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{order.order_date}}</td>
+            <td>{{order.order_id}}</td>
+            <td>{{order.order_status}}</td>
+            <td>{{order.order_price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

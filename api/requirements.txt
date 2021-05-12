@@ -8,14 +8,11 @@ Flask==1.1.2
 Flask-SQLAlchemy==2.5.1
 greenlet==1.0.0
 idna==2.10
-importlib-metadata==4.0.1
 itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
 pycparser==2.20
 requests==2.25.1
 SQLAlchemy==1.4.11
-typing-extensions==3.10.0.0
 urllib3==1.26.4
 Werkzeug==1.0.1
-zipp==3.4.1
