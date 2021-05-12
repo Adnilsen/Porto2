@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
 from prometheus_flask_exporter import PrometheusMetrics
 import os
+from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
@@ -17,8 +18,8 @@ metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
-    client_id='352148568912-aqc8n7jb36af5ca1m0pi77p9f1vdca21.apps.googleusercontent.com',
-    client_secret='3ylG_r5BdCaiZHmBiuz0wSbD',
+    client_id='960764726109-46bc02q0si7vjl6u40lhd1n37je8danv.apps.googleusercontent.com',
+    client_secret='NphejlgN9nWm_1stjTYNqGMd',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -27,12 +28,9 @@ oauth.register(
     client_kwargs={'scope': 'openid profile email'}
 
 )
+google_token = ""
 
 #Sqlalchemy database
-products = db.Table('products',
-                    db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')),
-                    db.Column('order_id', db.Integer, db.ForeignKey('order.order_id'))
-                 )
 
 class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
@@ -41,6 +39,7 @@ class User(db.Model):
     order_connection = db.relationship('Order', backref='user_order', lazy=True)
     user_type = db.Column(db.Boolean, unique=False, default=True)
     user_email = db.Column(db.String(100))
+    user_google_token = db.Column(db.String(200))
 
 class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
@@ -50,7 +49,8 @@ class Product(db.Model):
     product_color = db.Column(db.String(45))
     image_connection = db.relationship('Img', backref='order_image', lazy=True)
     product_price = db.Column(db.Integer)
-    order_connections = db.relationship('Order', secondary=products, backref='product_order', lazy=True)
+    order_connections = db.relationship('OrderProduct', backref='product_order', lazy=True)
+
 
 
 class Order(db.Model):
@@ -59,6 +59,7 @@ class Order(db.Model):
     order_price = db.Column(db.Integer)
     order_status = db.Column(db.Boolean, unique=False, default=True)
     order_date = db.Column(db.Date)
+    product_connections = db.relationship('OrderProduct', backref='order_product', lazy=True)
 
 class Img(db.Model):
     img_id = db.Column(db.Integer, primary_key=True)
@@ -66,8 +67,13 @@ class Img(db.Model):
     main_image = db.Column(db.Boolean, unique=False, default=True)
     product_connection = db.Column(db.Integer, db.ForeignKey('product.product_id'))
 
+class OrderProduct(db.Model):
+    connection_id = db.Column(db.Integer, primary_key=True)
+    order_id = db.Column(db.Integer, db.ForeignKey('order.order_id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
+    product_amount = db.Column(db.Integer)
 #API
-@app.route('/')
+@app.route('/') #Main page
 def products_page():
     user = session.get('user')
     img = Img.query.first()
@@ -77,6 +83,16 @@ def products_page():
     return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 #Google oAuth2 login
+def verify_login():
+    try:
+        user = dict(session).get('profile', None)
+        if user:
+            return True,user
+        else:
+            return False,{}
+    except Exception as e:
+        return False,{}
+
 @app.route('/login')
 def login():
     google = oauth.create_client('google')
@@ -87,8 +103,10 @@ def login():
 def authorize():
     google = oauth.create_client('google')
     token = google.authorize_access_token()
+    print("her")
     resp = google.get('userinfo')
     user_info = resp.json()
+    print(user_info)
 
     #Control that the user is not already registered!
     registered = False
@@ -97,10 +115,11 @@ def authorize():
             registered = True
             break
     if not registered:
-        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'])
+        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'], user_google_token=token)
         db.session.add(user_input)
         db.session.commit()
     # do something with the token and profile
+    session['profile'] = user_info
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
@@ -111,12 +130,15 @@ def authorize():
     get_user = User.query.filter_by(user_email=user_email).first()
     session['user_id'] = get_user.user_id
     session['user_type'] = get_user.user_type
+
     return redirect('/')
+
 
 @app.route('/logout')
 def logout():
     for key in list(session.keys()):
         session.pop(key)
+    session.clear()
     return redirect('/')
 
 
@@ -132,13 +154,71 @@ def user_page():
     return {"users": output}
 
 
-@app.route('/orders/<user_id>/')
+@app.route('/orders/<user_id>/pending')
 def get_orders(user_id):
-    user = User.query.filter_by(user_id=user_id)
-    email = db.session.query(User.user_email).filter_by(user_id=user_id)
-    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
-    return render_template('orders.html', orders=orders, user=user)
 
+    orders = Order.query.filter_by(order_status=True).all()
+    output = []
+
+    for order in orders:
+        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
+                      'order_status':order.order_status, 'order_date':order.order_date}
+        output.append(order_data)
+
+    return {"orders": output}
+
+@app.route('/order')
+def create_order():
+    newOrder = Order(order_price=0, order_status=True, order_date=datetime.datetime.now().date(), user_connection=session['email'])
+    db.session.add(newOrder)
+    db.session.commit()
+    session['current_order'] = newOrder.order_id
+    return 'true'
+
+@app.route('/order/current/<product_id>')
+def add_product_order(product_id):
+    order_product = OrderProduct(product_amount=1)
+    choosen_product = Product.query.filter_by(product_id=product_id).first()
+    currentOrder = Order.query.filter_by(order_id=session['current_order']).first()
+    choosen_product.order_connections.append(order_product)
+    currentOrder.product_connections.append(order_product)
+    db.session.commit()
+    if controll_order(currentOrder, choosen_product) < 3:
+        print(f'---A {choosen_product.product_name} was added to order with id {currentOrder.order_id} ---')
+    return 'true'
+
+def controll_order(currentOrder, choosen_product): #Controls the products in the order, delete duplicates and sum up amount
+    productOrder = OrderProduct.query.filter_by(order_id = currentOrder.order_id, product_id= choosen_product.product_id)
+    counter = 1
+    totalProducts = 0
+    for order in productOrder:
+        if counter > 1: #If there are two or more of the filtered order it will sum up the amounts and delete duplicates in db
+            totalProducts += order.product_amount
+            db.session.delete(order)
+            db.session.commit()
+            print(f"---Order {order.order_id} updated product count for product {order.product_id}({choosen_product.product_name}) to: {totalProducts}---")
+        else:
+            totalProducts += order.product_amount
+        counter += 1
+    productOrder = OrderProduct.query.filter_by(order_id=currentOrder.order_id, product_id=choosen_product.product_id).first()
+    productOrder.product_amount = totalProducts
+    db.session.commit()
+    return counter
+
+@app.route('/order/current/<product_id>/<product_amount>')
+def update_order_product_count(product_id, product_amount):
+    order_product_connection = OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).first()
+    order_product_connection.product_amount = product_amount
+    db.session.commit()
+    return 'true'
+
+@app.route('/order/current/delete/<product_id>') #Delete product from order
+def delete_product_from_order(product_id):
+    print(session['current_order'])
+    print(product_id)
+    OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).delete()
+    db.session.commit()
+    return 'true'
 
 @app.route('/profile')
 def myprofile():
@@ -162,6 +242,19 @@ def getOrder(order_id):
     order1 = Order.query.first()
     return order1
 
+@app.route('/order/products') #Get the products in the order
+def getOrderProduct():
+    output = []
+    for order in OrderProduct.query.filter_by(order_id=session['current_order']).all():
+        product = Product.query.filter_by(product_id=order.product_id).first()
+        image = Img.query.filter_by(product_connection=order.product_id).first()
+
+        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        output.append(product_data)
+
+    return {"products": output}
+
+
 @app.route('/order/<order_id>/products') #Get the products in the order
 def getOrderProducts(order_id):
     order1 = Order.query.filter_by(order_id=order_id).first()
@@ -173,6 +266,7 @@ def getOrderProducts(order_id):
         output.append(product_data)
 
     return render_template("vieworder.html", products=output, order=order_id)
+
 
 @app.route('/admin')
 def admin():
@@ -244,7 +338,7 @@ db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
-user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)
@@ -280,10 +374,14 @@ product.image_connection.append(img)
 product2.image_connection.append(img2)
 product3.image_connection.append(img3)
 product4.image_connection.append(img4)
-product.order_connections.append(order)
-product.order_connections.append(order2)
-product2.order_connections.append(order)
-user.order_connection.append(order)
+
+order_product = OrderProduct(product_amount=9)
+product.order_connections.append(order_product)
+order.product_connections.append(order_product)
+db.session.add(order_product)
+order_product2 = OrderProduct(product_amount=2)
+product2.order_connections.append(order_product2)
+order.product_connections.append(order_product2)
 db.session.commit()
 
 app.run(host='0.0.0.0', debug=False)
