@@ -14,12 +14,14 @@ db = SQLAlchemy(app)
 oauth = OAuth(app)
 metrics = PrometheusMetrics(app, path='/metrics')
 
+
 metrics.info("app_info", "Info about the app")
+
 
 oauth.register(
     name='google',
-    client_id='960764726109-46bc02q0si7vjl6u40lhd1n37je8danv.apps.googleusercontent.com',
-    client_secret='NphejlgN9nWm_1stjTYNqGMd',
+    client_id='352148568912-aqc8n7jb36af5ca1m0pi77p9f1vdca21.apps.googleusercontent.com',
+    client_secret='3ylG_r5BdCaiZHmBiuz0wSbD',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -154,18 +156,12 @@ def user_page():
     return {"users": output}
 
 
-@app.route('/orders/<user_id>/pending')
+@app.route('/orders/<user_id>/')
 def get_orders(user_id):
-
-    orders = Order.query.filter_by(order_status=True).all()
-    output = []
-
-    for order in orders:
-        order_data = {'order_id': order.order_id, 'user_connection': order.user_connection, 'order_price': order.order_price,
-                      'order_status':order.order_status, 'order_date':order.order_date}
-        output.append(order_data)
-
-    return {"orders": output}
+    user = User.query.filter_by(user_id=user_id)
+    email = db.session.query(User.user_email).filter_by(user_id=user_id)
+    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
+    return render_template('orders.html', orders=orders, user=user)
 
 @app.route('/order')
 def create_order():
@@ -385,3 +381,4 @@ order.product_connections.append(order_product2)
 db.session.commit()
 
 app.run(host='0.0.0.0', debug=False)
+
