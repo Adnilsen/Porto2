@@ -47,7 +47,7 @@
                                     >
                                         More info
                                     </a>
-                                    <a class="btn btn-success">Add to cart</a>
+                                    <a class="btn btn-success" onclick="addToCart()">Add to cart</a>
                                     <!-- Collapsed content -->
                                     <div class="row">
                                             <div class="collapse multi-collapse mt-3" id="multiCollapseExample{{ product.product_id }}">
@@ -63,12 +63,5 @@
         </main>
         <div id="test"> </div>
     {% endif %}
-    <script type="text/javascript">
-        var bilde = False;
-        var id = 0;
-        function increaseID(){
-            return 1;
-        }
-
-    </script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/products.js') }}"></script>
 {% endblock %}-->
