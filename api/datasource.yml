@@ -1,9 +1,9 @@
 # config file version
 apiVersion: 1
 # list of datasources that should be deleted from the database
-deleteDatasources:
-  - name: Prometheus
-    orgId: 1
+#deleteDatasources:
+  #- name: Prometheus
+   # orgId: 1
 # list of datasources to insert/update depending
 # whats available in the database
 datasources:
@@ -16,7 +16,7 @@ datasources:
   # <int> org id. will default to orgId 1 if not specified
   orgId: 1
   # <string> url
-  url: http://example-prometheus:9090
+  url: http://localhost:9090
   # <string> database password, if used
   password:
   # <string> database user, if used
