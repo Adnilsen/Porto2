@@ -65,9 +65,14 @@
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
-          <li><a class="dropdown-item" href="/profile">My profile</a></li>
-          <li><a class="dropdown-item" href="/profile">Orders</a></li>
+            {% if session['user_type'] == true %}
+          <li><a class="dropdown-item" href="/admin">View customers</a></li>
+          <li><a class="dropdown-item" href="/upload">Upload product</a></li>
           <li><a class="dropdown-item" href="/logout">Log out</a></li>
+             {% else %}
+                <li><a class="dropdown-item" href="/profile">My profile</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                {% endif %}
         </ul>
       </li>
 
@@ -77,7 +82,7 @@
           href="/shoppingcart"
         >
           <i class="fas fa-shopping-cart fa-lg"></i>
-          <span class="badge rounded-pill badge-notification bg-danger" id="shopping_counter">12</span>
+          <span class="badge rounded-pill badge-notification bg-danger">12</span>
         </a>
       </li>
     </ul>
@@ -92,8 +97,12 @@
   </div>
 </nav>
 <!-- Navbar -->
+<button onclick="showAlert()"></button>
 <div class="alert alert-warning alert-dismissible fade show d-none content" role="alert" id = "alert">
-  <strong>A product was added to the order</strong> More information in shopping cart.
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
     {% block content %}
     {% endblock %}

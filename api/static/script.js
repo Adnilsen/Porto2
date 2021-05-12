@@ -6,10 +6,6 @@ function showAlert(){
     alertElement.classList.add("d-none")
   },8000)
 }
-function update_cart_counter(){
-    var counter = document.getElementById("shopping_counter")
-    counter.innerHTML = 2
-}
 
 
 
