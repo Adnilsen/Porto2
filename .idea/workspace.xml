@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/templates/vieworder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config.monitoring" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/datasource.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prometheus.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/script.js" afterDir="false" />
@@ -11,8 +13,9 @@
       <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/myprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/api/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/static/images/logo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +52,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -122,7 +126,7 @@
         <item itemvalue="Python.app" />
         <item itemvalue="JavaScript Debug.admin.html" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.app" />
+        <item itemvalue="JavaScript Debug.admin.html" />
         <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
@@ -267,154 +271,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fikset admin og profilside" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2159" y="-475" key="#Template_Data_Languages" timestamp="1620213705779">
+    <state x="1970" y="-436" key="VCS.ChangeListViewerDialog" timestamp="1620727627869">
       <screen x="1280" y="-601" width="1920" height="986" />
     </state>
-    <state x="2159" y="-122" key="#Template_Data_Languages/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619710723055" />
-    <state x="2159" y="-475" key="#Template_Data_Languages/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620213705779" />
-    <state x="1719" y="-447" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620212739704">
+    <state x="1970" y="-436" key="VCS.ChangeListViewerDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727627869" />
+    <state x="2044" y="-236" key="VCS.ChangelistChooser" timestamp="1620727626513">
       <screen x="1280" y="-601" width="1920" height="986" />
     </state>
-    <state x="1719" y="-447" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620212739704" />
-    <state x="2168" y="-542" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1620211590717">
+    <state x="2044" y="-236" key="VCS.ChangelistChooser/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727626513" />
+    <state x="1995" y="-235" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620727631754">
       <screen x="1280" y="-601" width="1920" height="986" />
     </state>
-    <state x="2168" y="-542" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211590717" />
-    <state x="2068" y="-470" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1620211599303">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2068" y="-117" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701236252" />
-    <state x="2068" y="-470" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211599303" />
-    <state x="1850" y="-601" key="CommitChangelistDialog2" timestamp="1620207219573">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700723104" />
-    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.706@0.23.1280.706" timestamp="1620123662527" />
-    <state x="380" y="23" key="CommitChangelistDialog2/0.23.1280.707@0.23.1280.707" timestamp="1620130538360" />
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525637249" />
-    <state x="1850" y="-158" key="CommitChangelistDialog2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518889262" />
-    <state x="1850" y="-601" key="CommitChangelistDialog2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620207219573" />
-    <state x="1713" y="-424" key="FileChooserDialogImpl" timestamp="1620211933021">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701269976" />
-    <state x="1713" y="-67" key="FileChooserDialogImpl/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431196676" />
-    <state x="1713" y="-424" key="FileChooserDialogImpl/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620211933021" />
-    <state width="1849" height="215" key="GridCell.Tab.0.bottom" timestamp="1620291605657">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339860" />
-    <state width="1688" height="79" key="GridCell.Tab.0.bottom/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048078" />
-    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
-    <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="844" height="79" key="GridCell.Tab.0.bottom/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177093" />
-    <state width="619" height="79" key="GridCell.Tab.0.bottom/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.bottom/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812986" />
-    <state width="1880" height="421" key="GridCell.Tab.0.bottom/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220654" />
-    <state width="1837" height="139" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
-    <state width="1849" height="215" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605657" />
-    <state width="1849" height="215" key="GridCell.Tab.0.center" timestamp="1620291605656">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.center/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339854" />
-    <state width="1688" height="79" key="GridCell.Tab.0.center/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048077" />
-    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
-    <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="844" height="79" key="GridCell.Tab.0.center/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177091" />
-    <state width="619" height="79" key="GridCell.Tab.0.center/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.center/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
-    <state width="1880" height="421" key="GridCell.Tab.0.center/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220650" />
-    <state width="1837" height="139" key="GridCell.Tab.0.center/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776737" />
-    <state width="1849" height="215" key="GridCell.Tab.0.center/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605656" />
-    <state width="1849" height="215" key="GridCell.Tab.0.left" timestamp="1620291605655">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.left/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339853" />
-    <state width="1688" height="79" key="GridCell.Tab.0.left/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048077" />
-    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.706@0.23.1280.706" timestamp="1620126241602" />
-    <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056709" />
-    <state width="844" height="79" key="GridCell.Tab.0.left/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177090" />
-    <state width="619" height="79" key="GridCell.Tab.0.left/0.23.1280.707@0.23.1280.707" timestamp="1620130820323" />
-    <state width="1880" height="225" key="GridCell.Tab.0.left/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812984" />
-    <state width="1880" height="421" key="GridCell.Tab.0.left/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220646" />
-    <state width="1837" height="139" key="GridCell.Tab.0.left/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776736" />
-    <state width="1849" height="215" key="GridCell.Tab.0.left/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605655" />
-    <state width="1849" height="215" key="GridCell.Tab.0.right" timestamp="1620291605656">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state width="1769" height="225" key="GridCell.Tab.0.right/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619622339856" />
-    <state width="1688" height="79" key="GridCell.Tab.0.right/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620139048078" />
-    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.706@0.23.1280.706" timestamp="1620126241603" />
-    <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619712056710" />
-    <state width="844" height="79" key="GridCell.Tab.0.right/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620138177092" />
-    <state width="619" height="79" key="GridCell.Tab.0.right/0.23.1280.707@0.23.1280.707" timestamp="1620130820324" />
-    <state width="1880" height="225" key="GridCell.Tab.0.right/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619534812985" />
-    <state width="1880" height="421" key="GridCell.Tab.0.right/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619520220653" />
-    <state width="1837" height="139" key="GridCell.Tab.0.right/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619778776738" />
-    <state width="1849" height="215" key="GridCell.Tab.0.right/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291605656" />
-    <state width="219" height="457" key="HiddenNamespacesPopup" timestamp="1620136462535">
-      <screen x="1280" y="-601" width="1920" height="1057" />
-    </state>
-    <state width="219" height="457" key="HiddenNamespacesPopup/0.23.1280.707/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620136462535" />
-    <state x="1329" y="-601" width="1743" height="586" key="MergeDialog" timestamp="1620291739011">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1415" y="-211" width="1743" height="586" key="MergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700888889" />
-    <state x="1329" y="-257" key="MergeDialog/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708512869" />
-    <state x="1329" y="-601" key="MergeDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291739011" />
-    <state x="1807" y="-495" width="921" height="554" key="MultipleFileMergeDialog" timestamp="1620291739111">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1807" y="-143" width="921" height="554" key="MultipleFileMergeDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700896501" />
-    <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619708515676" />
-    <state x="351" y="99" key="MultipleFileMergeDialog/0.23.1280.707@0.23.1280.707" timestamp="1619465060955" />
-    <state x="1807" y="-143" key="MultipleFileMergeDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524236466" />
-    <state x="1807" y="-495" key="MultipleFileMergeDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291739111" />
-    <state x="2066" y="-401" key="RollbackChangesDialog" timestamp="1620291716209">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700180683" />
-    <state x="2066" y="-43" key="RollbackChangesDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524302298" />
-    <state x="2066" y="-401" key="RollbackChangesDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291716209" />
-    <state x="1361" y="-500" width="1346" height="837" key="SettingsEditor" timestamp="1620212037667">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701369313" />
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.707/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619431368557" />
-    <state x="1361" y="-149" key="SettingsEditor/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524103973" />
-    <state x="1361" y="-500" width="1346" height="837" key="SettingsEditor/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620212037667" />
-    <state x="1840" y="-392" key="Vcs.Push.Dialog.v2" timestamp="1620207222288">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700411306" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.706@0.23.1280.706" timestamp="1620123757322" />
-    <state x="373" y="173" key="Vcs.Push.Dialog.v2/0.23.1280.707@0.23.1280.707" timestamp="1620130540617" />
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619525641045" />
-    <state x="1839" y="-32" key="Vcs.Push.Dialog.v2/0.23.1280.714/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619518894563" />
-    <state x="1840" y="-392" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620207222288" />
-    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1619701233395">
-      <screen x="1280" y="-257" width="1920" height="1057" />
-    </state>
-    <state x="1659" y="-25" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619701233395" />
-    <state x="2507" y="-345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620716769294">
-      <screen x="1280" y="-601" width="1920" height="1057" />
-    </state>
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619700728929" />
-    <state x="2507" y="-345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.706/1280.-601.1920.1057@1280.-601.1920.1057" timestamp="1620716769294" />
-    <state x="423" y="300" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.707@0.23.1280.707" timestamp="1619465018070" />
-    <state x="1915" y="157" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.709/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619509231154" />
-    <state x="2507" y="-1" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524279306" />
-    <state x="1915" y="129" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777/1280.-257.1920.986@1280.-257.1920.986" timestamp="1619507532154" />
-    <state x="2013" y="-400" key="git4idea.branch.GitSmartOperationDialog" timestamp="1620291719329">
-      <screen x="1280" y="-601" width="1920" height="986" />
-    </state>
-    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.706/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619621244580" />
-    <state x="2013" y="-41" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.712/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1619524308825" />
-    <state x="2013" y="-400" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620291719329" />
+    <state x="1995" y="-235" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777/1280.-601.1920.986@1280.-601.1920.986" timestamp="1620727631754" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620291514668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620213671633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620726454878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
