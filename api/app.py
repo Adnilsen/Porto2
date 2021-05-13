@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
-from prometheus_flask_exporter import PrometheusMetrics
+#from prometheus_flask_exporter import PrometheusMetrics
 import os
 from datetime import timedelta
 
@@ -12,9 +12,9 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
-metrics = PrometheusMetrics(app, path='/metrics')
+#metrics = PrometheusMetrics(app, path='/metrics')
 
-metrics.info("app_info", "Info about the app")
+#metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
@@ -73,7 +73,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-@app.before_request
+'''@app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
     if not request.is_secure:
@@ -91,6 +91,7 @@ def before_request():
             redirectUrl = 'https://localhost:5000'
         code = 301
         return redirect(redirectUrl, code=code)
+        '''
 
 @app.route('/') #Main page
 def products_page():
@@ -399,10 +400,6 @@ db.session.add(order_product)
 order_product2 = OrderProduct(product_amount=2)
 product2.order_connections.append(order_product2)
 order.product_connections.append(order_product2)
-product.order_connections.append(order)
-product.order_connections.append(order2)
-product2.order_connections.append(order)
-user.order_connection.append(order)
 
 product10 = Product(product_name='Football', product_description='Football', product_long_description='Nice and cheap football for play and practice', product_price=100)
 db.session.add(product10)
@@ -487,4 +484,4 @@ product60.image_connection.append(img603)
 
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True, ssl_context='adhoc')
+app.run(host='0.0.0.0', debug=True)

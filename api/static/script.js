@@ -23,6 +23,11 @@ function showAlert(){
   },8000)
 }
 function update_cart_counter(){
+     fetch("/order/count")
+            .then(response => response.json())
+            .then(data => {
+                console.log
+            })
     var counter = document.getElementById("shopping_counter")
     counter.innerHTML = 2
 }
