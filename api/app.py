@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
-from prometheus_flask_exporter import PrometheusMetrics
+#from prometheus_flask_exporter import PrometheusMetrics
 import os
 from datetime import timedelta
 
@@ -12,11 +12,9 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
-metrics = PrometheusMetrics(app, path='/metrics')
+#metrics = PrometheusMetrics(app, path='/metrics')
 
-
-metrics.info("app_info", "Info about the app")
-
+#metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
@@ -75,6 +73,26 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
+'''@app.before_request
+def before_request():
+    # If the request is secure it should already be https, so no need to redirect
+    if not request.is_secure:
+        currentUrl = request.url
+        if currentUrl.startswith('http://'):
+            redirectUrl = currentUrl.replace('http://', 'https://', 1)
+        elif currentUrl.startswith('localhost'):
+            redirectUrl = currentUrl.replace('localhost', 'https://localhost', 1)
+        elif currentUrl.startswith('0.0.0.0'):
+            redirectUrl = currentUrl.replace('0.0.0.0', 'https://0.0.0.0', 1)
+        elif currentUrl.startswith('127.0.0.1'):
+            redirectUrl = currentUrl.replace('127.0.0.1', 'https://127.0.0.1', 1)
+        else:
+            # I do not now when this may happen, just for safety
+            redirectUrl = 'https://localhost:5000'
+        code = 301
+        return redirect(redirectUrl, code=code)
+        '''
+
 @app.route('/') #Main page
 def products_page():
     user = session.get('user')
@@ -382,7 +400,88 @@ db.session.add(order_product)
 order_product2 = OrderProduct(product_amount=2)
 product2.order_connections.append(order_product2)
 order.product_connections.append(order_product2)
+
+product10 = Product(product_name='Football', product_description='Football', product_long_description='Nice and cheap football for play and practice', product_price=100)
+db.session.add(product10)
+
+img101 = Img(img=secure_filename("football1.jpg"), main_image=True)
+db.session.add(img101)
+img102 = Img(img=secure_filename("football2.jpg"), main_image=False)
+db.session.add(img102)
+
+product10.image_connection.append(img101)
+product10.image_connection.append(img102)
+
+product20 = Product(product_name='Boxing gloves', product_description='Starter boxing gloves', product_long_description='Sporty lightweight boxing gloves for beginners, perfect for junior and up', product_price=250)
+db.session.add(product20)
+
+img201 = Img(img=secure_filename("boxing1.jpg"), main_image=True)
+db.session.add(img201)
+img202 = Img(img=secure_filename("boxing2.jpg"), main_image=False)
+db.session.add(img202)
+img203 = Img(img=secure_filename("boxing3.jpg"), main_image=False)
+db.session.add(img203)
+img204 = Img(img=secure_filename("boxing4.jpg"), main_image=False)
+db.session.add(img204)
+
+product20.image_connection.append(img201)
+product20.image_connection.append(img202)
+product20.image_connection.append(img203)
+product20.image_connection.append(img204)
+
+product30 = Product(product_name='Yoga mat', product_description='Colorful yoga mat', product_long_description='Lightweight, non slip mat for yoga. Can also be used for exercise', product_price=120)
+db.session.add(product30)
+
+img301 = Img(img=secure_filename("yogamat1.jpg"), main_image=True)
+db.session.add(img301)
+img302 = Img(img=secure_filename("yogamat2.jpg"), main_image=False)
+db.session.add(img302)
+img303 = Img(img=secure_filename("yogamat3.jpg"), main_image=False)
+db.session.add(img303)
+
+product30.image_connection.append(img301)
+product30.image_connection.append(img302)
+product30.image_connection.append(img303)
+
+product40 = Product(product_name='Kettlebell', product_description='12 kg kettlebell', product_long_description='12 kg kettlebell for exercise. Perfect for strength workout, can be used for multiple exercices', product_price=200)
+db.session.add(product40)
+
+img401 = Img(img=secure_filename("kettlebell1.jpg"), main_image=True)
+db.session.add(img401)
+img402 = Img(img=secure_filename("kettlebell2.jpg"), main_image=False)
+db.session.add(img402)
+img403 = Img(img=secure_filename("kettlebell3.jpg"), main_image=False)
+db.session.add(img403)
+
+product40.image_connection.append(img401)
+product40.image_connection.append(img402)
+product40.image_connection.append(img403)
+
+product50 = Product(product_name='Sunglasses', product_description='Stylish sunglasses', product_long_description='Stylish sunglasses with full UV protection', product_price=100)
+db.session.add(product50)
+
+img501 = Img(img=secure_filename("sunglass1.jpg"), main_image=True)
+db.session.add(img501)
+img502 = Img(img=secure_filename("sunglass2.jpg"), main_image=False)
+db.session.add(img502)
+
+product50.image_connection.append(img501)
+product50.image_connection.append(img502)
+
+product60 = Product(product_name='World Cup football', product_description='Original World Cup ball', product_long_description='Original professional world cup football. Perfect for matches, games and training.', product_price=1000)
+db.session.add(product60)
+
+img601 = Img(img=secure_filename("wcball1.jpg"), main_image=True)
+db.session.add(img601)
+img602 = Img(img=secure_filename("wcball2.jpg"), main_image=False)
+db.session.add(img602)
+img603 = Img(img=secure_filename("wcball3.jpg"), main_image=False)
+db.session.add(img603)
+
+product60.image_connection.append(img601)
+product60.image_connection.append(img602)
+product60.image_connection.append(img603)
+
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=False)
-
+app.run(host='0.0.0.0', debug=True)
