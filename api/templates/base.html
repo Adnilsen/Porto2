@@ -66,7 +66,7 @@
           aria-labelledby="navbarDropdownMenuLink"
         >
             {% if session['user_type'] == true %}
-          <li><a class="dropdown-item" href="/admin">View customers</a></li>
+          <li><a class="dropdown-item" href="/admin">Admin</a></li>
           <li><a class="dropdown-item" href="/upload">Upload product</a></li>
           <li><a class="dropdown-item" href="/logout">Log out</a></li>
              {% else %}
@@ -82,7 +82,7 @@
           href="/shoppingcart"
         >
           <i class="fas fa-shopping-cart fa-lg"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">12</span>
+          <span class="badge rounded-pill badge-notification bg-danger" id="shopping_counter">12</span>
         </a>
       </li>
     </ul>
@@ -97,12 +97,8 @@
   </div>
 </nav>
 <!-- Navbar -->
-<button onclick="showAlert()"></button>
 <div class="alert alert-warning alert-dismissible fade show d-none content" role="alert" id = "alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <strong>That worked</strong> A product was added to the cart.
 </div>
     {% block content %}
     {% endblock %}
@@ -113,7 +109,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 >
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>
