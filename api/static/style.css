@@ -60,6 +60,10 @@
     margin-left: 25px;
 }
 
+.btn-success{
+    margin-top: 10px;
+}
+
 [id^="next-btn"], [id^="prev-btn"]{
     visibility: hidden;
 }
