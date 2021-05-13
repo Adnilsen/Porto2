@@ -253,12 +253,13 @@ def getOrderProduct():
 
 @app.route('/order/<order_id>/products') #Get the products in the order
 def getOrderProducts(order_id):
-    order1 = Order.query.filter_by(order_id=order_id).first()
-    orderID = order1.order_id
     output = []
 
-    for product in order1.product_order:
-        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price}
+    for order in OrderProduct.query.filter_by(order_id=order_id).all():
+        product = Product.query.filter_by(product_id=order.product_id).first()
+        image = Img.query.filter_by(product_connection=order.product_id).first()
+
+        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
         output.append(product_data)
 
     return render_template("vieworder.html", products=output, order=order_id)
@@ -266,8 +267,11 @@ def getOrderProducts(order_id):
 
 @app.route('/admin')
 def admin():
-    users = User.query.order_by(User.last_name)
-    return render_template('admin.html', users=users)
+    if 'user_type' in session and session['user_type'] is True:
+        users = User.query.order_by(User.last_name)
+        return render_template('admin.html', users=users)
+    else:
+        return redirect(url_for('products_page'))
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
