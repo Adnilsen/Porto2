@@ -1,38 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk">
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKC51HXYS1F9SF6Y670BA/chunks/000001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKC51HXYS1F9SF6Y670BA/index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKC51HXYS1F9SF6Y670BA/meta.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKC51HXYS1F9SF6Y670BA/tombstones" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKCDE6SAD8BJD2SSD1WM6/chunks/000001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKCDE6SAD8BJD2SSD1WM6/index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKCDE6SAD8BJD2SSD1WM6/meta.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5JCKCDE6SAD8BJD2SSD1WM6/tombstones" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000008" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000009" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000011" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000012" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000013" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000010/00000000" afterDir="false" />
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000014" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000015" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000012/00000000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/grafana-storage/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/grafana-storage/grafana.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000002" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000003" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000004" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000005" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000004" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000005" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000006" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000007" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000008" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000009" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000003/00000000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/vieworder.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/vieworder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000011" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000012" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000010/00000000" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,16 +28,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="database-and-api" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/api/datasource.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/config.monitoring" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/prometheus.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/api/datasource.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/admin.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/products.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/base.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
