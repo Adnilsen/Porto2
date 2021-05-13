@@ -484,4 +484,4 @@ product60.image_connection.append(img603)
 
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
