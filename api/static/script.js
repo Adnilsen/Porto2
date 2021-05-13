@@ -7,7 +7,7 @@ function myFunction(productID) {
     var products = document.getElementsByClassName('card');
     for(j=0; j<products.length; j++){
 
-        if(j!==productID){
+        if(j+1!==productID){
             products[j].getElementsByClassName('multi-collapse')[0].classList.remove('show');
             var productImages = products[j].getElementsByTagName('img');
             for(k=0; k<productImages.length; k++){
