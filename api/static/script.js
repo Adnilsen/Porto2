@@ -4,15 +4,24 @@ function myFunction(productID) {
     //var cardImage = document.getElementById(`image${productID}`);
     /*var cardImage = document.getElementsByClassName("image" + productID);*/
     var cardImage = document.getElementById(`product${productID}`).getElementsByTagName('img');
-    if(x.style.visibility==="visible"){
+    if(cardImage[0].height === 170){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";
-        cardImage.style.height = '120px';
-
+        for(i = 0; i<cardImage.length; i++){
+            cardImage[i].style.height = '120px';
+        }
     }else{
-        x.style.visibility = "visible";
-        y.style.visibility = "visible";
-        cardImage.style.height = '170px';
+        if(cardImage.length===1){
+            x.style.visibility = "hidden";
+            y.style.visibility = "hidden";
+            cardImage[0].style.height = '170px';
+        }else {
+            x.style.visibility = "visible";
+            y.style.visibility = "visible";
+            for (i = 0; i < cardImage.length; i++) {
+                cardImage[i].style.height = '170px';
+            }
+        }
     }
 }
 function showAlert(){

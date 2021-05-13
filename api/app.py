@@ -353,7 +353,7 @@ def filecheck(file):  # Method that checks if files are of correct types
 #Create db with content
 db.drop_all()
 db.create_all()
-user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
+user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')

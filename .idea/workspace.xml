@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk">
+    <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0559.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0560.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0563.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0564.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/static/images/Selvportrett.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/products.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +144,7 @@
       <workItem from="1619700684015" duration="7205000" />
       <workItem from="1619708371526" duration="5375000" />
       <workItem from="1620121550571" duration="1250000" />
-      <workItem from="1620900318439" duration="1855000" />
+      <workItem from="1620900318439" duration="4383000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -242,7 +245,14 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1620828062063</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fikset sånn at slideshow funker igjen da det ikke funket etter merge. Prøver å fikse endring av størrelse på bildet ved å trykke på knapp">
+      <created>1620902616318</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620902616318</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,39 +312,48 @@
     <MESSAGE value="Tror grafana info lagres nå" />
     <MESSAGE value="Nå skal prometheus data lagres selv om man avslutter server og sletter container" />
     <MESSAGE value="Forhåpentligvis fikset alt kuk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forhåpentligvis fikset alt kuk" />
+    <MESSAGE value="Fikset sånn at slideshow funker igjen da det ikke funket etter merge. Prøver å fikse endring av størrelse på bildet ved å trykke på knapp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset sånn at slideshow funker igjen da det ikke funket etter merge. Prøver å fikse endring av størrelse på bildet ved å trykke på knapp" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1851" y="-320" key="CommitChangelistDialog2" timestamp="1620902615545">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state x="1851" y="-320" key="CommitChangelistDialog2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902615545" />
     <state x="1417" y="-343" width="1900" height="786" key="DiffContextDialog" timestamp="1620902478426">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
     <state x="1417" y="-343" width="1900" height="786" key="DiffContextDialog/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902478426" />
-    <state width="1878" height="162" key="GridCell.Tab.0.bottom" timestamp="1620902469285">
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom" timestamp="1620903653611">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902469285" />
-    <state width="1878" height="162" key="GridCell.Tab.0.center" timestamp="1620902469283">
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653611" />
+    <state width="1878" height="162" key="GridCell.Tab.0.center" timestamp="1620903653608">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902469283" />
-    <state width="1878" height="162" key="GridCell.Tab.0.left" timestamp="1620902469282">
+    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653608" />
+    <state width="1878" height="162" key="GridCell.Tab.0.left" timestamp="1620903653606">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902469282" />
-    <state width="1878" height="162" key="GridCell.Tab.0.right" timestamp="1620902469284">
+    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653606" />
+    <state width="1878" height="162" key="GridCell.Tab.0.right" timestamp="1620903653610">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902469284" />
-    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2" timestamp="1620900369976">
+    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653610" />
+    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2" timestamp="1620902626625">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620900369976" />
+    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902626625" />
+    <state x="1449" y="-267" width="1631" height="776" key="dock-window-1" timestamp="1620904568111">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state x="1449" y="-267" width="1631" height="776" key="dock-window-1/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620904568111" />
     <state x="2028" y="-99" key="git4idea.history.wholeTree.VcsStructureChooser" timestamp="1620902405699">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
     <state x="2028" y="-99" key="git4idea.history.wholeTree.VcsStructureChooser/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902405699" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620902469256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620903653560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
