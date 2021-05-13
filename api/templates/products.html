@@ -22,7 +22,6 @@
                                                             <img src="
                                                                     {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% else %}
@@ -30,7 +29,6 @@
                                                             <img src="
                                                             {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% endif %}
@@ -69,6 +67,7 @@
                                             role="button"
                                             aria-expanded="false"
                                             aria-controls="multiCollapseExample{{ product.product_id }}"
+                                            onclick="myFunction({{product.product_id}})"
                                     >
                                         More info
                                     </a>

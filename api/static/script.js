@@ -1,8 +1,9 @@
 function myFunction(productID) {
     var x = document.getElementById(`prev-btn${productID}`);
     var y = document.getElementById(`next-btn${productID}`);
-    var cardImage = document.getElementById(`image${productID}`);
+    //var cardImage = document.getElementById(`image${productID}`);
     /*var cardImage = document.getElementsByClassName("image" + productID);*/
+    var cardImage = document.getElementById(`product${productID}`).getElementsByTagName('img');
     if(x.style.visibility==="visible"){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";
