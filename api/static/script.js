@@ -1,3 +1,4 @@
+
 function myFunction(productID) {
     var x = document.getElementById(`prev-btn${productID}`);
     var y = document.getElementById(`next-btn${productID}`);
@@ -17,19 +18,34 @@ function myFunction(productID) {
 function showAlert(){
     console.log("ja")
     var alertElement = document.getElementById("alert")
+    alertElement.classList.add("d-none")
     alertElement.classList.remove("d-none")
     setTimeout(function(){
     alertElement.classList.add("d-none")
   },8000)
 }
 function update_cart_counter(){
+     var counter = document.getElementById("shopping_counter")
      fetch("/order/count")
             .then(response => response.json())
             .then(data => {
-                console.log
+
+                console.log(data)
+                counter.innerHTML = data
             })
-    var counter = document.getElementById("shopping_counter")
-    counter.innerHTML = 2
 }
 
 
+function logIn(){
+    sessionStorage.setItem("firstStartup", true)
+}
+
+function logout(){
+    sessionStorage.clear()
+}
+
+window.addEventListener('load', (event) => {
+    if(sessionStorage.getItem("orderCreated") == "true"){
+        update_cart_counter()
+    }
+});

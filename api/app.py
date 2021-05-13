@@ -162,6 +162,14 @@ def logout():
     return redirect('/')
 
 
+@app.route('/loggedInn') #The frontend needs to know if a user is logged in
+def loggedInn():
+    try:
+        session['logged_in']
+        return 'true'
+    except Exception as e:
+        return 'false'
+
 @app.route('/users')
 def user_page():
     users = User.query.all()
@@ -173,6 +181,16 @@ def user_page():
 
     return {"users": output}
 
+def updateOrderPrice():
+    order_id = session['current_order']
+    totalPrice = 0
+    for order in OrderProduct.query.filter_by(order_id=order_id).all():
+        product = Product.query.filter_by(product_id=order.product_id).first()
+        totalPrice += (order.product_amount*product.product_price)
+        print(totalPrice)
+    order = Order.query.filter_by(order_id=order_id).first()
+    order.order_price = totalPrice
+    db.session.commit()
 
 @app.route('/orders/<user_id>/')
 def get_orders(user_id):
@@ -183,7 +201,7 @@ def get_orders(user_id):
 
 @app.route('/order')
 def create_order():
-    newOrder = Order(order_price=0, order_status=True, order_date=datetime.datetime.now().date(), user_connection=session['email'])
+    newOrder = Order(order_price=0, order_status=False, order_date=datetime.datetime.now().date(), user_connection=session['email'])
     db.session.add(newOrder)
     db.session.commit()
     session['current_order'] = newOrder.order_id
@@ -199,6 +217,7 @@ def add_product_order(product_id):
     db.session.commit()
     if controll_order(currentOrder, choosen_product) < 3:
         print(f'---A {choosen_product.product_name} was added to order with id {currentOrder.order_id} ---')
+    updateOrderPrice()
     return 'true'
 
 def controll_order(currentOrder, choosen_product): #Controls the products in the order, delete duplicates and sum up amount
@@ -219,6 +238,28 @@ def controll_order(currentOrder, choosen_product): #Controls the products in the
     db.session.commit()
     return counter
 
+@app.route('/order/unfinished/<status_id>')
+def start_unfinished_order(status_id):
+    if(status_id == "0"):
+        retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
+        if retrievedOrder == None:
+            return 'false'
+        return 'true'
+    else:
+        retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
+        session['current_order'] = retrievedOrder.order_id
+        return 'false'
+
+
+@app.route('/order/delete')  # Delete current order
+def delete_current_order():
+    retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
+    for order in OrderProduct.query.filter_by(order_id=retrievedOrder.order_id).all():
+        db.session.delete(order)
+    db.session.delete(retrievedOrder)
+    db.session.commit()
+    return 'true'
+
 @app.route('/order/current/<product_id>/<product_amount>')
 def update_order_product_count(product_id, product_amount):
     order_product_connection = OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).first()
@@ -232,7 +273,18 @@ def delete_product_from_order(product_id):
     print(product_id)
     OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).delete()
     db.session.commit()
+    updateOrderPrice()
     return 'true'
+
+@app.route('/order/count') #Get the amount of different products in the current order
+def get_product_count():
+    try:
+        produts_counted = OrderProduct.query.filter_by(order_id=session['current_order']).count()
+        print(produts_counted)
+        return f'{produts_counted}'
+    except Exception:
+        return "0"
+
 
 @app.route('/profile')
 def myprofile():
