@@ -4,6 +4,20 @@ function myFunction(productID) {
     var cardImage = document.getElementById(`product${productID}`).getElementsByTagName('img');
     var activeImage = document.getElementById(`product${productID}`).getElementsByClassName('active')[0].getElementsByTagName('img')[0];
 
+    var products = document.getElementsByClassName('card');
+    for(j=0; j<products.length; j++){
+
+        if(j!==productID){
+            products[j].getElementsByClassName('multi-collapse')[0].classList.remove('show');
+            var productImages = products[j].getElementsByTagName('img');
+            for(k=0; k<productImages.length; k++){
+                productImages[k].style.height = '120px';
+                products[j].getElementsByClassName('carousel-control-prev')[0].style.visibility = "hidden";
+                products[j].getElementsByClassName('carousel-control-next')[0].style.visibility = "hidden";
+            }
+        }
+    }
+
     if(activeImage.height === 170){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";
