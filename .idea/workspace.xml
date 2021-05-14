@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk">
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5NF3YDHWB7ZCY2QR419KFPC/chunks/000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5NF3YDHWB7ZCY2QR419KFPC/index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5NF3YDHWB7ZCY2QR419KFPC/meta.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/01F5NF3YDHWB7ZCY2QR419KFPC/tombstones" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000011" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000016" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/00000017" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000014/00000000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/myprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/newproduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/newproduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/grafana-storage/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/grafana-storage/grafana.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000008" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/chunks_head/000009" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000013" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/00000014" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/prom-data/data/wal/checkpoint.00000012/00000000" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="database-and-api" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,12 +134,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="" />
+      <changelist id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk" />
       <created>1619429595016</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -142,6 +153,7 @@
       <workItem from="1619700684015" duration="7205000" />
       <workItem from="1619708371526" duration="5375000" />
       <workItem from="1620121550571" duration="1250000" />
+      <workItem from="1620996772712" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -248,11 +260,17 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1620909145307</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="Litt fiks på profilsiden, og new product">
+      <created>1620995832984</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1620995832985</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -285,6 +303,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Data" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620984211706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620995923374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
