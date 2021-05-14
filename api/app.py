@@ -73,6 +73,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
+
 @app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
@@ -417,7 +418,7 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)
@@ -546,4 +547,4 @@ product60.image_connection.append(img603)
 
 db.session.commit()
 
-app.run(host='127.0.0.1', debug=True, ssl_context=('cert.pem', 'key.pem'))
+app.run(host='0.0.0.0', debug=False, ssl_context=('cert.pem', 'key.pem'))

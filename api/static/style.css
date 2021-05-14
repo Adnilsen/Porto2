@@ -91,7 +91,7 @@ div[class^='product'].img {
 
 /* Profile page */
 
-.card {
+#profile {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin-top: 10px;
@@ -100,6 +100,10 @@ div[class^='product'].img {
   margin-right: auto;
   text-align: center;
   border-radius: 15px;
+}
+
+#profile img{
+    height: auto!important;
 }
 
 .previous {

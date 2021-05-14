@@ -2,21 +2,7 @@
 {% block title %}My profile{% endblock %}
 {% block content %}
 
-    <!---
-    <h1>My profile</h1>
-    <img
-            src="{{session['picture']}}"
-            class="rounded-circle"
-            height="22"
-            alt=""
-            loading="lazy"
-          />
-    <p>First name: {{session['first_name']}}</p>
-    <p>Last name: {{session['last_name']}}</p>
-    <p>Email: {{session['email']}}</p>
-    --->
-
-    <div class="card">
+    <div class="card" id="profile">
          <img src='{{ session['picture'] }}' alt="{{ session['first_name'] }}" style="width:100%">
         <h1>{{ session['first_name'] }} {{ session['last_name'] }}</h1>
         <p>Email: {{ session['email'] }}</p>
