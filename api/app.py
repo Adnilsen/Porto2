@@ -73,7 +73,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-'''@app.before_request
+@app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
     if not request.is_secure:
@@ -91,7 +91,7 @@ def before_request():
             redirectUrl = 'https://localhost:5000'
         code = 301
         return redirect(redirectUrl, code=code)
-        '''
+
 
 @app.route('/') #Main page
 def products_page():

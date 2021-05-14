@@ -3,11 +3,11 @@ function myFunction(productID) {
     var y = document.getElementById(`next-btn${productID}`);
     var cardImage = document.getElementById(`product${productID}`).getElementsByTagName('img');
     var activeImage = document.getElementById(`product${productID}`).getElementsByClassName('active')[0].getElementsByTagName('img')[0];
-
+    var activeHeight = activeImage.height;
     var products = document.getElementsByClassName('card');
     for(j=0; j<products.length; j++){
 
-        if(j+1!==productID){
+        if(products[j].id!==productID){
             products[j].getElementsByClassName('multi-collapse')[0].classList.remove('show');
             var productImages = products[j].getElementsByTagName('img');
             for(k=0; k<productImages.length; k++){
@@ -18,7 +18,7 @@ function myFunction(productID) {
         }
     }
 
-    if(activeImage.height === 170){
+    if(activeHeight === 170){
         x.style.visibility = "hidden";
         y.style.visibility = "hidden";
         for(i = 0; i<cardImage.length; i++){
