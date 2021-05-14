@@ -10,7 +10,7 @@
                     <h4 class="mb-5"><strong>Our products</strong></h4>
                     {% for product in productlist %}
                         <div class="col-lg-4 col-md-6 mb-4 boxwidth" id="product{{ product.product_id }}">
-                            <div class="card">
+                            <div class="card" id="{{ product.product_id }}">
                                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <div id="carouselExampleControls{{ product.product_id }}" class="carousel carousel-dark slide"
                                          data-bs-ride="carousel" data-bs-interval="false">
@@ -22,7 +22,6 @@
                                                             <img src="
                                                                     {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% else %}
@@ -30,7 +29,6 @@
                                                             <img src="
                                                             {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 id="image{{ product.product_id }}"
                                                                  alt="{{ product.product_description }}">
                                                         </div>
                                                     {% endif %}
@@ -60,7 +58,7 @@
                                     <p class="card-text">
                                         {{ product.product_description }}
                                     </p>
-                                    <p>{{product.product_price}},- kr</p>
+                                    <p>$ {{product.product_price}},- </p>
                                     <!-- Buttons trigger collapse -->
                                     <a
                                             class="btn btn-primary"
@@ -69,6 +67,7 @@
                                             role="button"
                                             aria-expanded="false"
                                             aria-controls="multiCollapseExample{{ product.product_id }}"
+                                            onclick="myFunction({{product.product_id}})"
                                     >
                                         More info
                                     </a>
