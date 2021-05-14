@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +30,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/api/config.monitoring" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/api/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/api/prometheus.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/datasource.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/api/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/admin.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/api/prometheus.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/api/app.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/api/config.monitoring" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/products.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/base.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/templates/index.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/api/Dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/api/app.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -123,7 +126,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="581502ca-f2e0-4441-99d8-8b40bfcf6793" name="Default Changelist" comment="" />
+      <changelist id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk" />
       <created>1619429595016</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -136,6 +139,7 @@
       <workItem from="1619700684015" duration="7205000" />
       <workItem from="1619708371526" duration="5375000" />
       <workItem from="1620121550571" duration="1250000" />
+      <workItem from="1620992409324" duration="1107000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -253,12 +257,45 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="file:$PROJECT_DIR$/api/templates/base.html" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Paths">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="file:$PROJECT_DIR$/api/templates/base.html" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="file:$PROJECT_DIR$/api/templates/products.html" />
+                  <option value="file:$PROJECT_DIR$/api/static/script.js" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -277,7 +314,37 @@
     <MESSAGE value="Forhåpentligvis fikset alt kuk" />
     <option name="LAST_COMMIT_MESSAGE" value="Forhåpentligvis fikset alt kuk" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="1869" y="-320" key="CommitChangelistDialog2" timestamp="1620992920735">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state x="1869" y="-320" key="CommitChangelistDialog2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620992920735" />
+    <state x="1398" y="-315" width="1720" height="786" key="DiffContextDialog" timestamp="1620992877086">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state x="1398" y="-315" width="1720" height="786" key="DiffContextDialog/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620992877086" />
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom" timestamp="1620993293844">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620993293844" />
+    <state width="1878" height="162" key="GridCell.Tab.0.center" timestamp="1620993293843">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620993293843" />
+    <state width="1878" height="162" key="GridCell.Tab.0.left" timestamp="1620993293842">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620993293842" />
+    <state width="1878" height="162" key="GridCell.Tab.0.right" timestamp="1620993293843">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620993293843" />
+    <state x="2046" y="-99" key="git4idea.history.wholeTree.VcsStructureChooser" timestamp="1620992802981">
+      <screen x="1280" y="-415" width="1920" height="986" />
+    </state>
+    <state x="2046" y="-99" key="git4idea.history.wholeTree.VcsStructureChooser/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620992802981" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620909670572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620993293763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
