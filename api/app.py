@@ -285,6 +285,12 @@ def get_product_count():
     except Exception:
         return "0"
 
+@app.route('/order/checkout') #Finish order
+def finish_order():
+    order = Order.query.filter_by(order_id=session['current_order']).first()
+    order.order_status = True
+    db.session.commit()
+    return 'true'
 
 @app.route('/profile')
 def myprofile():

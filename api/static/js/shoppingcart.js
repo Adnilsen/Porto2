@@ -109,14 +109,14 @@ function updateOrderDb(){
 
 }
 
-/*function checkOut(){
-    fetch("/order/checkOut")
+function checkOut(){
+    fetch("/order/checkout")
         .then(response => response.json())
         .then(data => {
             console.log(data)
         })
 }
-*/
+
 function updatePage(){
     fetch("/order/products")
         .then(response => response.json())

@@ -19,46 +19,46 @@
         <tbody id="order_table"></tbody>
       </table>
     </div>
-  <div class="col-md-4">
-    <div class="card text-center">
-      <div class="card-header"><h5 class="card-title">{{session['first_name']}}, view your order</h5></div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-8">
-            <p class="fs-5 fw-bold">Cart amount:</p>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-header"><h5 class="card-title">{{session['first_name']}}, view your order</h5></div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <p class="fs-5 fw-bold">Cart amount:</p>
+            </div>
+            <div class="col-md-4">
+               <p class="fs-5" id="cartPrice"></p>
+            </div>
           </div>
-          <div class="col-md-4">
-             <p class="fs-5" id="cartPrice"></p>
+          <div class="row">
+            <div class="col-md-8">
+              <p class="fs-5 fw-bold">Shipping cost:</p>
+            </div>
+            <div class="col-md-4">
+               <p class="fs-5">Free</p>
+            </div>
           </div>
+          <div class="row border-bottom">
+            <div class="col-md-8">
+              <p class="fs-5 fw-bold">Discount:</p>
+            </div>
+            <div class="col-md-4">
+               <p class="fs-5">100%</p>
+            </div>
+          </div>
+          <div class="row border-top-100">
+            <div class="col-md-8">
+              <p class="fs-5 fw-bold">Total amount</p>
+            </div>
+            <div class="col-md-4">
+               <p class="fs-5" >$0</p>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" onclick="checkOut()">Checkout</a>
         </div>
-        <div class="row">
-          <div class="col-md-8">
-            <p class="fs-5 fw-bold">Shipping cost:</p>
-          </div>
-          <div class="col-md-4">
-             <p class="fs-5">Free</p>
-          </div>
-        </div>
-        <div class="row border-bottom">
-          <div class="col-md-8">
-            <p class="fs-5 fw-bold">Discount:</p>
-          </div>
-          <div class="col-md-4">
-             <p class="fs-5">100%</p>
-          </div>
-        </div>
-        <div class="row border-top-100">
-          <div class="col-md-8">
-            <p class="fs-5 fw-bold">Total amount</p>
-          </div>
-          <div class="col-md-4">
-             <p class="fs-5" >$0</p>
-          </div>
-        </div>
-        <a href="#" class="btn btn-primary">Checkout</a>
       </div>
     </div>
-  </div>
   </div>
 
 
