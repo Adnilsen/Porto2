@@ -67,12 +67,14 @@ function removeProduct(event){
             .then(data => {
                 console.log(data)
                 updatePage()
+                update_cart_counter()
             })
     /*console.log("clicked")
     var buttonClick = event.target
     buttonClick.parentElement.parentElement.parentElement.remove()*/
 
     updateCartPrice()
+
 
 }
 function quantityChange(event){
@@ -107,12 +109,19 @@ function updateOrderDb(){
 
 }
 
+function checkOut(){
+    fetch("/order/checkout")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
 function updatePage(){
     fetch("/order/products")
         .then(response => response.json())
         .then(data => render_orders(data))
 }
-
 
 
 updatePage()
