@@ -299,8 +299,12 @@ def upload():
             short = request.form["short_description"]
             long = request.form["long_description"]
             price = request.form["price"]
+            color = request.form['color']
             if name != '' and short != '' and long != '' and price != '':  # If all required fields are filled a new product is added to database
-                new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+                if color != '':
+                    new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price, product_color=color)
+                else:
+                    new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
                 db.session.add(new_product)
                 db.session.commit()
                 files = request.files.getlist('image')  # Gets all files uploaded in the form
@@ -355,7 +359,7 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)

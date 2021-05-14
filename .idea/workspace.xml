@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="Forhåpentligvis fikset alt kuk">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/myprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/newproduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/newproduct.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,9 +281,10 @@
     <MESSAGE value="Tror grafana info lagres nå" />
     <MESSAGE value="Nå skal prometheus data lagres selv om man avslutter server og sletter container" />
     <MESSAGE value="Forhåpentligvis fikset alt kuk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forhåpentligvis fikset alt kuk" />
+    <MESSAGE value="Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620909670572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620984211706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>

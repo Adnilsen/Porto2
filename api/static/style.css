@@ -81,3 +81,21 @@
     width: 25%;
     float: left;
 }*/
+
+/* Profile page */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.previous {
+    margin-top: 50px;
+}
+
