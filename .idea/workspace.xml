@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79c054f6-f3e3-4e0c-9beb-03c00a1d6d66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0559.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0560.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0563.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/static/images/GOPR0564.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/static/images/Selvportrett.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/certificate.crt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/api/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/static/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +138,7 @@
       <workItem from="1619700684015" duration="7205000" />
       <workItem from="1619708371526" duration="5375000" />
       <workItem from="1620121550571" duration="1250000" />
-      <workItem from="1620900318439" duration="4383000" />
+      <workItem from="1620900318439" duration="13599000" />
     </task>
     <task id="LOCAL-00001" summary="Lagt til display av produkter på produktside og css fil for styling">
       <created>1619516454753</created>
@@ -252,7 +246,56 @@
       <option name="project" value="LOCAL" />
       <updated>1620902616318</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fikset slideshow hvor bildene blir større/mindre og navigering kun kommer hvis det er flere bilder">
+      <created>1620906072930</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1620906072930</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Lagt til styling på knapp og optimalisert kode">
+      <created>1620909237348</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1620909237349</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fikset at man kan gjøre bildene mindre når man har bladd i bildeshowet">
+      <created>1620921110089</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1620921110089</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Lagt til funksjon for at de andre bildene blir mindre hvis man gjør et annet større">
+      <created>1620925902384</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620925902384</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Bugfix">
+      <created>1620928645195</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620928645195</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Byttet fra adhoc til egen nøkkel og sertifikat">
+      <created>1620929378251</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1620929378252</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fikset bugs og holder på med SSL">
+      <created>1620984120761</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1620984120761</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,37 +356,48 @@
     <MESSAGE value="Nå skal prometheus data lagres selv om man avslutter server og sletter container" />
     <MESSAGE value="Forhåpentligvis fikset alt kuk" />
     <MESSAGE value="Fikset sånn at slideshow funker igjen da det ikke funket etter merge. Prøver å fikse endring av størrelse på bildet ved å trykke på knapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fikset sånn at slideshow funker igjen da det ikke funket etter merge. Prøver å fikse endring av størrelse på bildet ved å trykke på knapp" />
+    <MESSAGE value="Fikset slideshow hvor bildene blir større/mindre og navigering kun kommer hvis det er flere bilder" />
+    <MESSAGE value="Lagt til styling på knapp og optimalisert kode" />
+    <MESSAGE value="Fikset at man kan gjøre bildene mindre når man har bladd i bildeshowet" />
+    <MESSAGE value="Lagt til funksjon for at de andre bildene blir mindre hvis man gjør et annet større" />
+    <MESSAGE value="Bugfix" />
+    <MESSAGE value="Byttet fra adhoc til egen nøkkel og sertifikat" />
+    <MESSAGE value="Fikset bugs og holder på med SSL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset bugs og holder på med SSL" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1851" y="-320" key="CommitChangelistDialog2" timestamp="1620902615545">
+    <state x="1851" y="-320" key="CommitChangelistDialog2" timestamp="1620984119723">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state x="1851" y="-320" key="CommitChangelistDialog2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902615545" />
+    <state x="1851" y="-320" key="CommitChangelistDialog2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620984119723" />
     <state x="1417" y="-343" width="1900" height="786" key="DiffContextDialog" timestamp="1620902478426">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
     <state x="1417" y="-343" width="1900" height="786" key="DiffContextDialog/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902478426" />
-    <state width="1878" height="162" key="GridCell.Tab.0.bottom" timestamp="1620903653611">
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom" timestamp="1620989737965">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653611" />
-    <state width="1878" height="162" key="GridCell.Tab.0.center" timestamp="1620903653608">
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.709/1280.-415.1920.1057@1280.-415.1920.1057" timestamp="1620980737623" />
+    <state width="1878" height="162" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620989737965" />
+    <state width="1878" height="162" key="GridCell.Tab.0.center" timestamp="1620989737963">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653608" />
-    <state width="1878" height="162" key="GridCell.Tab.0.left" timestamp="1620903653606">
+    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.709/1280.-415.1920.1057@1280.-415.1920.1057" timestamp="1620980737622" />
+    <state width="1878" height="162" key="GridCell.Tab.0.center/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620989737963" />
+    <state width="1878" height="162" key="GridCell.Tab.0.left" timestamp="1620989737963">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653606" />
-    <state width="1878" height="162" key="GridCell.Tab.0.right" timestamp="1620903653610">
+    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.709/1280.-415.1920.1057@1280.-415.1920.1057" timestamp="1620980737622" />
+    <state width="1878" height="162" key="GridCell.Tab.0.left/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620989737963" />
+    <state width="1878" height="162" key="GridCell.Tab.0.right" timestamp="1620989737964">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620903653610" />
-    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2" timestamp="1620902626625">
+    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.709/1280.-415.1920.1057@1280.-415.1920.1057" timestamp="1620980737623" />
+    <state width="1878" height="162" key="GridCell.Tab.0.right/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620989737964" />
+    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2" timestamp="1620984122746">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
-    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902626625" />
+    <state x="1840" y="-182" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620984122746" />
     <state x="1449" y="-267" width="1631" height="776" key="dock-window-1" timestamp="1620904568111">
       <screen x="1280" y="-415" width="1920" height="986" />
     </state>
@@ -353,7 +407,19 @@
     </state>
     <state x="2028" y="-99" key="git4idea.history.wholeTree.VcsStructureChooser/0.23.1280.777/1280.-415.1920.986@1280.-415.1920.986" timestamp="1620902405699" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/static/script.js</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620903653560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/Porto2$app.coverage" NAME="app Coverage Results" MODIFIED="1620984922055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
