@@ -73,7 +73,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-'''@app.before_request
+@app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
     if not request.is_secure:
@@ -91,7 +91,7 @@ def before_request():
             redirectUrl = 'https://localhost:5000'
         code = 301
         return redirect(redirectUrl, code=code)
-        '''
+
 
 @app.route('/') #Main page
 def products_page():
@@ -359,8 +359,12 @@ def upload():
             short = request.form["short_description"]
             long = request.form["long_description"]
             price = request.form["price"]
+            color = request.form['color']
             if name != '' and short != '' and long != '' and price != '':  # If all required fields are filled a new product is added to database
-                new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
+                if color != '':
+                    new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price, product_color=color)
+                else:
+                    new_product = Product(product_name=name, product_description=short, product_long_description=long, product_price=price)
                 db.session.add(new_product)
                 db.session.commit()
                 files = request.files.getlist('image')  # Gets all files uploaded in the form
@@ -413,9 +417,9 @@ def filecheck(file):  # Method that checks if files are of correct types
 #Create db with content
 db.drop_all()
 db.create_all()
-user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='ufhsaufhasf')
+user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)
@@ -544,4 +548,4 @@ product60.image_connection.append(img603)
 
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='127.0.0.1', debug=True, ssl_context=('cert.pem', 'key.pem'))

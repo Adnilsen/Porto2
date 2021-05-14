@@ -47,7 +47,7 @@
 }
 
 .card img{
-    /*height: 120px;*/
+    height: 120px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -60,13 +60,20 @@
     margin-left: 25px;
 }
 
+.btn-success{
+    margin-top: 10px;
+}
+
 [id^="next-btn"], [id^="prev-btn"]{
     visibility: hidden;
 }
 
-[id^="image"]{
+div[class^='product'].img {
     height: 120px;
 }
+/*[id^="image"]{
+    height: 120px;
+}*/
 
 /*img[class^='image'], img[class*=' image']{
     height: 120px;
@@ -81,3 +88,21 @@
     width: 25%;
     float: left;
 }*/
+
+/* Profile page */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.previous {
+    margin-top: 50px;
+}
+
