@@ -143,7 +143,8 @@ def authorize():
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
-    session['picture'] = user_info['picture']
+    picture_string = "{}".format(user_info['picture'])
+    session['picture'] = picture_string.replace("96", "1000")
     session['logged_in'] = True
 
     user_email = user_info['email']
@@ -290,6 +291,7 @@ def finish_order():
     order = Order.query.filter_by(order_id=session['current_order']).first()
     order.order_status = True
     db.session.commit()
+    session['current_order'] = ""
     return 'true'
 
 @app.route('/profile')
