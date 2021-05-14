@@ -68,6 +68,10 @@
     visibility: hidden;
 }
 
+[id^="carouselExampleControls"], [id^=" carouselExampleControls"]{
+    margin-top: 25px;
+}
+
 div[class^='product'].img {
     height: 120px;
 }
