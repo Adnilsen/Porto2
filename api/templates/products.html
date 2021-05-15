@@ -17,7 +17,7 @@
                                         <div class="carousel-inner">
                                             {% for image in imagelist %}
                                                 {% if image.product_connection == product.product_id %}
-                                                    {% if image.main_image == True %}
+                                                    {%if image.main_image == True %}
                                                         <div class="carousel-item active">
                                                             <img src="
                                                                     {{ url_for('static', filename='images/') }}{{ image.img }}"
@@ -34,6 +34,13 @@
                                                     {% endif %}
                                                 {% endif %}
                                             {% endfor %}
+                                            <script type="text/javascript">
+                                                console.log("{{ product.product_id }}");
+                                                console.log(document.getElementById(`next-btn{{product.product_id}}`));
+                                                console.log(document.getElementsByClassName("card").getElementByTagName("img"));
+                                                console.log(document.getElementById("{{product.product_id}}"));
+                                                //checkImage("{{product.product_id}}");
+                                            </script>
                                         </div>
 
                                         <button class="carousel-control-prev" type="button"
