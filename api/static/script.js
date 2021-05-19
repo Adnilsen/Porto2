@@ -39,13 +39,8 @@ function myFunction(productID) {
         }
     }
 }
-function checkImage(imgProdID) {
-    console.log("yes");
-    console.log(document.getElementById(`${imgProdID}`));
-}
 
 function showAlert(){
-    console.log("ja")
     var alertElement = document.getElementById("alert")
     alertElement.classList.add("d-none")
     alertElement.classList.remove("d-none")
