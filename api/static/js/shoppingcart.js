@@ -115,6 +115,7 @@ function checkOut(){
         .then(data => {
             showReceipt()
             sessionStorage.setItem("orderCreated", false)
+            window.print()
         })
 }
 
