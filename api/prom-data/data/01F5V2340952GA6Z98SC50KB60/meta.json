@@ -1,0 +1,17 @@
+{
+	"ulid": "01F5V2340952GA6Z98SC50KB60",
+	"minTime": 1621166404286,
+	"maxTime": 1621173600000,
+	"stats": {
+		"numSamples": 837293,
+		"numSeries": 1514,
+		"numChunks": 4121
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01F5V2340952GA6Z98SC50KB60"
+		]
+	},
+	"version": 1
+}
