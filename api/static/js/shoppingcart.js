@@ -113,8 +113,18 @@ function checkOut(){
     fetch("/order/checkout")
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            showReceipt()
+            sessionStorage.setItem("orderCreated", false)
         })
+}
+
+function showReceipt(){
+    document.getElementById("orderInfo").className = "p-2"
+    document.getElementById("orderLines").className = "p-2"
+    document.getElementById("container").className = "container d-flex flex-row mb-3"
+    document.getElementById("title").innerHTML = "Your receipt"
+    document.getElementById("title").className = "text-center fs-1 fw-bold"
+
 }
 
 function updatePage(){
