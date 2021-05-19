@@ -39,11 +39,15 @@ function myFunction(productID) {
         }
     }
 }
-function showAlert(){
+function showAlert(status, info){
     console.log("ja")
     var alertElement = document.getElementById("alert")
+    if(status == 0){
+        alertElement.className ="alert alert-danger alert-dismissible fade show d-none content"
+    }
     alertElement.classList.add("d-none")
     alertElement.classList.remove("d-none")
+    alertElement.innerHTML = `<strong> ${info} <strong>`
     setTimeout(function(){
     alertElement.classList.add("d-none")
   },8000)

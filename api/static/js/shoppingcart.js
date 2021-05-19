@@ -15,7 +15,7 @@ function render_orders(data){ //renders all orders
                     <td><p class="fs-5">${data['products'][i]['product_color']}</p></td>
                     <td><p class="fs-5 price-element">$${data['products'][i]['product_price']}</p></td>
                     <td>
-                        <div class="d-flex mx-auto">
+                        <div class="d-flex mx-auto amount">
                             <div class="form-outline" style="width:40%">
                                 <input type="number" id="typeNumber" class="form-control form-control-lg" value=${data['products'][i]['product_amount']} />
                                 <label class="form-label" for="typeNumber">Number input</label>
@@ -113,19 +113,38 @@ function checkOut(){
     fetch("/order/checkout")
         .then(response => response.json())
         .then(data => {
-            showReceipt()
             sessionStorage.setItem("orderCreated", false)
-            window.print()
+            showAlert(1, "You successfully finished an order. Store order number for later use!!")
+            showReceipt()
         })
 }
 
 function showReceipt(){
+
     document.getElementById("orderInfo").className = "p-2"
     document.getElementById("orderLines").className = "p-2"
     document.getElementById("container").className = "container d-flex flex-row mb-3"
-    document.getElementById("title").innerHTML = "Your receipt"
+    document.getElementById("main_container").style = "margin-top: 180px"
+    var random_order_id = Math.floor((Math.random() * 100) + 1);
+    document.getElementById("title").innerHTML = `Your receipt <br>Order id: ${random_order_id} <button onclick="printReceipt()" id ="print" class="btn btn-primary">Print receipt</button>`
     document.getElementById("title").className = "text-center fs-1 fw-bold"
+    var amount = document.getElementsByClassName("btn-danger")
+    var inputField = document.getElementsByClassName("form-control")
+    var containerAmount = document.getElementsByClassName("amount")
+    document.getElementById("checkout").className= "d-none"
+    var amount_length = amount.length
+    for(var i = 0; i < amount_length; i++){
+        console.log(i)
+        var value = inputField[0].value
+        inputField[0].remove()
+        amount[0].remove()
+        containerAmount[i].innerHTML = `<p class="fs-5">${value}</p>`
+    }
+}
 
+function printReceipt(){
+    document.getElementById("print").className += "d-none"
+    window.print()
 }
 
 function updatePage(){
