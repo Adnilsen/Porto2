@@ -39,8 +39,13 @@ function myFunction(productID) {
         }
     }
 }
+<<<<<<< HEAD
 function showAlert(status, info){
     console.log("ja")
+=======
+
+function showAlert(){
+>>>>>>> a91f4769aef6e0bdc100e1ff00e01e86a1f0afde
     var alertElement = document.getElementById("alert")
     if(status == 0){
         alertElement.className ="alert alert-danger alert-dismissible fade show d-none content"

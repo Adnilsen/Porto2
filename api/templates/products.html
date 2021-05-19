@@ -14,26 +14,37 @@
                                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <div id="carouselExampleControls{{ product.product_id }}" class="carousel carousel-dark slide"
                                          data-bs-ride="carousel" data-bs-interval="false">
-                                        <div class="carousel-inner">
+                                        <div class="carousel-inner" style="background-image: url('../static/images/placeholder.png')">
                                             {% for image in imagelist %}
                                                 {% if image.product_connection == product.product_id %}
-                                                    {% if image.main_image == True %}
+                                                    {%if image.main_image == True %}
                                                         <div class="carousel-item active">
                                                             <img src="
                                                                     {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 alt="{{ product.product_description }}">
+                                                                 alt="{{ product.product_description }}"
+                                                                 onerror="this.src= '../static/images/placeholder.png';">
                                                         </div>
                                                     {% else %}
                                                         <div class="carousel-item">
                                                             <img src="
                                                             {{ url_for('static', filename='images/') }}{{ image.img }}"
                                                                  class="d-block"
-                                                                 alt="{{ product.product_description }}">
+                                                                 alt="{{ product.product_description }}"
+                                                                 onerror="this.src= '../static/images/placeholder.png';">
                                                         </div>
                                                     {% endif %}
                                                 {% endif %}
                                             {% endfor %}
+                                            <script type="text/javascript">
+                                                if(document.getElementById("{{product.product_id}}").getElementsByTagName('img').length === 0){
+                                                    var img = document.createElement('img');
+                                                    img.src = '../static/images/placeholder.png';
+                                                    var div = document.createElement('div');
+                                                    div.className = "carousel-item active";
+                                                    document.getElementById('carouselExampleControls{{ product.product_id }}').children[0].appendChild(div).appendChild(img);
+                                                }
+                                            </script>
                                         </div>
 
                                         <button class="carousel-control-prev" type="button"
