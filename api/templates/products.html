@@ -37,11 +37,19 @@
                                                 {% endif %}
                                             {% endfor %}
                                             <script type="text/javascript">
-                                                console.log("{{ product.product_id }}");
-                                                console.log(document.getElementById(`next-btn{{product.product_id}}`));
+                                                console.log("ID: {{ product.product_id }}");
                                                 console.log(document.getElementById("{{product.product_id}}"));
-                                                console.log(document.getElementById("{{product.product_id}}").getElementsByTagName('img')[0].currentSrc);
+                                                console.log("Bilde:");
+                                                console.log(document.getElementById("{{product.product_id}}").getElementsByTagName('img').length);
                                                 //checkImage("{{product.product_id}}");
+                                                if(document.getElementById("{{product.product_id}}").getElementsByTagName('img').length === 0){
+                                                    var img = document.createElement('img');
+                                                    img.src = '../static/images/placeholder.png';
+                                                    var div = document.createElement('div');
+                                                    div.className = "carousel-item active";
+                                                    document.getElementById('carouselExampleControls{{ product.product_id }}').children[0].appendChild(div).appendChild(img);
+
+                                                }
                                             </script>
                                         </div>
 
