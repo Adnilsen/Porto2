@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% block title %}New product{% endblock %}
 {% block content %}
-
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                <span>{{ message }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 <div class="upload_form" style="width:50%; margin-left:25%; margin-top:30px">
     <form action="/upload" method="post" enctype="multipart/form-data">
       <!-- Name input -->
@@ -45,14 +56,5 @@
       <button type="submit" class="btn btn-primary btn-block mb-4">Add product</button>
     </form>
 </div>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-
 
 {% endblock %}

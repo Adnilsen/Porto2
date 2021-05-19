@@ -368,7 +368,7 @@ def upload():
                 db.session.commit()
                 files = request.files.getlist('image')  # Gets all files uploaded in the form
                 if files[0].filename == '':  # No file attached
-                    flash("The product was uploaded without a picture")
+                    flash("The product was uploaded without a picture", category='info')
                     return render_template("newproduct.html")
                 else:  # If there where files uploaded
                     images = []  # List of images that will be added to product
@@ -376,7 +376,7 @@ def upload():
                         if filecheck(file.filename):
                             images.append(file)
                         else:  # If a file is incorrect, a message is displayed
-                            flash("Accepted file types are: jpg, jpeg and png. One or more of your pictures were rejected")
+                            flash("Accepted file types are: jpg, jpeg and png. One or more of your pictures were rejected", category='warning')
                     if len(images) > 0: # One or more pictures of correct types are added
                         first = images[0]
                         main_image = secure_filename(first.filename) # The first image is set as main image
@@ -394,9 +394,10 @@ def upload():
                             db.session.commit()
                             new_product.image_connection.append(new_image)
                             db.session.commit()
-                    return redirect(request.url)
+                    flash('The product was succesfully uploaded', category='info')
+                    return render_template('newproduct.html')
             else:  # If some of the fields are not filled
-                flash("All fields must be filled")
+                flash("All required fields are not filled", category='danger')
                 return render_template("newproduct.html")
         else:  # If the request is a get request
             return render_template("newproduct.html")
