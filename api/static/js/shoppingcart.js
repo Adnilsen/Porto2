@@ -95,7 +95,12 @@ function updateCartPrice(){
         var price = parseInt(priceColumns[i].innerText.replace('$', ''))
         cartPrice += amount.value * price
     }
-
+    if(cartPrice > 0){
+        document.getElementById("checkout").disabled = false
+    }
+    else{
+        document.getElementById("checkout").disabled = true
+    }
     var cartPriceItem = document.getElementById("cartPrice").innerText = '$' + cartPrice
 }
 function updateOrderDb(){
@@ -116,6 +121,7 @@ function checkOut(){
             sessionStorage.setItem("orderCreated", false)
             showAlert(1, "You successfully finished an order. Store order number for later use!!")
             showReceipt()
+            update_cart_counter()
         })
 }
 

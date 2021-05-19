@@ -104,16 +104,6 @@ def products_page():
     return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 #Google oAuth2 login
-def verify_login():
-    try:
-        user = dict(session).get('profile', None)
-        if user:
-            return True,user
-        else:
-            return False,{}
-    except Exception as e:
-        return False,{}
-
 @app.route('/login')
 def login():
     google = oauth.create_client('google')
@@ -190,7 +180,7 @@ def get_orders(user_id):
     orders = Order.query.filter_by(order_status=True, user_connection=email).all()
     return render_template('orders.html', orders=orders, user=user)
 
-@app.route('/order')
+@app.route('/order') #Creates a new order
 def create_order():
     newOrder = Order(order_price=0, order_status=False, order_date=datetime.datetime.now().date(), user_connection=session['email'])
     db.session.add(newOrder)
@@ -198,7 +188,7 @@ def create_order():
     session['current_order'] = newOrder.order_id
     return 'true'
 
-@app.route('/order/current/<product_id>')
+@app.route('/order/current/<product_id>') #Add a product to the order
 def add_product_order(product_id):
     order_product = OrderProduct(product_amount=1)
     choosen_product = Product.query.filter_by(product_id=product_id).first()
@@ -229,7 +219,7 @@ def controll_order(currentOrder, choosen_product): #Controls the products in the
     db.session.commit()
     return counter
 
-@app.route('/order/unfinished/<status_id>')
+@app.route('/order/unfinished/<status_id>') #Gets last unfinished order
 def start_unfinished_order(status_id):
     if(status_id == "0"):
         retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
@@ -251,7 +241,7 @@ def delete_current_order():
     db.session.commit()
     return 'true'
 
-@app.route('/order/current/<product_id>/<product_amount>')
+@app.route('/order/current/<product_id>/<product_amount>') #Update a single product count
 def update_order_product_count(product_id, product_amount):
     order_product_connection = OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).first()
     order_product_connection.product_amount = product_amount
