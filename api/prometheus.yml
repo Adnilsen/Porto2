@@ -16,5 +16,8 @@ scrape_configs:
 
   - job_name: 'flask-api'
     scrape_interval: 5s
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     static_configs:
     - targets: ['flask-api:5000']
