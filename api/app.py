@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
-from prometheus_flask_exporter import PrometheusMetrics
+#from prometheus_flask_exporter import PrometheusMetrics
 import os
 from datetime import timedelta
 
@@ -12,9 +12,9 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
-metrics = PrometheusMetrics(app, path='/metrics')
+#metrics = PrometheusMetrics(app, path='/metrics')
 
-metrics.info("app_info", "Info about the app")
+#metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
@@ -73,7 +73,6 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-
 @app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
@@ -144,7 +143,8 @@ def authorize():
     session['email'] = user_info['email']
     session['first_name'] = user_info['given_name']
     session['last_name'] = user_info['family_name']
-    session['picture'] = user_info['picture']
+    picture_string = "{}".format(user_info['picture'])
+    session['picture'] = picture_string.replace("96", "1000")
     session['logged_in'] = True
 
     user_email = user_info['email']
@@ -291,6 +291,7 @@ def finish_order():
     order = Order.query.filter_by(order_id=session['current_order']).first()
     order.order_status = True
     db.session.commit()
+    session['current_order'] = ""
     return 'true'
 
 @app.route('/profile')
@@ -419,8 +420,8 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
-user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=False, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)

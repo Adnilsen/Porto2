@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Home page{% endblock %}
 {% block content %}
-
-  <p class="fs-1 fw-bold">Welcome to your shopping cart</p>
-  <div class="row">
-    <div class="col-md-8 overflow-auto" style="height: 700px">
+  <div>
+    <p class="fs-1 fw-bold" id="title">Welcome to your shopping cart</p>
+  </div>
+  <div class="row" id="container">
+    <div class="col-md-8 overflow-auto" style="height: 700px" id="orderLines">
       <table class="table align-middle table-hover table-bordered" style="background-color: white">
         <thead>
           <tr>
@@ -19,7 +20,7 @@
         <tbody id="order_table"></tbody>
       </table>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" id="orderInfo">
       <div class="card text-center">
         <div class="card-header"><h5 class="card-title">{{session['first_name']}}, view your order</h5></div>
         <div class="card-body">

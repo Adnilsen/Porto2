@@ -39,8 +39,8 @@ function myFunction(productID) {
         }
     }
 }
+
 function showAlert(){
-    console.log("ja")
     var alertElement = document.getElementById("alert")
     alertElement.classList.add("d-none")
     alertElement.classList.remove("d-none")
