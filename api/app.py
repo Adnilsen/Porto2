@@ -173,7 +173,7 @@ def updateOrderPrice(): #Updates the price of a order
 def get_orders(user_id):
     user = User.query.filter_by(user_id=user_id)
     email = db.session.query(User.user_email).filter_by(user_id=user_id)
-    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
+    orders = Order.query.filter_by(user_connection=email).all()
     return render_template('orders.html', orders=orders, user=user)
 
 @app.route('/order') #Creates a new order
@@ -247,8 +247,7 @@ def update_order_product_count(product_id, product_amount):
 
 @app.route('/order/current/delete/<product_id>') #Delete product from order
 def delete_product_from_order(product_id):
-    print(session['current_order'])
-    print(product_id)
+
     OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).delete()
     db.session.commit()
     updateOrderPrice()
@@ -258,7 +257,6 @@ def delete_product_from_order(product_id):
 def get_product_count():
     try:
         produts_counted = OrderProduct.query.filter_by(order_id=session['current_order']).count()
-        print(produts_counted)
         return f'{produts_counted}'
     except Exception:
         return "0"
@@ -299,8 +297,12 @@ def getOrderProduct():
     for order in OrderProduct.query.filter_by(order_id=session['current_order']).all():
         product = Product.query.filter_by(product_id=order.product_id).first()
         image = Img.query.filter_by(product_connection=order.product_id).first()
-
-        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        if image:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        else:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name,
+                            'product_color': product.product_color, 'product_price': product.product_price,
+                            'product_amount': order.product_amount, 'product_image': 'placeholder.png'}
         output.append(product_data)
 
     return {"products": output}
@@ -396,13 +398,13 @@ def filecheck(file):  # Method that checks if files are of correct types
 db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
-user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
+user5 = User(first_name='Ola', last_name='Nordmann', user_type=True, user_email='onordenmann@gmail.com')
 db.session.add(user)
-db.session.add(user2)
 db.session.add(user3)
 db.session.add(user4)
+db.session.add(user5)
 db.session.commit()
 
 
@@ -501,6 +503,18 @@ product70.image_connection.append(img701)
 product70.image_connection.append(img702)
 product70.image_connection.append(img703)
 
+
+newOrder = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date(), user_connection="onordenmann@gmail.com")
+db.session.add(newOrder)
+order_product = OrderProduct(product_amount=1)
+db.session.add(order_product)
+chosen_product = Product.query.filter_by(product_id=2).first()
+chosen_product.order_connections.append(order_product)
+newOrder.product_connections.append(order_product)
+product80 = Product(product_name='Baseball cap', product_description='Adjustable and stylish cap', product_long_description='Adjustable, stylish baseball cap. Perfect for both sports and everyday use.', product_price=15, product_color='Black')
+db.session.add(product80)
+
 db.session.commit()
+
 
 app.run(host='0.0.0.0', debug=False, ssl_context=('cert.pem', 'key.pem'))

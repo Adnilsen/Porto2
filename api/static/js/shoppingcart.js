@@ -7,7 +7,7 @@ function render_orders(data){ //renders all orders
     for (i in data['products']){
         var row_amount = 0
         products[i] = data[i]
-        //console.log(data['products'][i]['product_id']) //Hent brukere
+
         var row = `<tr class="order_row product" id="product${data['products'][i]['product_id']}">
                     <th scope="row">${parseInt(i)+1}</th>
                     <td class="product-images"><img src="static/images/${data['products'][i]['product_image']}" class="img-fluid" style="height: 150px;"></img></td>
@@ -51,27 +51,18 @@ function render_orders(data){ //renders all orders
 
 function removeProduct(event){
     var product_id = parseInt(event.target.parentElement.parentElement.parentElement.id.replace('product', ''))
-    console.log(event.target.parentElement.parentElement.parentElement)
-    console.log(product_id)
     if (isNaN(product_id)){
         product_id = parseInt(event.target.parentElement.parentElement.parentElement.parentElement.id.replace('product', ''))
-        console.log(event.target.parentElement.parentElement.parentElement.parentElement)
         if (isNaN(product_id)){
             product_id = parseInt(event.target.parentElement.parentElement.id.replace('product', ''))
-            console.log(event.target.parentElement.parentElement)
         }
     }
-    console.log(product_id)
     fetch(`/order/current/delete/${product_id}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 updatePage()
                 update_cart_counter()
             })
-    /*console.log("clicked")
-    var buttonClick = event.target
-    buttonClick.parentElement.parentElement.parentElement.remove()*/
 
     updateCartPrice()
 
@@ -111,7 +102,6 @@ function updateOrderDb(){
         .then(data => {
             console.log(data)
         })
-
 }
 
 function checkOut(){

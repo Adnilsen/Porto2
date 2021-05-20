@@ -58,8 +58,6 @@ function update_cart_counter(){
      fetch("/order/count")
             .then(response => response.json())
             .then(data => {
-
-                console.log(data)
                 counter.innerHTML = data
 
             })
