@@ -39,7 +39,6 @@ class User(db.Model):
     order_connection = db.relationship('Order', backref='user_order', lazy=True)
     user_type = db.Column(db.Boolean, unique=False, default=True)
     user_email = db.Column(db.String(100))
-    user_google_token = db.Column(db.String(200))
 
 class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
@@ -92,16 +91,16 @@ def before_request():
             redirectUrl = 'https://localhost:5000'
         code = 301
         return redirect(redirectUrl, code=code)
-
 '''
-@app.route('/') #Main page
+
+@app.route('/') #Redirect to main page
 def products_page():
     user = session.get('user')
     img = Img.query.first()
     productlist = Product.query.all()
     imagelist = Img.query.all()
     route = f"/static/{img.img}"
-    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
+    return render_template("products.html", content=route, user=user, productlist=productlist, imagelist=imagelist)
 
 #Google oAuth2 login
 @app.route('/login')
@@ -145,7 +144,7 @@ def authorize():
     return redirect('/')
 
 
-@app.route('/logout')
+@app.route('/logout') #Log out as user
 def logout():
     for key in list(session.keys()):
         session.pop(key)
@@ -162,13 +161,12 @@ def loggedInn():
         return 'false'
 
 
-def updateOrderPrice():
+def updateOrderPrice(): #Updates the price of a order
     order_id = session['current_order']
     totalPrice = 0
     for order in OrderProduct.query.filter_by(order_id=order_id).all():
         product = Product.query.filter_by(product_id=order.product_id).first()
         totalPrice += (order.product_amount*product.product_price)
-        print(totalPrice)
     order = Order.query.filter_by(order_id=order_id).first()
     order.order_price = totalPrice
     db.session.commit()
@@ -229,7 +227,7 @@ def start_unfinished_order(status_id):
     else:
         retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
         session['current_order'] = retrievedOrder.order_id
-        return 'false'
+        return 'true'
 
 
 @app.route('/order/delete')  # Delete current order
@@ -246,6 +244,7 @@ def update_order_product_count(product_id, product_amount):
     order_product_connection = OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).first()
     order_product_connection.product_amount = product_amount
     db.session.commit()
+    updateOrderPrice()
     return 'true'
 
 @app.route('/order/current/delete/<product_id>') #Delete product from order
@@ -401,52 +400,15 @@ db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
-user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)
 db.session.add(user4)
-product = Product(product_name='Ball', product_description='Bra ball', product_color = 'Black/white', product_long_description='Denne ballen er sykt bra', product_price=100)
-product2 = Product(product_name='Strikk', product_description='Elastisk strikk', product_long_description='Denne strikken er sykt elastisk', product_price=400)
-product3 = Product(product_name='Sko', product_description='Løpesko', product_long_description='God allround løpesko til hardt underlag', product_price=700)
-product4 = Product(product_name='Jakke', product_description='Allværsjakke vanntett', product_long_description='Vanntett skalljakke. Perfekt til turer i skog og mark. Vantett med vannsøyle på 15.000 med god pusteevne', product_price=1200)
-db.session.add(product)
-db.session.add(product2)
-db.session.add(product3)
-db.session.add(product3)
-order = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date())
-order2 = Order(order_price=300, order_status=True, order_date=datetime.datetime.now().date(), user_connection="martin_kvam@hotmail.com")
-db.session.add(order)
-db.session.add(order2)
 db.session.commit()
 
-filename = secure_filename("ball1.png")
-img = Img(img=filename, main_image=True)
-db.session.add(img)
-filename2 = secure_filename("strikk.jpg")
-img2 = Img(img=filename2, main_image=True)
-db.session.add(img2)
-filename3 = secure_filename("sko.jpg")
-img3 = Img(img=filename3, main_image=True)
-db.session.add(img3)
-filename4 = secure_filename("jakke.jpg")
-img4 = Img(img=filename4, main_image=True)
-db.session.add(img4)
-db.session.commit()
-product.image_connection.append(img)
-product2.image_connection.append(img2)
-product3.image_connection.append(img3)
-product4.image_connection.append(img4)
 
-order_product = OrderProduct(product_amount=9)
-product.order_connections.append(order_product)
-order.product_connections.append(order_product)
-db.session.add(order_product)
-order_product2 = OrderProduct(product_amount=2)
-product2.order_connections.append(order_product2)
-order.product_connections.append(order_product2)
-
-product10 = Product(product_name='Football', product_description='Football', product_long_description='Nice and cheap football for play and practice', product_price=100)
+product10 = Product(product_name='Football', product_description='Football', product_long_description='Nice and cheap football for play and practice', product_price=40, product_color="Black/white")
 db.session.add(product10)
 
 img101 = Img(img=secure_filename("football1.jpg"), main_image=True)
@@ -457,7 +419,7 @@ db.session.add(img102)
 product10.image_connection.append(img101)
 product10.image_connection.append(img102)
 
-product20 = Product(product_name='Boxing gloves', product_description='Starter boxing gloves', product_long_description='Sporty lightweight boxing gloves for beginners, perfect for junior and up', product_price=250)
+product20 = Product(product_name='Boxing gloves', product_description='Starter boxing gloves', product_long_description='Sporty lightweight boxing gloves for beginners, perfect for junior and up', product_price=100, product_color="Blue")
 db.session.add(product20)
 
 img201 = Img(img=secure_filename("boxing1.jpg"), main_image=True)
@@ -474,7 +436,7 @@ product20.image_connection.append(img202)
 product20.image_connection.append(img203)
 product20.image_connection.append(img204)
 
-product30 = Product(product_name='Yoga mat', product_description='Colorful yoga mat', product_long_description='Lightweight, non slip mat for yoga. Can also be used for exercise', product_price=120)
+product30 = Product(product_name='Yoga mat', product_description='Colorful yoga mat', product_long_description='Lightweight, non slip mat for yoga. Can also be used for exercise', product_price=40, product_color="Multi")
 db.session.add(product30)
 
 img301 = Img(img=secure_filename("yogamat1.jpg"), main_image=True)
@@ -488,7 +450,7 @@ product30.image_connection.append(img301)
 product30.image_connection.append(img302)
 product30.image_connection.append(img303)
 
-product40 = Product(product_name='Kettlebell', product_description='12 kg kettlebell', product_long_description='12 kg kettlebell for exercise. Perfect for strength workout, can be used for multiple exercices', product_price=200)
+product40 = Product(product_name='Kettlebell', product_description='12 kg kettlebell', product_long_description='12 kg kettlebell for exercise. Perfect for strength workout, can be used for multiple exercices', product_price=100, product_color="Orange")
 db.session.add(product40)
 
 img401 = Img(img=secure_filename("kettlebell1.jpg"), main_image=True)
@@ -502,7 +464,7 @@ product40.image_connection.append(img401)
 product40.image_connection.append(img402)
 product40.image_connection.append(img403)
 
-product50 = Product(product_name='Sunglasses', product_description='Stylish sunglasses', product_long_description='Stylish sunglasses with full UV protection', product_price=100)
+product50 = Product(product_name='Sunglasses', product_description='Stylish sunglasses', product_long_description='Stylish sunglasses with full UV protection', product_price=200, product_color="Orange")
 db.session.add(product50)
 
 img501 = Img(img=secure_filename("sunglass1.jpg"), main_image=True)
@@ -513,7 +475,7 @@ db.session.add(img502)
 product50.image_connection.append(img501)
 product50.image_connection.append(img502)
 
-product60 = Product(product_name='World Cup football', product_description='Original World Cup ball', product_long_description='Original professional world cup football. Perfect for matches, games and training.', product_price=1000)
+product60 = Product(product_name='World Cup football', product_description='Original World Cup ball', product_long_description='Original professional world cup football. Perfect for matches, games and training.', product_price=150, product_color="Multi")
 db.session.add(product60)
 
 img601 = Img(img=secure_filename("wcball1.jpg"), main_image=True)
