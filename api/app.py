@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.utils import secure_filename
 from authlib.integrations.flask_client import OAuth
-#from prometheus_flask_exporter import PrometheusMetrics
+from prometheus_flask_exporter import PrometheusMetrics
 import os
 from datetime import timedelta
 
@@ -12,9 +12,9 @@ app.secret_key ='\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 oauth = OAuth(app)
-#metrics = PrometheusMetrics(app, path='/metrics')
+metrics = PrometheusMetrics(app, path='/metrics')
 
-#metrics.info("app_info", "Info about the app")
+metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
@@ -396,12 +396,10 @@ def filecheck(file):  # Method that checks if files are of correct types
 db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
-user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
 user5 = User(first_name='Ola', last_name='Nordmann', user_type=True, user_email='onordenmann@gmail.com')
 db.session.add(user)
-db.session.add(user2)
 db.session.add(user3)
 db.session.add(user4)
 db.session.add(user5)
@@ -517,4 +515,4 @@ db.session.add(product80)
 db.session.commit()
 
 
-app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
+app.run(host='0.0.0.0', debug=False, ssl_context=('cert.pem', 'key.pem'))
