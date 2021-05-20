@@ -52,7 +52,6 @@ class Product(db.Model):
     order_connections = db.relationship('OrderProduct', backref='product_order', lazy=True)
 
 
-
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
     user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
@@ -73,7 +72,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-'''
+
 @app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
@@ -93,7 +92,6 @@ def before_request():
         code = 301
         return redirect(redirectUrl, code=code)
 
-'''
 @app.route('/') #Main page
 def products_page():
     user = session.get('user')
@@ -529,4 +527,4 @@ product60.image_connection.append(img603)
 
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
