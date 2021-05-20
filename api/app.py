@@ -247,8 +247,7 @@ def update_order_product_count(product_id, product_amount):
 
 @app.route('/order/current/delete/<product_id>') #Delete product from order
 def delete_product_from_order(product_id):
-    print(session['current_order'])
-    print(product_id)
+
     OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).delete()
     db.session.commit()
     updateOrderPrice()
@@ -258,7 +257,6 @@ def delete_product_from_order(product_id):
 def get_product_count():
     try:
         produts_counted = OrderProduct.query.filter_by(order_id=session['current_order']).count()
-        print(produts_counted)
         return f'{produts_counted}'
     except Exception:
         return "0"
@@ -299,8 +297,12 @@ def getOrderProduct():
     for order in OrderProduct.query.filter_by(order_id=session['current_order']).all():
         product = Product.query.filter_by(product_id=order.product_id).first()
         image = Img.query.filter_by(product_connection=order.product_id).first()
-
-        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        if image:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        else:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name,
+                            'product_color': product.product_color, 'product_price': product.product_price,
+                            'product_amount': order.product_amount, 'product_image': 'placeholder.png'}
         output.append(product_data)
 
     return {"products": output}
