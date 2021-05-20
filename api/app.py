@@ -51,7 +51,6 @@ class Product(db.Model):
     order_connections = db.relationship('OrderProduct', backref='product_order', lazy=True)
 
 
-
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
     user_connection = db.Column(db.String(100), db.ForeignKey('user.user_email'))
@@ -72,7 +71,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
-'''
+
 @app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
@@ -91,7 +90,6 @@ def before_request():
             redirectUrl = 'https://localhost:5000'
         code = 301
         return redirect(redirectUrl, code=code)
-'''
 
 @app.route('/') #Redirect to main page
 def products_page():
@@ -489,6 +487,20 @@ product60.image_connection.append(img601)
 product60.image_connection.append(img602)
 product60.image_connection.append(img603)
 
+product70 = Product(product_name='Tennis racket', product_description='Strong and durable tennis racket', product_long_description='High quality tennis racket for both play and exercise. Good grip to get the most out of every strike.', product_price=100, product_color='Multi')
+db.session.add(product70)
+
+img701 = Img(img=secure_filename("tennis1.jpg"), main_image=True)
+db.session.add(img701)
+img702 = Img(img=secure_filename("tennis2.jpg"), main_image=False)
+db.session.add(img702)
+img703 = Img(img=secure_filename("tennis3.jpg"), main_image=False)
+db.session.add(img703)
+
+product70.image_connection.append(img701)
+product70.image_connection.append(img702)
+product70.image_connection.append(img703)
+
 db.session.commit()
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
