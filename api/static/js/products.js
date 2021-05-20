@@ -58,10 +58,9 @@ function retrieveLastOrder(){
     fetch("/order/unfinished/1")
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         console.log("Update")
         update_cart_counter()
-
+        sessionStorage.setItem("orderCreated", data)
     })
 }
 
