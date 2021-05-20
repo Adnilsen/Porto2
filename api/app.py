@@ -315,8 +315,12 @@ def getOrderProducts(order_id):
     for order in OrderProduct.query.filter_by(order_id=order_id).all():
         product = Product.query.filter_by(product_id=order.product_id).first()
         image = Img.query.filter_by(product_connection=order.product_id).first()
-
-        product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        if image:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name, 'product_color': product.product_color, 'product_price': product.product_price, 'product_amount': order.product_amount, 'product_image': image.img}
+        else:
+            product_data = {'product_id': product.product_id, 'product_name': product.product_name,
+                            'product_color': product.product_color, 'product_price': product.product_price,
+                            'product_amount': order.product_amount, 'product_image': 'placeholder.png'}
         output.append(product_data)
 
     return render_template("vieworder.html", products=output, order=order_id)
@@ -394,17 +398,11 @@ def filecheck(file):  # Method that checks if files are of correct types
         return False
 
 
-#Create db with content
+'''#Create db with content
 db.drop_all()
 db.create_all()
-user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
-user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
-user5 = User(first_name='Ola', last_name='Nordmann', user_type=True, user_email='onordenmann@gmail.com')
+user = User(first_name='Ola', last_name='Nordmann', user_type=True, user_email='onordenmann@gmail.com')
 db.session.add(user)
-db.session.add(user3)
-db.session.add(user4)
-db.session.add(user5)
 db.session.commit()
 
 
@@ -515,6 +513,6 @@ product80 = Product(product_name='Baseball cap', product_description='Adjustable
 db.session.add(product80)
 
 db.session.commit()
-
+'''
 
 app.run(host='0.0.0.0', debug=False, ssl_context=('cert.pem', 'key.pem'))
