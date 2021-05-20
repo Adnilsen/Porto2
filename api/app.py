@@ -501,6 +501,9 @@ product70.image_connection.append(img701)
 product70.image_connection.append(img702)
 product70.image_connection.append(img703)
 
+product80 = Product(product_name='Baseball cap', product_description='Adjustable and stylish cap', product_long_description='Adjustable, stylish baseball cap. Perfect for both sports and everyday use.', product_price=15, product_color='Black')
+db.session.add(product80)
+
 db.session.commit()
 
 app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
