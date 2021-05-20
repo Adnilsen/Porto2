@@ -511,6 +511,9 @@ db.session.add(order_product)
 chosen_product = Product.query.filter_by(product_id=2).first()
 chosen_product.order_connections.append(order_product)
 newOrder.product_connections.append(order_product)
+product80 = Product(product_name='Baseball cap', product_description='Adjustable and stylish cap', product_long_description='Adjustable, stylish baseball cap. Perfect for both sports and everyday use.', product_price=15, product_color='Black')
+db.session.add(product80)
+
 db.session.commit()
 
 
