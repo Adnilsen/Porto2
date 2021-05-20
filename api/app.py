@@ -18,8 +18,8 @@ metrics.info("app_info", "Info about the app")
 
 oauth.register(
     name='google',
-    client_id='352148568912-aqc8n7jb36af5ca1m0pi77p9f1vdca21.apps.googleusercontent.com',
-    client_secret='3ylG_r5BdCaiZHmBiuz0wSbD',
+    client_id='352148568912-qv7v2t8qlqj9cq7oe9t00775cp39iket.apps.googleusercontent.com',
+    client_secret='WZOY9UgFs3K1tjGWBzMZuZh0',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -73,6 +73,7 @@ class OrderProduct(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     product_amount = db.Column(db.Integer)
 #API
+'''
 @app.before_request
 def before_request():
     # If the request is secure it should already be https, so no need to redirect
@@ -92,7 +93,7 @@ def before_request():
         code = 301
         return redirect(redirectUrl, code=code)
 
-
+'''
 @app.route('/') #Main page
 def products_page():
     user = session.get('user')
@@ -103,16 +104,6 @@ def products_page():
     return render_template("products.html", content=route, user=user, productlist=productlist, imagelist = imagelist)
 
 #Google oAuth2 login
-def verify_login():
-    try:
-        user = dict(session).get('profile', None)
-        if user:
-            return True,user
-        else:
-            return False,{}
-    except Exception as e:
-        return False,{}
-
 @app.route('/login')
 def login():
     google = oauth.create_client('google')
@@ -123,7 +114,6 @@ def login():
 def authorize():
     google = oauth.create_client('google')
     token = google.authorize_access_token()
-    print("her")
     resp = google.get('userinfo')
     user_info = resp.json()
     print(user_info)
@@ -135,7 +125,7 @@ def authorize():
             registered = True
             break
     if not registered:
-        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'], user_google_token=token)
+        user_input = User(first_name=user_info['given_name'], last_name=user_info['family_name'], user_type=False, user_email=user_info['email'])
         db.session.add(user_input)
         db.session.commit()
     # do something with the token and profile
@@ -171,16 +161,6 @@ def loggedInn():
     except Exception as e:
         return 'false'
 
-@app.route('/users')
-def user_page():
-    users = User.query.all()
-    output = []
-
-    for user in users:
-        user_data = {'user_id': user.user_id, 'first_name': user.first_name}
-        output.append(user_data)
-
-    return {"users": output}
 
 def updateOrderPrice():
     order_id = session['current_order']
@@ -200,7 +180,7 @@ def get_orders(user_id):
     orders = Order.query.filter_by(order_status=True, user_connection=email).all()
     return render_template('orders.html', orders=orders, user=user)
 
-@app.route('/order')
+@app.route('/order') #Creates a new order
 def create_order():
     newOrder = Order(order_price=0, order_status=False, order_date=datetime.datetime.now().date(), user_connection=session['email'])
     db.session.add(newOrder)
@@ -208,7 +188,7 @@ def create_order():
     session['current_order'] = newOrder.order_id
     return 'true'
 
-@app.route('/order/current/<product_id>')
+@app.route('/order/current/<product_id>') #Add a product to the order
 def add_product_order(product_id):
     order_product = OrderProduct(product_amount=1)
     choosen_product = Product.query.filter_by(product_id=product_id).first()
@@ -239,7 +219,7 @@ def controll_order(currentOrder, choosen_product): #Controls the products in the
     db.session.commit()
     return counter
 
-@app.route('/order/unfinished/<status_id>')
+@app.route('/order/unfinished/<status_id>') #Gets last unfinished order
 def start_unfinished_order(status_id):
     if(status_id == "0"):
         retrievedOrder = Order.query.filter_by(user_connection=session['email'], order_status=False).first()
@@ -261,7 +241,7 @@ def delete_current_order():
     db.session.commit()
     return 'true'
 
-@app.route('/order/current/<product_id>/<product_amount>')
+@app.route('/order/current/<product_id>/<product_amount>') #Update a single product count
 def update_order_product_count(product_id, product_amount):
     order_product_connection = OrderProduct.query.filter_by(order_id=session['current_order'], product_id=product_id).first()
     order_product_connection.product_amount = product_amount
@@ -420,8 +400,8 @@ db.drop_all()
 db.create_all()
 user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email='stenberg.trym@gmail.com')
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
-user3 = User(first_name='Martin', last_name='Kvam', user_type=True, user_email='martin_kvam@hotmail.com')
-user4 = User(first_name='Adrian', last_name='Nilsen', user_type=False, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
+user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
+user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com', user_google_token='qwert')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)

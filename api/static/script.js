@@ -40,10 +40,15 @@ function myFunction(productID) {
     }
 }
 
-function showAlert(){
+function showAlert(status, info){
+
     var alertElement = document.getElementById("alert")
+    if(status == 0){
+        alertElement.className ="alert alert-danger alert-dismissible fade show d-none content"
+    }
     alertElement.classList.add("d-none")
     alertElement.classList.remove("d-none")
+    alertElement.innerHTML = `<strong> ${info} <strong>`
     setTimeout(function(){
     alertElement.classList.add("d-none")
   },8000)
@@ -56,6 +61,7 @@ function update_cart_counter(){
 
                 console.log(data)
                 counter.innerHTML = data
+
             })
 }
 
