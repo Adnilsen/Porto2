@@ -2,15 +2,15 @@
 {% block title %}My profile{% endblock %}
 {% block content %}
 
-    <div class="card" id="profile">
-         <img src='{{ session['picture'] }}' alt="{{ session['first_name'] }}" style="width:100%">
-        <h1>{{ session['first_name'] }} {{ session['last_name'] }}</h1>
-        <p>Email: {{ session['email'] }}</p>
-    </div>
+<div class="card" id="profile">
+     <img src='{{ session['picture'] }}' alt="{{ session['first_name'] }}" style="width:100%">
+    <h1>{{ session['first_name'] }} {{ session['last_name'] }}</h1>
+    <p>Email: {{ session['email'] }}</p>
+</div>
 
-    <div class="previous">
-    <h2>Previous orders</h2>
-    <table class="table align-middle">
+<div class="previous container">
+<h2>Previous orders</h2>
+<table class="table align-middle">
   <thead>
     <tr>
       <th scope="col">Date</th>

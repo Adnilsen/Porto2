@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container">
     {% for order in order %}
     <h2>Products in order {{ order }}</h2>
     {% endfor %}
@@ -28,6 +29,7 @@
 <form>
     <input type="button" value="Back" onclick="goback()">
 </form>
+</div>
  <script type="text/javascript">
  function goback(){
      window.history.back()

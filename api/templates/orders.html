@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container">
     {% for user in user %}
     <h2>Orders made by {{ user.first_name }} {{ user.last_name }}</h2>
     {% endfor %}
@@ -32,4 +33,5 @@
 <form action="/admin">
     <input type="submit" value="Back">
 </form>
+</div>
 {% endblock %}

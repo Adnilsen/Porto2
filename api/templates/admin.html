@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Admin{% endblock %}
 {% block content %}
-<div class="users" style="margin: 1.5em">
+<div class="users container">
     <h2>Registered customers</h2>
     <table class="table align-middle">
   <thead>
@@ -26,9 +26,10 @@
    {% endfor %}
   </tbody>
 </table>
+<a class="btn btn-success" href="http://localhost:3000/d/_eX4mpl3/portofolio2?orgId=1&refresh=5s" target="_blank">See app info in Grafana</a>
 </div>
 
-<a class="btn btn-success" href="http://localhost:3000/d/_eX4mpl3/portofolio2?orgId=1&refresh=5s" target="_blank">See app info in Grafana</a>
+
 
 
 {% endblock %}
