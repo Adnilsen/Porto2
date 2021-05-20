@@ -173,7 +173,7 @@ def updateOrderPrice(): #Updates the price of a order
 def get_orders(user_id):
     user = User.query.filter_by(user_id=user_id)
     email = db.session.query(User.user_email).filter_by(user_id=user_id)
-    orders = Order.query.filter_by(order_status=True, user_connection=email).all()
+    orders = Order.query.filter_by(user_connection=email).all()
     return render_template('orders.html', orders=orders, user=user)
 
 @app.route('/order') #Creates a new order
@@ -399,10 +399,12 @@ user = User(first_name='Trym', last_name='Stenberg', user_type=True, user_email=
 user2 = User(first_name='Andre', last_name='Knutsen', user_type=True, user_email='gdokaosfjoAPR')
 user3 = User(first_name='Martin', last_name='Kvam', user_type=False, user_email='martin_kvam@hotmail.com')
 user4 = User(first_name='Adrian', last_name='Nilsen', user_type=True, user_email='adrian1995nils1@gmail.com')
+user5 = User(first_name='Ola', last_name='Nordmann', user_type=True, user_email='onordenmann@gmail.com')
 db.session.add(user)
 db.session.add(user2)
 db.session.add(user3)
 db.session.add(user4)
+db.session.add(user5)
 db.session.commit()
 
 
@@ -501,6 +503,15 @@ product70.image_connection.append(img701)
 product70.image_connection.append(img702)
 product70.image_connection.append(img703)
 
+
+newOrder = Order(order_price=100, order_status=True, order_date=datetime.datetime.now().date(), user_connection="onordenmann@gmail.com")
+db.session.add(newOrder)
+order_product = OrderProduct(product_amount=1)
+db.session.add(order_product)
+chosen_product = Product.query.filter_by(product_id=2).first()
+chosen_product.order_connections.append(order_product)
+newOrder.product_connections.append(order_product)
 db.session.commit()
+
 
 app.run(host='0.0.0.0', debug=True, ssl_context=('cert.pem', 'key.pem'))
